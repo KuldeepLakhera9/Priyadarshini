@@ -7,6 +7,9 @@ interface CategoryGridProps {
 }
 
 export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
+  // Showcase core 8 merchandise categories (excluding dynamic collections like new-arrivals/best-sellers)
+  const displayCategories = CATEGORIES.filter(c => c.id !== 'new-arrivals' && c.id !== 'best-sellers');
+
   return (
     <section id="categories-section" style={{
       paddingTop: 'clamp(56px, 7vw, 96px)',
@@ -44,11 +47,11 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
           gridTemplateColumns: 'repeat(12, 1fr)',
           gap: '24px',
         }}>
-          {CATEGORIES.map((cat, index) => {
-            // Asymmetrical grid column spans for editorial rhythm:
+          {displayCategories.map((cat, index) => {
+            // Asymmetrical grid column spans:
             // 0 (Lakh): 7 cols, 1 (Fancy): 5 cols
-            // 2 (Hair): 4 cols, 3 (Fashion): 4 cols, 4 (Beauty): 4 cols
-            // 5 (Fragrance): 6 cols, 6 (Gifting): 6 cols
+            // 2 (Traditional): 4 cols, 3 (Hair): 4 cols, 4 (Fashion): 4 cols
+            // 5 (Beauty): 4 cols, 6 (Fragrance): 4 cols, 7 (Gifts): 4 cols
             let colSpan = 'span 4';
             let cardHeight = '360px';
 
@@ -58,9 +61,6 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
             } else if (index === 1) {
               colSpan = 'span 5';
               cardHeight = '420px';
-            } else if (index === 5 || index === 6) {
-              colSpan = 'span 6';
-              cardHeight = '340px';
             }
 
             return (
@@ -140,7 +140,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
                     left: 0,
                     right: 0,
                     height: '60%',
-                    background: 'linear-gradient(180deg, transparent 0%, rgba(22, 19, 18, 0.72) 100%)',
+                    background: 'linear-gradient(180deg, transparent 0%, rgba(22, 19, 18, 0.75) 100%)',
                     zIndex: 1,
                   }} />
 

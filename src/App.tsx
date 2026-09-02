@@ -111,7 +111,7 @@ export function App() {
             />
 
             <GiftingSection
-              onExploreGifts={() => navigateToCatalogue('gifts-hampers')}
+              onExploreGifts={() => navigateToCatalogue('gifts')}
             />
 
             <WhyShopWithUs />
@@ -152,6 +152,7 @@ export function App() {
       <ProductModal
         product={activeProduct}
         onClose={() => setActiveProduct(null)}
+        onSelectProduct={(p) => setActiveProduct(p)}
       />
 
       {/* 9. Instant Search Modal */}

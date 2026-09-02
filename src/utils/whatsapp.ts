@@ -3,10 +3,54 @@ import type { Product } from '../types';
 
 /**
  * Builds clean WhatsApp click-to-chat links with pre-encoded luxury messages.
+ * Single source of truth for the boutique WhatsApp number.
  */
 
 export function getWhatsAppBaseUrl(): string {
   return `https://wa.me/${BRAND_CONFIG.contact.whatsappNumber}`;
+}
+
+export function formatProductPrice(product: Product): string {
+  if (product.priceLabel) {
+    return product.priceLabel;
+  }
+  if (product.priceMode === 'price_on_request') {
+    return 'Price on Request';
+  }
+  if (product.priceMode === 'available_in_store') {
+    return 'Available in Store';
+  }
+  if (product.price === undefined || product.price === null) {
+    return 'Price on Request';
+  }
+
+  const prefix = product.priceMode === 'starting_at' ? 'Starting from ' : '';
+  const suffix =
+    product.priceMode === 'pair'
+      ? ' (Pair)'
+      : product.priceMode === 'set'
+      ? ' (Set)'
+      : product.priceMode === 'box'
+      ? ' (Hamper)'
+      : '';
+
+  return `${prefix}₹${product.price}${suffix}`;
+}
+
+export function getProductCtaLabel(product: Product, context: 'card' | 'modal' | 'sticky' = 'modal'): string {
+  if (context === 'card') {
+    return 'Enquire';
+  }
+  if (product.availability === 'limited' || product.stockStatus === 'limited') {
+    return 'Check Availability';
+  }
+  if (product.availability === 'in_store_only' || product.stockStatus === 'in_store_only') {
+    return 'Check In-Store Availability';
+  }
+  if (product.priceMode === 'price_on_request') {
+    return 'Request Price on WhatsApp';
+  }
+  return 'Ask on WhatsApp';
 }
 
 export function createProductEnquiryUrl(
@@ -14,36 +58,32 @@ export function createProductEnquiryUrl(
   selectedColor?: string,
   selectedSize?: string
 ): string {
-  const brandName = BRAND_CONFIG.brandName;
-  const colorText = selectedColor ? ` | Color: ${selectedColor}` : '';
-  const sizeText = selectedSize ? ` | Size: ${selectedSize}` : '';
+  // If product has a custom pre-configured message
+  if (product.whatsappMessage || product.customWhatsAppMessage) {
+    const customMsg = product.whatsappMessage || product.customWhatsAppMessage || '';
+    return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(customMsg)}`;
+  }
 
-  const message = [
-    `Hello ${brandName} team! ✨`,
-    `I am interested in this item from your online catalogue:`,
-    ``,
-    `🛍️ *${product.name}*`,
-    `🏷️ *Code:* ${product.code}`,
-    `💰 *Price:* ₹${product.price} (${product.priceMode === 'pair' ? 'Pair' : product.priceMode === 'set' ? 'Full Set' : product.priceMode === 'starting_at' ? 'Starting Price' : 'Piece'})`,
-    colorText || sizeText ? `✨ *Preferences:* ${colorText}${sizeText}`.trim() : null,
-    ``,
-    `Could you please let me know if this is currently available at the boutique, or share more photos & video clips on WhatsApp? Thank you! 🙏`
-  ]
-    .filter(line => line !== null)
-    .join('\n');
+  const priceText = formatProductPrice(product);
+  const variantParts: string[] = [];
+  if (selectedColor) variantParts.push(`Color: ${selectedColor}`);
+  if (selectedSize) variantParts.push(`Size: ${selectedSize}`);
+  const variantStr = variantParts.length > 0 ? ` (${variantParts.join(', ')})` : '';
+
+  const message = `Hi, I'm interested in the ${product.name} [Code: ${product.code}] (${priceText})${variantStr}. Could you please confirm availability and available designs?`;
 
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }
 
 export function createGeneralEnquiryUrl(topic: string = 'General Inquiry'): string {
   const brandName = BRAND_CONFIG.brandName;
-  const message = `Hello ${brandName}! ✨\nI am browsing your website and would like some assistance regarding ${topic}. Could you please guide me?`;
+  const message = `Hello ${brandName}! ✨\nI am browsing your website catalogue and would like some assistance regarding ${topic}. Could you please guide me?`;
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }
 
 export function createStoreVisitEnquiryUrl(): string {
   const brandName = BRAND_CONFIG.brandName;
-  const message = `Hello ${brandName}! 📍\nI am planning to visit your boutique store today. Could you please share your exact location pin, landmark, and current store timings?`;
+  const message = `Hello ${brandName}! 📍\nI am planning to visit your boutique store. Could you please share your exact location pin, landmark, and current store timings?`;
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }
 
@@ -55,12 +95,12 @@ export function createBridalCustomOrderUrl(): string {
 
 export function createWholesaleEnquiryUrl(): string {
   const brandName = BRAND_CONFIG.brandName;
-  const message = `Hello ${brandName}! 🏢\nI am a boutique / store owner and I would like to enquire about Wholesale / Bulk purchase for Bangles & Accessories. Please share your wholesale catalogue and minimum order quantities.`;
+  const message = `Hello ${brandName}! 🏢\nI am a boutique / store owner interested in wholesale supply for Bangles, Hair Accents, and Festive Accessories. Please share your wholesale catalogue and minimum order quantities.`;
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }
 
 export function createPriceTierEnquiryUrl(tierTitle: string): string {
   const brandName = BRAND_CONFIG.brandName;
-  const message = `Hello ${brandName}! 🎁\nI am looking for gifting / accessory options in the *${tierTitle}* category. Could you share the latest in-store catalog for this budget?`;
+  const message = `Hello ${brandName}! 🎁\nI am looking for items in your ${tierTitle} collection. Could you share the latest in-store options for this budget?`;
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }

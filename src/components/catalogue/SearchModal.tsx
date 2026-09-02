@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import type { Product } from '../../types';
 import { PRODUCTS } from '../../data/products';
 import { Search, X, MessageCircle } from 'lucide-react';
-import { createProductEnquiryUrl } from '../../utils/whatsapp';
+import { createGeneralEnquiryUrl, formatProductPrice } from '../../utils/whatsapp';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -20,40 +20,63 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   const [query, setQuery] = useState('');
   const [activeTag, setActiveTag] = useState<string>('All');
 
-  const popularTags = ['All', 'Lakh Bangles', 'Bridal', 'Claws', 'Scrunchies', 'Perfume', 'Nail Paint', 'Under ₹99'];
+  const popularTags = [
+    'All',
+    'Lakh Bangles',
+    'Bridal Choodas',
+    'Acetate Claws',
+    'Silk Scrunchies',
+    'Perfume & Attar',
+    'Nail Paint',
+    'Under ₹99',
+    'Under ₹199'
+  ];
 
   const filteredProducts = useMemo(() => {
-    let list = PRODUCTS;
+    let list = [...PRODUCTS];
 
     if (activeTag !== 'All') {
       if (activeTag === 'Lakh Bangles') {
         list = list.filter(p => p.category === 'lakh-bangles');
-      } else if (activeTag === 'Bridal') {
+      } else if (activeTag === 'Bridal Choodas') {
         list = list.filter(p => p.tags.includes('Bridal Pick') || p.subcategory.includes('Bridal'));
-      } else if (activeTag === 'Claws') {
+      } else if (activeTag === 'Acetate Claws') {
         list = list.filter(p => p.subcategory.toLowerCase().includes('claw'));
-      } else if (activeTag === 'Scrunchies') {
+      } else if (activeTag === 'Silk Scrunchies') {
         list = list.filter(p => p.subcategory.toLowerCase().includes('scrunchie'));
-      } else if (activeTag === 'Perfume') {
+      } else if (activeTag === 'Perfume & Attar') {
         list = list.filter(p => p.category === 'fragrance');
       } else if (activeTag === 'Nail Paint') {
         list = list.filter(p => p.subcategory.toLowerCase().includes('nail'));
       } else if (activeTag === 'Under ₹99') {
-        list = list.filter(p => p.price <= 99);
+        list = list.filter(p => p.price !== undefined && p.price <= 99);
+      } else if (activeTag === 'Under ₹199') {
+        list = list.filter(p => p.price !== undefined && p.price <= 199);
       }
     }
 
     if (query.trim()) {
-      const q = query.toLowerCase();
-      list = list.filter(
-        p =>
-          p.name.toLowerCase().includes(q) ||
-          p.code.toLowerCase().includes(q) ||
-          p.subcategory.toLowerCase().includes(q) ||
-          p.categoryLabel.toLowerCase().includes(q) ||
-          p.tags.some(t => t.toLowerCase().includes(q)) ||
-          p.description.toLowerCase().includes(q)
-      );
+      const q = query.toLowerCase().trim();
+
+      // Check for price search query like "under 200", "under 100", "under 300"
+      const priceMatch = q.match(/under\s*(\d+)/);
+      if (priceMatch && priceMatch[1]) {
+        const maxP = parseInt(priceMatch[1], 10);
+        list = list.filter(p => p.price !== undefined && p.price <= maxP);
+      } else {
+        list = list.filter(p => {
+          const inName = p.name.toLowerCase().includes(q);
+          const inCode = p.code.toLowerCase().includes(q);
+          const inSub = p.subcategory.toLowerCase().includes(q);
+          const inCat = p.categoryLabel.toLowerCase().includes(q);
+          const inTags = p.tags.some(t => t.toLowerCase().includes(q));
+          const inDesc = p.description.toLowerCase().includes(q);
+          const inMat = p.material ? p.material.toLowerCase().includes(q) : false;
+          // Also check color names
+          const inColors = (p.colors || p.colours || []).some(c => c.name.toLowerCase().includes(q));
+          return inName || inCode || inSub || inCat || inTags || inDesc || inMat || inColors;
+        });
+      }
     }
 
     return list;
@@ -92,7 +115,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         position: 'relative',
         width: '100%',
         maxWidth: '680px',
-        maxHeight: '80vh',
+        maxHeight: '82vh',
         backgroundColor: '#FFFFFF',
         borderRadius: 'var(--radius-xs)',
         border: '1px solid var(--border-subtle)',
@@ -115,7 +138,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           <Search size={18} color="var(--accent-gold-dark)" />
           <input
             type="text"
-            placeholder="Search bangles, hair claws, perfumes, gifting..."
+            placeholder="Search 'red bangles', 'lakh', 'hair clips', 'under 200'..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
@@ -192,41 +215,27 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         <div style={{ flex: 1, overflowY: 'auto', padding: '12px 20px' }}>
           {filteredProducts.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-muted)' }}>
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '6px' }}>
-                No direct catalogue match found
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '6px', color: 'var(--text-main)' }}>
+                Couldn't find what you're looking for?
               </p>
-              <p style={{ fontSize: '0.8125rem', fontWeight: 300 }}>
-                We have over 500 additional unlisted offline designs in store. Connect with our stylist on WhatsApp.
+              <p style={{ fontSize: '0.8125rem', fontWeight: 300, maxWidth: '440px', margin: '0 auto', lineHeight: 1.5 }}>
+                Ask us on WhatsApp — we may have more designs, sizes, or matching colors available in our offline store.
               </p>
               <a
-                href={createProductEnquiryUrl({
-                  id: 'search-custom',
-                  code: 'SEARCH-CUSTOM',
-                  name: `Custom Search: ${query}`,
-                  category: 'all',
-                  categoryLabel: 'Custom',
-                  subcategory: 'Custom',
-                  price: 0,
-                  priceMode: 'starting_at',
-                  images: [],
-                  description: '',
-                  details: [],
-                  tags: [],
-                  stockStatus: 'in_stock'
-                })}
+                href={createGeneralEnquiryUrl(`Search Inquiry: ${query}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
                 style={{ marginTop: '16px', display: 'inline-flex' }}
               >
                 <MessageCircle size={15} />
-                <span>Enquire "{query}" on WhatsApp</span>
+                <span>Ask Us on WhatsApp</span>
               </a>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <div style={{ fontSize: '0.625rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '4px', fontWeight: 600 }}>
-                Showing {filteredProducts.length} Items
+                Found {filteredProducts.length} Items
               </div>
               {filteredProducts.map(product => (
                 <div
@@ -260,13 +269,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     <img
                       src={product.images[0]}
                       alt=""
-                      style={{ width: '44px', height: '44px', objectFit: 'cover', borderRadius: '2px' }}
+                      style={{ width: '46px', height: '46px', objectFit: 'cover', borderRadius: '2px' }}
                     />
                     <div>
                       <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-main)' }}>
                         {product.name}
                       </div>
-                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', display: 'flex', gap: '8px' }}>
+                      <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', display: 'flex', gap: '8px', marginTop: '2px' }}>
                         <span>{product.subcategory}</span>
                         <span>•</span>
                         <span style={{ fontWeight: 600, color: 'var(--accent-gold-dark)' }}>{product.code}</span>
@@ -276,7 +285,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                   <div style={{ textAlign: 'right', flexShrink: 0 }}>
                     <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-main)' }}>
-                      ₹{product.price}
+                      {formatProductPrice(product)}
                     </div>
                     <div style={{ fontSize: '0.625rem', color: 'var(--accent-rose)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                       View Details ↗

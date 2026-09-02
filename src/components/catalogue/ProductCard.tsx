@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Product } from '../../types';
 import { MessageCircle, Eye } from 'lucide-react';
-import { createProductEnquiryUrl } from '../../utils/whatsapp';
+import { createProductEnquiryUrl, formatProductPrice } from '../../utils/whatsapp';
 
 interface ProductCardProps {
   product: Product;
@@ -9,9 +9,31 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const hasSecondaryImage = product.images.length > 1;
+
+  // Determine badge
+  let badgeText = '';
+  let badgeClass = 'badge-heritage';
+  if (product.isHeritage) {
+    badgeText = 'Jaipur Lakh';
+    badgeClass = 'badge-heritage';
+  } else if (product.isBestSeller) {
+    badgeText = 'Bestseller';
+    badgeClass = 'badge-luxury';
+  } else if (product.isNew || product.isNewArrival) {
+    badgeText = 'New Arrival';
+    badgeClass = 'badge-new';
+  } else if (product.availability === 'limited') {
+    badgeText = 'Limited';
+    badgeClass = 'badge-luxury';
+  }
+
   return (
     <div
       className="luxury-product-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
         backgroundColor: '#FFFFFF',
         border: '1px solid var(--border-subtle)',
@@ -24,7 +46,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
         boxShadow: 'var(--shadow-subtle)',
       }}
     >
-      {/* 4:5 Portrait Image Container with hover zoom */}
+      {/* 4:5 Portrait Image Container */}
       <div
         className="img-zoom-container"
         style={{
@@ -33,9 +55,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
           backgroundColor: 'var(--bg-surface-stone)',
           position: 'relative',
           cursor: 'pointer',
+          overflow: 'hidden',
         }}
         onClick={() => onQuickView(product)}
       >
+        {/* Primary Image */}
         <img
           src={product.images[0]}
           alt={product.name}
@@ -45,30 +69,49 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             height: '100%',
             objectFit: 'cover',
             display: 'block',
+            transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease',
+            opacity: isHovered && hasSecondaryImage ? 0 : 1,
+            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
           }}
         />
 
+        {/* Secondary Cross-fade Image if available */}
+        {hasSecondaryImage && (
+          <img
+            src={product.images[1]}
+            alt={`${product.name} alternate view`}
+            loading="lazy"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              transition: 'opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+              opacity: isHovered ? 1 : 0,
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            }}
+          />
+        )}
+
         {/* Quiet Luxury Badge */}
-        <div style={{
-          position: 'absolute',
-          top: '12px',
-          left: '12px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '4px',
-          zIndex: 2
-        }}>
-          {product.isHeritage && (
-            <span className="badge-luxury badge-heritage">
-              Jaipur Lakh
+        {badgeText && (
+          <div style={{
+            position: 'absolute',
+            top: '12px',
+            left: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '4px',
+            zIndex: 2
+          }}>
+            <span className={`badge-luxury ${badgeClass}`}>
+              {badgeText}
             </span>
-          )}
-          {product.isNewArrival && !product.isHeritage && (
-            <span className="badge-luxury badge-new">
-              New Addition
-            </span>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Quick View & WhatsApp Slide-up Overlay */}
         <div
@@ -194,7 +237,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             {product.name}
           </h3>
 
-          {/* Swatches preview */}
+          {/* Swatches preview if available */}
           {product.colors && product.colors.length > 0 && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
               <div style={{ display: 'flex', gap: '4px' }}>
@@ -237,7 +280,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
               fontWeight: 600,
               color: 'var(--text-main)'
             }}>
-              ₹{product.price}
+              {formatProductPrice(product)}
             </span>
             {product.originalPrice && (
               <span style={{
@@ -252,12 +295,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
           <span style={{
             fontSize: '0.625rem',
-            color: 'var(--accent-gold-dark)',
+            color: product.availability === 'limited' ? 'var(--accent-rose)' : 'var(--accent-gold-dark)',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             fontWeight: 600
           }}>
-            {product.priceMode === 'pair' ? 'Pair' : product.priceMode === 'set' ? 'Set' : product.priceMode === 'box' ? 'Hamper' : product.priceMode === 'starting_at' ? 'From' : 'Piece'}
+            {product.availability === 'limited' ? 'Limited Pieces' : product.availability === 'in_store_only' ? 'In-Store' : 'In Stock'}
           </span>
         </div>
       </div>

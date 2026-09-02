@@ -65,9 +65,11 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               { id: 'all', label: 'All Highlights' },
               { id: 'lakh-bangles', label: 'Lakh Bangles' },
               { id: 'fancy-bangles', label: 'Bridal Sets' },
+              { id: 'traditional-bangles', label: 'Temple Jewels' },
               { id: 'hair-accessories', label: 'Hair Accents' },
-              { id: 'beauty-skincare', label: 'Beauty & Skin' },
-              { id: 'gifts-hampers', label: 'Gifting' },
+              { id: 'beauty', label: 'Beauty & Skin' },
+              { id: 'fragrance', label: 'Fragrance' },
+              { id: 'gifts', label: 'Gifting' },
             ].map((tab) => (
               <button
                 key={tab.id}
