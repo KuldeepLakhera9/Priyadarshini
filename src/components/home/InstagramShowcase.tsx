@@ -1,7 +1,9 @@
 import React from 'react';
 import { BRAND_CONFIG } from '../../config/brand';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import { InstagramIcon } from '../common/Icons';
+import { createGeneralEnquiryUrl } from '../../utils/whatsapp';
+import { trackConversionEvent } from '../../utils/analytics';
 
 export const InstagramShowcase: React.FC = () => {
   const instaPosts = [
@@ -55,37 +57,65 @@ export const InstagramShowcase: React.FC = () => {
             </h2>
 
             <p className="luxury-subtext" style={{ maxWidth: '520px', marginTop: '4px' }}>
-              Discover styling inspiration, new in-store arrivals, customer unboxings, and behind-the-scenes craft stories.
+              New arrivals, styling inspiration and beautiful finds from our store.
             </p>
           </div>
 
-          <a
-            href={BRAND_CONFIG.contact.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: 'var(--text-main)',
-              color: '#FFFFFF',
-              padding: '12px 22px',
-              borderRadius: 'var(--radius-xs)',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              transition: 'all var(--transition-fast)'
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-rose)')}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'var(--text-main)')}
-          >
-            <InstagramIcon size={15} color="#FFFFFF" />
-            <span>Follow on Instagram</span>
-            <ArrowUpRight size={13} />
-          </a>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <a
+              href={BRAND_CONFIG.contact.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackConversionEvent('instagram_clicked', { source: 'homepage_section' })}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                backgroundColor: 'var(--text-main)',
+                color: '#FFFFFF',
+                padding: '12px 22px',
+                borderRadius: 'var(--radius-xs)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                transition: 'all var(--transition-fast)'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-rose)')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'var(--text-main)')}
+            >
+              <InstagramIcon size={15} color="#FFFFFF" />
+              <span>Follow Us on Instagram</span>
+              <ArrowUpRight size={13} />
+            </a>
+
+            <a
+              href={createGeneralEnquiryUrl('VIP Broadcast Club')}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'instagram_broadcast' })}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                backgroundColor: 'var(--accent-whatsapp)',
+                color: '#FFFFFF',
+                padding: '12px 20px',
+                borderRadius: 'var(--radius-xs)',
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+              }}
+            >
+              <MessageCircle size={15} />
+              <span>WhatsApp VIP Drops</span>
+            </a>
+          </div>
         </div>
 
         {/* Post Grid */}
@@ -110,6 +140,7 @@ export const InstagramShowcase: React.FC = () => {
                 backgroundColor: 'var(--bg-surface-stone)',
                 border: '1px solid var(--border-subtle)'
               }}
+              onClick={() => trackConversionEvent('instagram_clicked', { source: 'post_thumbnail', index: idx })}
             >
               <img
                 src={post.image}

@@ -3,8 +3,9 @@ import type { Product } from '../../types';
 import { PRODUCTS } from '../../data/products';
 import { BRAND_CONFIG } from '../../config/brand';
 import { ProductCard } from './ProductCard';
-import { X, MessageCircle, Sparkles, Check, Share2, MapPin, Ruler, Maximize2 } from 'lucide-react';
-import { createProductEnquiryUrl, formatProductPrice, getProductCtaLabel } from '../../utils/whatsapp';
+import { X, MessageCircle, Sparkles, Check, Share2, MapPin, Ruler, Maximize2, Send } from 'lucide-react';
+import { createProductEnquiryUrl, createProductShareUrl, formatProductPrice, getProductCtaLabel } from '../../utils/whatsapp';
+import { trackConversionEvent } from '../../utils/analytics';
 
 interface ProductModalProps {
   product: Product | null;
@@ -509,7 +510,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
                 <span>{ctaText}</span>
               </a>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '8px' }}>
                 <a
                   href="#visit-store"
                   onClick={onClose}
@@ -531,7 +532,34 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
                   }}
                 >
                   <MapPin size={14} color="var(--accent-rose)" />
-                  <span>Check In Boutique</span>
+                  <span>In Store</span>
+                </a>
+
+                <a
+                  href={createProductShareUrl(product)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackConversionEvent('product_shared', { product_id: product.id, channel: 'whatsapp' })}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    padding: '10px',
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: 'var(--radius-xs)',
+                    color: 'var(--accent-whatsapp)',
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase'
+                  }}
+                  title="Share with friends on WhatsApp"
+                >
+                  <Send size={13} />
+                  <span>WhatsApp</span>
                 </a>
 
                 <button
@@ -540,7 +568,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '10px 16px',
+                    padding: '10px 14px',
                     backgroundColor: '#FFFFFF',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: 'var(--radius-xs)',
@@ -549,9 +577,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
                     fontSize: '0.75rem',
                     gap: '6px'
                   }}
+                  title="Copy link"
                 >
                   <Share2 size={14} />
-                  <span>{copied ? 'Copied!' : 'Share'}</span>
+                  <span>{copied ? 'Copied!' : 'Link'}</span>
                 </button>
               </div>
             </div>

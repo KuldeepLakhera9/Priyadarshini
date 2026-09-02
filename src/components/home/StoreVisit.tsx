@@ -1,7 +1,8 @@
 import React from 'react';
 import { BRAND_CONFIG } from '../../config/brand';
-import { MapPin, Clock, Phone, MessageCircle, Navigation } from 'lucide-react';
+import { MapPin, Clock, Phone, MessageCircle, Navigation, Star } from 'lucide-react';
 import { createStoreVisitEnquiryUrl } from '../../utils/whatsapp';
+import { trackConversionEvent } from '../../utils/analytics';
 
 export const StoreVisit: React.FC = () => {
   return (
@@ -93,9 +94,10 @@ export const StoreVisit: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn-primary"
                 style={{ flex: 1, minWidth: '190px' }}
+                onClick={() => trackConversionEvent('directions_clicked', { source: 'store_section' })}
               >
                 <Navigation size={15} />
-                <span>Google Maps Directions</span>
+                <span>Get Directions</span>
               </a>
 
               <a
@@ -104,6 +106,7 @@ export const StoreVisit: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
                 style={{ flex: 1, minWidth: '190px' }}
+                onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'store_section_pin' })}
               >
                 <MessageCircle size={15} />
                 <span>Send WhatsApp Location Pin</span>
@@ -111,6 +114,7 @@ export const StoreVisit: React.FC = () => {
 
               <a
                 href={`tel:${BRAND_CONFIG.contact.phoneNumber}`}
+                onClick={() => trackConversionEvent('call_clicked', { source: 'store_section' })}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -129,9 +133,35 @@ export const StoreVisit: React.FC = () => {
                 }}
               >
                 <Phone size={14} color="var(--accent-rose)" />
-                <span>Call Boutique</span>
+                <span>Call Store</span>
               </a>
             </div>
+
+            {/* Genuine Google Review CTA (No fabricated ratings or fake stars) */}
+            {BRAND_CONFIG.contact.googleReviewUrl && (
+              <div style={{
+                paddingTop: '16px',
+                borderTop: '1px dashed var(--border-subtle)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontSize: '0.8125rem',
+                color: 'var(--text-muted)'
+              }}>
+                <Star size={14} color="var(--accent-gold-dark)" />
+                <span>
+                  Visited our boutique?{' '}
+                  <a
+                    href={BRAND_CONFIG.contact.googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'var(--accent-rose)', fontWeight: 600, textDecoration: 'underline' }}
+                  >
+                    Leave us a review on Google
+                  </a>
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Right Column: Architectural Store Visual & In-Store Amenities */}

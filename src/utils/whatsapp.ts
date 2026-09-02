@@ -75,6 +75,13 @@ export function createProductEnquiryUrl(
   return `${getWhatsAppBaseUrl()}?text=${encodeURIComponent(message)}`;
 }
 
+export function createProductShareUrl(product: Product): string {
+  const brandName = BRAND_CONFIG.brandName;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : BRAND_CONFIG.websiteUrl;
+  const message = `Check out this ${product.name} at ${brandName}: ${currentUrl}`;
+  return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+}
+
 export function createGeneralEnquiryUrl(topic: string = 'General Inquiry'): string {
   const brandName = BRAND_CONFIG.brandName;
   const message = `Hello ${brandName}! ✨\nI am browsing your website catalogue and would like some assistance regarding ${topic}. Could you please guide me?`;

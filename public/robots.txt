@@ -1,0 +1,6 @@
+# Robots.txt for Priyadarshini Boutique & Bangles Studio
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://priyadarshini-boutique.com/sitemap.xml

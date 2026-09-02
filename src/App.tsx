@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Product, ProductCategory } from './types';
+import { PRODUCTS } from './data/products';
 import { AnnouncementBar } from './components/layout/AnnouncementBar';
 import { Header } from './components/layout/Header';
 import { NavigationDrawer } from './components/layout/NavigationDrawer';
@@ -10,6 +11,7 @@ import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 import { Hero } from './components/home/Hero';
 import { CategoryGrid } from './components/home/CategoryGrid';
 import { HeritageBangles } from './components/home/HeritageBangles';
+import { SeasonalCollections } from './components/home/SeasonalCollections';
 import { FeaturedProducts } from './components/home/FeaturedProducts';
 import { NewArrivals } from './components/home/NewArrivals';
 import { PriceTiers } from './components/home/PriceTiers';
@@ -22,6 +24,7 @@ import { StoreVisit } from './components/home/StoreVisit';
 import { CatalogueView } from './components/catalogue/CatalogueView';
 import { ProductModal } from './components/catalogue/ProductModal';
 import { SearchModal } from './components/catalogue/SearchModal';
+import { trackConversionEvent } from './utils/analytics';
 
 export function App() {
   const [currentView, setCurrentView] = useState<'home' | 'catalogue'>('home');
@@ -33,11 +36,12 @@ export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
 
-  // Scroll to top on view change
+  // View navigation helpers
   const navigateToHome = () => {
     setCurrentView('home');
     setSelectedCategory('all');
     setSelectedPriceTier(undefined);
+    window.location.hash = '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -45,8 +49,58 @@ export function App() {
     setSelectedCategory(category);
     setSelectedPriceTier(priceTier);
     setCurrentView('catalogue');
+    trackConversionEvent('category_viewed', { category, priceTier });
+    window.location.hash = category !== 'all' ? `shop/${category}` : 'shop';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const handleOpenProduct = (product: Product) => {
+    setActiveProduct(product);
+    trackConversionEvent('product_viewed', { product_id: product.id, name: product.name, price: product.price });
+    window.location.hash = `product/${product.id}`;
+  };
+
+  const handleCloseProduct = () => {
+    setActiveProduct(null);
+    if (window.location.hash.startsWith('#product/')) {
+      window.location.hash = currentView === 'catalogue' ? (selectedCategory !== 'all' ? `shop/${selectedCategory}` : 'shop') : '';
+    }
+  };
+
+  // Deep Link Routing on hash changes (e.g. from QR codes or Instagram bio)
+  useEffect(() => {
+    const handleHashRouting = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+
+      if (hash === 'new-arrivals') {
+        navigateToCatalogue('new-arrivals');
+      } else if (hash === 'best-sellers') {
+        navigateToCatalogue('best-sellers');
+      } else if (hash.startsWith('shop/')) {
+        const cat = hash.replace('shop/', '') as ProductCategory;
+        navigateToCatalogue(cat);
+      } else if (hash === 'shop') {
+        navigateToCatalogue('all');
+      } else if (hash.startsWith('product/')) {
+        const prodId = hash.replace('product/', '');
+        const matched = PRODUCTS.find(p => p.id === prodId || p.code.toLowerCase() === prodId.toLowerCase());
+        if (matched) {
+          setActiveProduct(matched);
+        }
+      } else if (hash === 'visit-store') {
+        setCurrentView('home');
+        setTimeout(() => {
+          const el = document.getElementById('visit-store');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    };
+
+    handleHashRouting();
+    window.addEventListener('hashchange', handleHashRouting);
+    return () => window.removeEventListener('hashchange', handleHashRouting);
+  }, []);
 
   // Keyboard shortcut (Escape to close modals)
   useEffect(() => {
@@ -54,7 +108,7 @@ export function App() {
       if (e.key === 'Escape') {
         setIsSearchOpen(false);
         setIsDrawerOpen(false);
-        setActiveProduct(null);
+        handleCloseProduct();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -96,14 +150,18 @@ export function App() {
               onExploreBangles={() => navigateToCatalogue('lakh-bangles')}
             />
 
+            <SeasonalCollections
+              onSelectCollection={() => navigateToCatalogue('all')}
+            />
+
             <FeaturedProducts
-              onQuickView={(p) => setActiveProduct(p)}
+              onQuickView={handleOpenProduct}
               onViewAllCatalogue={() => navigateToCatalogue('all')}
             />
 
             <NewArrivals
-              onQuickView={(p) => setActiveProduct(p)}
-              onViewAllCatalogue={() => navigateToCatalogue('all')}
+              onQuickView={handleOpenProduct}
+              onViewAllCatalogue={() => navigateToCatalogue('new-arrivals')}
             />
 
             <PriceTiers
@@ -126,7 +184,7 @@ export function App() {
           <CatalogueView
             initialCategory={selectedCategory}
             initialPriceTier={selectedPriceTier}
-            onQuickView={(p) => setActiveProduct(p)}
+            onQuickView={handleOpenProduct}
             onBackToHome={navigateToHome}
           />
         )}
@@ -148,18 +206,18 @@ export function App() {
       {/* 7. Floating WhatsApp Concierge Widget */}
       <FloatingWhatsApp />
 
-      {/* 8. Deep Product Detail Modal */}
+      {/* 8. Deep Product Detail Modal with WhatsApp Sharing */}
       <ProductModal
         product={activeProduct}
-        onClose={() => setActiveProduct(null)}
-        onSelectProduct={(p) => setActiveProduct(p)}
+        onClose={handleCloseProduct}
+        onSelectProduct={handleOpenProduct}
       />
 
       {/* 9. Instant Search Modal */}
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onSelectProduct={(p) => setActiveProduct(p)}
+        onSelectProduct={handleOpenProduct}
       />
     </div>
   );
