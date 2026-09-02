@@ -9,9 +9,10 @@ interface CategoryGridProps {
 export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) => {
   return (
     <section id="categories-section" style={{
-      paddingTop: 'clamp(48px, 6vw, 80px)',
-      paddingBottom: 'clamp(48px, 6vw, 80px)',
+      paddingTop: 'clamp(56px, 7vw, 96px)',
+      paddingBottom: 'clamp(56px, 7vw, 96px)',
       backgroundColor: '#FAF7F2',
+      borderBottom: '1px solid var(--border-subtle)',
     }}>
       <div className="container-custom">
         {/* Section Header */}
@@ -20,167 +21,207 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          marginBottom: 'clamp(32px, 5vw, 48px)',
-          gap: '10px'
+          marginBottom: 'clamp(40px, 6vw, 64px)',
+          gap: '12px'
         }}>
           <div className="section-eyebrow">
-            <Sparkles size={12} />
-            <span>Curated For Her</span>
+            <Sparkles size={11} color="var(--accent-gold-dark)" />
+            <span>The Curated Collections</span>
           </div>
 
           <h2 className="editorial-heading-1">
-            Shop by Collection
+            Explore the Boutique
           </h2>
 
-          <p className="luxury-subtext" style={{ maxWidth: '580px' }}>
-            From time-honored Lakh craft to modern Parisian hair accents and daily skin glow essentials.
+          <p className="luxury-subtext" style={{ maxWidth: '560px' }}>
+            From time-honored Jaipur Lakh artistry to Parisian hair accents and daily skin glow rituals.
           </p>
         </div>
 
-        {/* Editorial Category Grid */}
+        {/* Asymmetrical Editorial Category Showcase */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '20px',
+          gridTemplateColumns: 'repeat(12, 1fr)',
+          gap: '24px',
         }}>
-          {CATEGORIES.map((cat, index) => (
-            <div
-              key={cat.id}
-              onClick={() => onSelectCategory(cat.id)}
-              className="category-card"
-              style={{
-                position: 'relative',
-                height: index === 0 || index === 1 ? '360px' : '300px',
-                borderRadius: 'var(--radius-sm)',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                boxShadow: 'var(--shadow-subtle)',
-                transition: 'all var(--transition-smooth)',
-                backgroundColor: '#EFE8DF'
-              }}
-            >
-              {/* Background Image */}
-              <img
-                src={cat.heroImage}
-                alt={cat.label}
-                loading="lazy"
+          {CATEGORIES.map((cat, index) => {
+            // Asymmetrical grid column spans for editorial rhythm:
+            // 0 (Lakh): 7 cols, 1 (Fancy): 5 cols
+            // 2 (Hair): 4 cols, 3 (Fashion): 4 cols, 4 (Beauty): 4 cols
+            // 5 (Fragrance): 6 cols, 6 (Gifting): 6 cols
+            let colSpan = 'span 4';
+            let cardHeight = '360px';
+
+            if (index === 0) {
+              colSpan = 'span 7';
+              cardHeight = '420px';
+            } else if (index === 1) {
+              colSpan = 'span 5';
+              cardHeight = '420px';
+            } else if (index === 5 || index === 6) {
+              colSpan = 'span 6';
+              cardHeight = '340px';
+            }
+
+            return (
+              <div
+                key={cat.id}
+                onClick={() => onSelectCategory(cat.id)}
+                className="editorial-category-card"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block',
-                  transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
-                }}
-                className="category-bg-image"
-              />
-
-              {/* Dark Gradient Overlay for text contrast */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(180deg, rgba(25, 21, 20, 0.15) 0%, rgba(25, 21, 20, 0.4) 40%, rgba(25, 21, 20, 0.88) 100%)',
-                zIndex: 1,
-              }} />
-
-              {/* Top Badge */}
-              {cat.badge && (
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  zIndex: 2,
-                }}>
-                  <span style={{
-                    backgroundColor: cat.id === 'lakh-bangles' ? 'rgba(139, 38, 62, 0.95)' : 'rgba(255, 255, 255, 0.9)',
-                    color: cat.id === 'lakh-bangles' ? '#ffffff' : 'var(--text-main)',
-                    fontSize: '0.6875rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    padding: '4px 10px',
-                    borderRadius: 'var(--radius-xs)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-                  }}>
-                    {cat.id === 'lakh-bangles' && <Sparkles size={10} />}
-                    {cat.badge}
-                  </span>
-                </div>
-              )}
-
-              {/* Bottom Details Content */}
-              <div style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: '24px 20px',
-                zIndex: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px',
-                color: '#FAF7F2'
-              }}>
-                <div style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.45rem',
-                  fontWeight: 600,
-                  lineHeight: 1.2,
-                  letterSpacing: '0.02em',
-                }}>
-                  {cat.label}
-                </div>
-
-                <div style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '0.8125rem',
-                  color: '#E8E1D7',
-                  fontWeight: 300,
-                }}>
-                  {cat.subtitle}
-                </div>
-
-                <div style={{
+                  gridColumn: colSpan,
+                  borderRadius: 'var(--radius-xs)',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid var(--border-subtle)',
+                  boxShadow: 'var(--shadow-subtle)',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginTop: '10px',
-                  paddingTop: '8px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.2)',
-                  fontSize: '0.75rem',
-                  color: 'var(--accent-champagne)',
-                  fontWeight: 600,
-                  letterSpacing: '0.04em'
-                }}>
-                  <span>{cat.itemCountDesc}</span>
+                  flexDirection: 'column',
+                  transition: 'all var(--transition-smooth)'
+                }}
+              >
+                {/* Image Container with delicate framing */}
+                <div
+                  className="img-zoom-container"
+                  style={{
+                    width: '100%',
+                    height: cardHeight,
+                    backgroundColor: 'var(--bg-surface-stone)',
+                    position: 'relative'
+                  }}
+                >
+                  <img
+                    src={cat.heroImage}
+                    alt={cat.label}
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+
+                  {/* Archival Index Pip */}
                   <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    color: '#FFFFFF'
+                    position: 'absolute',
+                    top: '16px',
+                    left: '16px',
+                    backgroundColor: 'rgba(22, 19, 18, 0.78)',
+                    backdropFilter: 'blur(6px)',
+                    color: '#FAF7F2',
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.625rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.14em',
+                    padding: '4px 8px',
+                    borderRadius: 'var(--radius-xs)'
                   }}>
-                    <span>Explore</span>
-                    <ArrowRight size={14} />
+                    0{index + 1}
+                  </div>
+
+                  {cat.badge && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '16px',
+                      right: '16px',
+                    }}>
+                      <span className="badge-luxury badge-heritage">
+                        {cat.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Soft bottom vignette overlay for text legibility */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '60%',
+                    background: 'linear-gradient(180deg, transparent 0%, rgba(22, 19, 18, 0.72) 100%)',
+                    zIndex: 1,
+                  }} />
+
+                  {/* Overlaid Title & Meta for true editorial feel */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '24px 22px',
+                    zIndex: 2,
+                    color: '#FAF7F2',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '4px'
+                  }}>
+                    <h3 style={{
+                      fontFamily: 'var(--font-serif)',
+                      fontSize: index === 0 ? '1.85rem' : '1.35rem',
+                      fontWeight: 500,
+                      lineHeight: 1.15,
+                      letterSpacing: '-0.01em',
+                      color: '#FFFFFF'
+                    }}>
+                      {cat.label}
+                    </h3>
+
+                    <p style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.8125rem',
+                      color: '#E6DDD2',
+                      fontWeight: 300,
+                      lineHeight: 1.4
+                    }}>
+                      {cat.subtitle}
+                    </p>
+
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      paddingTop: '10px',
+                      marginTop: '4px',
+                      borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+                      fontSize: '0.6875rem',
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--accent-champagne)'
+                    }}>
+                      <span>{cat.itemCountDesc}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#FFFFFF', fontWeight: 600 }}>
+                        <span>Discover</span>
+                        <ArrowRight size={13} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       <style>{`
-        .category-card:hover .category-bg-image {
-          transform: scale(1.08);
-        }
-        .category-card:hover {
+        .editorial-category-card:hover {
           transform: translateY(-4px);
           box-shadow: var(--shadow-card);
+          border-color: var(--border-medium);
+        }
+        @media (max-width: 992px) {
+          .editorial-category-card {
+            grid-column: span 6 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .editorial-category-card {
+            grid-column: span 12 !important;
+          }
+          .editorial-category-card .img-zoom-container {
+            height: 320px !important;
+          }
         }
       `}</style>
     </section>

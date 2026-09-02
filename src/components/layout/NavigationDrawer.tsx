@@ -39,8 +39,8 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(25, 21, 20, 0.6)',
-          backdropFilter: 'blur(4px)',
+          backgroundColor: 'rgba(22, 19, 18, 0.75)',
+          backdropFilter: 'blur(6px)',
           transition: 'opacity 0.3s ease',
         }}
       />
@@ -51,29 +51,29 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
         width: '100%',
         maxWidth: '380px',
         height: '100%',
-        backgroundColor: 'var(--bg-canvas)',
-        boxShadow: '4px 0 25px rgba(0, 0, 0, 0.15)',
+        backgroundColor: '#FAF7F2',
+        boxShadow: '8px 0 32px rgba(22, 19, 18, 0.2)',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 101,
-        animation: 'slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+        animation: 'slideInLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
         overflowY: 'auto',
       }}>
         {/* Drawer Header */}
         <div style={{
-          padding: '20px 24px',
+          padding: '22px 24px',
           borderBottom: '1px solid var(--border-subtle)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          backgroundColor: 'var(--bg-surface)'
+          backgroundColor: '#FFFFFF'
         }}>
           <div>
             <div style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '1.35rem',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
+              fontSize: '1.45rem',
+              fontWeight: 500,
+              letterSpacing: '0.18em',
               color: 'var(--text-main)',
               textTransform: 'uppercase'
             }}>
@@ -81,13 +81,13 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             </div>
             <div style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.6875rem',
+              fontSize: '0.625rem',
               color: 'var(--accent-gold-dark)',
               fontWeight: 600,
-              letterSpacing: '0.1em',
+              letterSpacing: '0.2em',
               textTransform: 'uppercase'
             }}>
-              Boutique & Showroom
+              Boutique Atelier
             </div>
           </div>
 
@@ -98,21 +98,21 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               background: 'transparent',
               border: 'none',
               cursor: 'pointer',
-              padding: '8px',
+              padding: '6px',
               color: 'var(--text-main)',
               borderRadius: 'var(--radius-xs)'
             }}
           >
-            <X size={22} />
+            <X size={20} />
           </button>
         </div>
 
         {/* Categories Section */}
         <div style={{ padding: '24px 20px', flex: 1 }}>
           <div style={{
-            fontSize: '0.6875rem',
+            fontSize: '0.625rem',
             fontWeight: 700,
-            letterSpacing: '0.15em',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: 'var(--text-subtle)',
             marginBottom: '14px',
@@ -120,10 +120,10 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             alignItems: 'center',
             gap: '6px'
           }}>
-            <span>Explore Collections</span>
+            <span>Atelier Collections</span>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
             <button
               onClick={() => { onSelectCategory('all'); onClose(); }}
               style={{
@@ -135,16 +135,16 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 border: 'none',
                 borderBottom: '1px solid var(--border-subtle)',
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.125rem',
+                fontSize: '1.15rem',
                 color: 'var(--text-main)',
-                fontWeight: 600,
+                fontWeight: 500,
                 textAlign: 'left',
                 cursor: 'pointer',
                 borderRadius: 'var(--radius-xs)',
               }}
             >
-              <span>View All Catalogue</span>
-              <ChevronRight size={16} color="var(--accent-gold)" />
+              <span>Complete Archive</span>
+              <ChevronRight size={15} color="var(--accent-gold)" />
             </button>
 
             {CATEGORIES.map(cat => (
@@ -156,27 +156,29 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '12px 14px',
-                  background: cat.id === 'lakh-bangles' ? 'var(--accent-rose-light)' : 'transparent',
+                  background: cat.id === 'lakh-bangles' ? 'var(--accent-rose-subtle)' : 'transparent',
                   border: 'none',
                   borderBottom: '1px solid var(--border-subtle)',
                   fontFamily: 'var(--font-serif)',
-                  fontSize: '1.125rem',
+                  fontSize: '1.15rem',
                   color: cat.id === 'lakh-bangles' ? 'var(--accent-rose)' : 'var(--text-main)',
-                  fontWeight: 600,
+                  fontWeight: 500,
                   textAlign: 'left',
                   cursor: 'pointer',
                   borderRadius: 'var(--radius-xs)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  {cat.id === 'lakh-bangles' && <Sparkles size={14} color="var(--accent-rose)" />}
+                  {cat.id === 'lakh-bangles' && <Sparkles size={13} color="var(--accent-rose)" />}
                   <span>{cat.label}</span>
                 </div>
                 <span style={{
-                  fontSize: '0.6875rem',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
                   fontFamily: 'var(--font-sans)',
                   color: 'var(--text-subtle)',
-                  fontWeight: 500
+                  fontWeight: 600
                 }}>
                   {cat.badge || 'Browse'}
                 </span>
@@ -187,38 +189,43 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
           {/* Quick Budget Filters */}
           <div style={{ marginTop: '28px' }}>
             <div style={{
-              fontSize: '0.6875rem',
+              fontSize: '0.625rem',
               fontWeight: 700,
-              letterSpacing: '0.15em',
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
               color: 'var(--text-subtle)',
               marginBottom: '12px'
             }}>
-              Shop By Budget
+              Curated Price Edits
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-              {['Under ₹99', 'Under ₹199', 'Under ₹299', 'Under ₹499'].map(tier => (
+              {[
+                { id: 'under-99', label: 'Petite Edit (<₹99)' },
+                { id: 'under-199', label: 'Daily (<₹199)' },
+                { id: 'under-299', label: 'Statement (<₹299)' },
+                { id: 'under-499', label: 'Festive (<₹499)' }
+              ].map(tier => (
                 <button
-                  key={tier}
+                  key={tier.id}
                   onClick={() => {
-                    const tierId = tier.toLowerCase().replace(' ', '-').replace('₹', '');
-                    onSelectPriceTier(tierId);
+                    onSelectPriceTier(tier.id);
                     onClose();
                   }}
                   style={{
                     padding: '10px 8px',
                     border: '1px solid var(--border-subtle)',
                     borderRadius: 'var(--radius-xs)',
-                    backgroundColor: 'var(--bg-surface)',
+                    backgroundColor: '#FFFFFF',
                     fontFamily: 'var(--font-sans)',
-                    fontSize: '0.75rem',
+                    fontSize: '0.6875rem',
+                    letterSpacing: '0.04em',
                     fontWeight: 600,
                     color: 'var(--text-main)',
                     cursor: 'pointer',
                     textAlign: 'center',
                   }}
                 >
-                  {tier}
+                  {tier.label}
                 </button>
               ))}
             </div>
@@ -227,17 +234,17 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
           {/* Boutique Visit Info */}
           <div style={{
             marginTop: '28px',
-            padding: '16px',
-            backgroundColor: 'var(--bg-surface)',
+            padding: '18px',
+            backgroundColor: '#FFFFFF',
             border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-sm)',
+            borderRadius: 'var(--radius-xs)',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--accent-rose)' }}>
-              <MapPin size={16} />
-              <span style={{ fontSize: '0.8125rem', fontWeight: 700 }}>Store Location</span>
+              <MapPin size={15} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Store Location</span>
             </div>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-              {BRAND_CONFIG.store.addressLine1}, {BRAND_CONFIG.store.addressLine2}, {BRAND_CONFIG.store.city}
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.5, fontWeight: 300 }}>
+              {BRAND_CONFIG.store.addressLine1}, {BRAND_CONFIG.store.city}
             </p>
             <div style={{ fontSize: '0.6875rem', color: 'var(--accent-gold-dark)', fontWeight: 600, marginTop: '6px' }}>
               🕒 {BRAND_CONFIG.store.timings} ({BRAND_CONFIG.store.openDays})
@@ -249,7 +256,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
         <div style={{
           padding: '18px 20px',
           borderTop: '1px solid var(--border-subtle)',
-          backgroundColor: 'var(--bg-surface)',
+          backgroundColor: '#FFFFFF',
           display: 'flex',
           flexDirection: 'column',
           gap: '10px'
@@ -259,9 +266,9 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp"
-            style={{ width: '100%' }}
+            style={{ width: '100%', justifyContent: 'center' }}
           >
-            <MessageCircle size={18} />
+            <MessageCircle size={16} />
             <span>Chat on WhatsApp</span>
           </a>
 
@@ -278,11 +285,13 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 borderRadius: 'var(--radius-xs)',
                 color: 'var(--text-main)',
                 textDecoration: 'none',
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
                 fontWeight: 600
               }}
             >
-              <Phone size={14} />
+              <Phone size={13} />
               <span>Call Store</span>
             </a>
 
@@ -300,11 +309,13 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 borderRadius: 'var(--radius-xs)',
                 color: 'var(--text-main)',
                 textDecoration: 'none',
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
                 fontWeight: 600
               }}
             >
-              <MapPin size={14} />
+              <MapPin size={13} />
               <span>Directions</span>
             </a>
           </div>
@@ -316,14 +327,14 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               rel="noopener noreferrer"
               style={{
                 color: 'var(--text-muted)',
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '4px',
                 textDecoration: 'none'
               }}
             >
-              <InstagramIcon size={14} color="var(--accent-rose)" />
+              <InstagramIcon size={13} color="var(--accent-rose)" />
               <span>{BRAND_CONFIG.contact.instagramHandle}</span>
             </a>
           </div>

@@ -24,7 +24,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         left: 0,
         right: 0,
         height: 'var(--mobile-bar-height)',
-        backgroundColor: 'rgba(255, 255, 255, 0.94)',
+        backgroundColor: 'rgba(255, 255, 255, 0.96)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderTop: '1px solid var(--border-subtle)',
@@ -32,11 +32,11 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         alignItems: 'center',
         justifyContent: 'space-around',
         zIndex: 45,
-        boxShadow: '0 -4px 20px rgba(25, 21, 20, 0.08)',
+        boxShadow: '0 -4px 20px rgba(22, 19, 18, 0.06)',
         paddingBottom: 'env(safe-area-inset-bottom)',
       }}
     >
-      {/* Home Button */}
+      {/* Home */}
       <button
         onClick={onNavigateHome}
         style={{
@@ -48,12 +48,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           gap: '3px',
           color: currentView === 'home' ? 'var(--accent-rose)' : 'var(--text-muted)',
           cursor: 'pointer',
-          padding: '6px 12px',
-          fontSize: '0.6875rem',
+          padding: '8px 12px',
+          fontSize: '0.625rem',
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
           fontWeight: currentView === 'home' ? 700 : 500,
         }}
       >
-        <Home size={20} strokeWidth={currentView === 'home' ? 2.5 : 1.8} />
+        <Home size={19} strokeWidth={currentView === 'home' ? 2.4 : 1.75} />
         <span>Home</span>
       </button>
 
@@ -69,16 +71,18 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           gap: '3px',
           color: currentView === 'catalogue' ? 'var(--accent-rose)' : 'var(--text-muted)',
           cursor: 'pointer',
-          padding: '6px 12px',
-          fontSize: '0.6875rem',
+          padding: '8px 12px',
+          fontSize: '0.625rem',
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
           fontWeight: currentView === 'catalogue' ? 700 : 500,
         }}
       >
-        <Compass size={20} strokeWidth={currentView === 'catalogue' ? 2.5 : 1.8} />
+        <Compass size={19} strokeWidth={currentView === 'catalogue' ? 2.4 : 1.75} />
         <span>Catalogue</span>
       </button>
 
-      {/* Center WhatsApp Conversion Button */}
+      {/* Center WhatsApp Conversion Button — Jewel Tone */}
       <a
         href={createGeneralEnquiryUrl('Mobile Bottom Bar')}
         target="_blank"
@@ -86,20 +90,20 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         style={{
           backgroundColor: 'var(--accent-whatsapp)',
           color: '#ffffff',
-          width: '46px',
-          height: '46px',
+          width: '44px',
+          height: '44px',
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          marginTop: '-18px',
-          boxShadow: '0 6px 16px rgba(37, 211, 102, 0.4)',
-          border: '3px solid #ffffff',
+          marginTop: '-16px',
+          boxShadow: '0 6px 18px rgba(28, 77, 56, 0.35)',
+          border: '2px solid #ffffff',
           textDecoration: 'none',
         }}
         aria-label="WhatsApp Enquiry"
       >
-        <MessageCircle size={22} fill="#ffffff" strokeWidth={0} />
+        <MessageCircle size={20} fill="#ffffff" strokeWidth={0} />
       </a>
 
       {/* Search */}
@@ -114,12 +118,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           gap: '3px',
           color: 'var(--text-muted)',
           cursor: 'pointer',
-          padding: '6px 12px',
-          fontSize: '0.6875rem',
+          padding: '8px 12px',
+          fontSize: '0.625rem',
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
           fontWeight: 500,
         }}
       >
-        <Search size={20} strokeWidth={1.8} />
+        <Search size={19} strokeWidth={1.75} />
         <span>Search</span>
       </button>
 
@@ -135,12 +141,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           gap: '3px',
           color: 'var(--text-muted)',
           textDecoration: 'none',
-          padding: '6px 12px',
-          fontSize: '0.6875rem',
+          padding: '8px 12px',
+          fontSize: '0.625rem',
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
           fontWeight: 500,
         }}
       >
-        <MapPin size={20} strokeWidth={1.8} />
+        <MapPin size={19} strokeWidth={1.75} />
         <span>Boutique</span>
       </a>
 

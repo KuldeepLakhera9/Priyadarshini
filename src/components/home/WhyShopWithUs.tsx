@@ -1,21 +1,34 @@
 import React from 'react';
-import { TRUST_PILLARS } from '../../data/categories';
-import { Sparkles, Shield, HeartHandshake, RefreshCw, Store, Gem, MessageSquareHeart } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export const WhyShopWithUs: React.FC = () => {
-  const icons = [
-    <Gem size={22} color="var(--accent-rose)" />,
-    <RefreshCw size={22} color="var(--accent-gold-dark)" />,
-    <Sparkles size={22} color="var(--accent-rose)" />,
-    <MessageSquareHeart size={22} color="var(--accent-whatsapp-dark)" />,
-    <Store size={22} color="var(--accent-rose)" />,
-    <HeartHandshake size={22} color="var(--accent-gold-dark)" />,
+  const pillars = [
+    {
+      num: '01',
+      title: 'Generational Craftsmanship',
+      desc: 'Authentic Jaipur Lakh molded by skilled artisans using organic shellac and non-allergic natural materials, finished with radiant lustre.'
+    },
+    {
+      num: '02',
+      title: 'Fresh Weekly Additions',
+      desc: 'We refresh our boutique collection every 7 days with trending Korean hair claws, festive jhumkas, and seasonal celebratory suites.'
+    },
+    {
+      num: '03',
+      title: 'Accessible Luxury',
+      desc: 'Fine craftsmanship and thoughtful curation from ₹49 everyday essentials to ₹899 heirloom bridal choodas, without retail markups.'
+    },
+    {
+      num: '04',
+      title: 'Personal Styling & In-Store Touch',
+      desc: 'Visit our physical boutique to try on sizes and feel textures in person, or request high-resolution live video previews on WhatsApp.'
+    }
   ];
 
   return (
     <section style={{
-      paddingTop: 'clamp(56px, 7vw, 90px)',
-      paddingBottom: 'clamp(56px, 7vw, 90px)',
+      paddingTop: 'clamp(64px, 8vw, 100px)',
+      paddingBottom: 'clamp(64px, 8vw, 100px)',
       backgroundColor: '#FAF7F2',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
@@ -26,84 +39,73 @@ export const WhyShopWithUs: React.FC = () => {
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          marginBottom: '48px',
-          gap: '8px'
+          marginBottom: '52px',
+          gap: '12px'
         }}>
           <div className="section-eyebrow">
-            <Shield size={12} />
-            <span>The Boutique Promise</span>
+            <Sparkles size={11} color="var(--accent-gold-dark)" />
+            <span>The Boutique Ethos</span>
           </div>
 
           <h2 className="editorial-heading-1">
-            Why Women Love Shopping With Us
+            Curated With Devotion
           </h2>
 
           <p className="luxury-subtext" style={{ maxWidth: '580px' }}>
-            We bridge the gap between authentic artisan heritage, modern fashion trends, and personalized in-store service.
+            Bridging the gap between age-old Indian artisan heritage, contemporary aesthetics, and warm offline hospitality.
           </p>
         </div>
 
-        {/* Pillars Grid */}
+        {/* Architectural Pillars Grid (No SaaS Icon Circles!) */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '24px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: '28px',
         }}>
-          {TRUST_PILLARS.map((pillar, idx) => (
+          {pillars.map((pillar) => (
             <div
-              key={idx}
+              key={pillar.num}
               style={{
                 backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-sm)',
-                padding: '28px 24px',
+                borderRadius: 'var(--radius-xs)',
+                padding: '32px 26px',
                 border: '1px solid var(--border-subtle)',
                 boxShadow: 'var(--shadow-subtle)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '12px',
+                gap: '14px',
+                position: 'relative',
                 transition: 'all var(--transition-smooth)'
               }}
-              className="trust-card"
+              className="ethos-card"
             >
+              {/* Archival Index Number */}
               <div style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: 'var(--radius-xs)',
-                backgroundColor: '#FAF4EB',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '1px solid rgba(197, 168, 128, 0.25)'
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.75rem',
+                fontWeight: 400,
+                color: 'var(--accent-gold)',
+                lineHeight: 1
               }}>
-                {icons[idx % icons.length]}
+                {pillar.num}
               </div>
 
               <div>
                 <h3 style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: '1.25rem',
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: 'var(--text-main)',
-                  lineHeight: 1.2
+                  lineHeight: 1.25
                 }}>
                   {pillar.title}
                 </h3>
-                <div style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  color: 'var(--accent-gold-dark)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  marginTop: '4px'
-                }}>
-                  {pillar.subtitle}
-                </div>
               </div>
 
               <p style={{
-                fontSize: '0.875rem',
+                fontSize: '0.8125rem',
                 color: 'var(--text-muted)',
-                lineHeight: 1.6,
+                lineHeight: 1.65,
                 fontWeight: 300
               }}>
                 {pillar.desc}
@@ -114,10 +116,10 @@ export const WhyShopWithUs: React.FC = () => {
       </div>
 
       <style>{`
-        .trust-card:hover {
-          transform: translateY(-3px);
+        .ethos-card:hover {
+          transform: translateY(-4px);
           box-shadow: var(--shadow-card);
-          border-color: var(--accent-gold);
+          border-color: var(--border-medium);
         }
       `}</style>
     </section>

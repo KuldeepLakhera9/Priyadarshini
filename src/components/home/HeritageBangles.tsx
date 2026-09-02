@@ -1,4 +1,5 @@
-import { Sparkles, MessageCircle, HeartHandshake, ShieldCheck, Ruler, Palette } from 'lucide-react';
+import React from 'react';
+import { Sparkles, ArrowRight, MessageCircle } from 'lucide-react';
 import { createBridalCustomOrderUrl } from '../../utils/whatsapp';
 
 interface HeritageBanglesProps {
@@ -8,45 +9,34 @@ interface HeritageBanglesProps {
 export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangles }) => {
   return (
     <section id="heritage-bangles" style={{
-      backgroundColor: '#1E1917',
+      backgroundColor: '#161312',
       color: '#FAF7F2',
-      paddingTop: 'clamp(56px, 7vw, 96px)',
-      paddingBottom: 'clamp(56px, 7vw, 96px)',
+      paddingTop: 'clamp(64px, 8vw, 108px)',
+      paddingBottom: 'clamp(64px, 8vw, 108px)',
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Background Decorative Aura */}
-      <div style={{
-        position: 'absolute',
-        top: '0',
-        left: '20%',
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, rgba(139, 38, 62, 0.22) 0%, rgba(30, 25, 23, 0) 70%)',
-        pointerEvents: 'none',
-      }} />
-
-      <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container-custom">
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(36px, 6vw, 72px)',
+          gap: 'clamp(40px, 7vw, 84px)',
           alignItems: 'center'
         }}>
-          {/* Left Column: Visual Story */}
+          {/* Left Column: Visual Monograph Frame */}
           <div style={{ position: 'relative' }}>
             <div style={{
-              borderRadius: 'var(--radius-sm)',
+              borderRadius: 'var(--radius-xs)',
               overflow: 'hidden',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-              border: '1px solid rgba(197, 168, 128, 0.3)',
+              boxShadow: '0 24px 60px rgba(0,0,0,0.6)',
+              border: '1px solid rgba(191, 163, 124, 0.25)',
               position: 'relative',
-              backgroundColor: '#110E0D'
+              backgroundColor: '#1C1817'
             }}>
               <img
                 src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=1000&auto=format&fit=crop"
                 alt="Handcrafted Jaipur Lakh Bangles"
-                style={{ width: '100%', height: '460px', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: 'clamp(380px, 44vw, 520px)', objectFit: 'cover', display: 'block' }}
               />
 
               <div style={{
@@ -55,24 +45,24 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: 'linear-gradient(0deg, rgba(22, 19, 18, 0.9) 0%, rgba(22, 19, 18, 0.2) 60%)',
+                background: 'linear-gradient(0deg, rgba(22, 19, 18, 0.85) 0%, rgba(22, 19, 18, 0.15) 60%)',
               }} />
 
-              {/* Inside Caption Card */}
+              {/* Inside Caption Monograph */}
               <div style={{
                 position: 'absolute',
                 bottom: '24px',
                 left: '24px',
                 right: '24px',
-                backgroundColor: 'rgba(26, 22, 21, 0.85)',
-                backdropFilter: 'blur(8px)',
-                padding: '16px 20px',
+                backgroundColor: 'rgba(22, 19, 18, 0.9)',
+                backdropFilter: 'blur(10px)',
+                padding: '18px 22px',
                 borderRadius: 'var(--radius-xs)',
-                border: '1px solid rgba(197, 168, 128, 0.3)',
+                border: '1px solid rgba(191, 163, 124, 0.3)',
               }}>
                 <div style={{
-                  fontSize: '0.6875rem',
-                  letterSpacing: '0.15em',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: 'var(--accent-gold)',
                   fontWeight: 700,
@@ -82,43 +72,35 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: '1.125rem',
-                  color: '#FFFFFF'
+                  fontSize: '1.15rem',
+                  color: '#FFFFFF',
+                  lineHeight: 1.3
                 }}>
-                  "Pure Shellac, Precision Heat Shaping & Royal Stones"
+                  "Pure natural shellac molded over charcoal embers, studded with hand-cut crystals."
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Copy & Craftsmanship Pillars */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+          {/* Right Column: Editorial Craft Story (No SaaS icons!) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
             <div>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'var(--accent-gold)',
-                marginBottom: '10px'
-              }}>
-                <Sparkles size={13} />
-                <span>Our Heritage Cornerstone</span>
+              <div className="section-eyebrow" style={{ color: 'var(--accent-gold)' }}>
+                <Sparkles size={11} color="var(--accent-gold)" />
+                <span>The Heritage Monograph</span>
               </div>
 
               <h2 style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: 'clamp(2.2rem, 4vw, 3.25rem)',
-                fontWeight: 500,
-                lineHeight: 1.15,
+                fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
+                fontWeight: 400,
+                lineHeight: 1.12,
                 color: '#FFFFFF',
-                letterSpacing: '-0.015em'
+                letterSpacing: '-0.02em',
+                marginTop: '10px'
               }}>
                 Tradition, Reimagined <br />
-                <span style={{ fontStyle: 'italic', color: '#E4D5C1', fontWeight: 400 }}>
+                <span className="editorial-serif-italic" style={{ color: 'var(--accent-champagne)' }}>
                   For Every Celebration.
                 </span>
               </h2>
@@ -126,121 +108,121 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
 
             <p style={{
               fontSize: '1rem',
-              color: '#D4CDC5',
-              lineHeight: 1.7,
+              color: '#D4CBC2',
+              lineHeight: 1.75,
               fontWeight: 300
             }}>
-              Lakh bangles carry centuries of Indian royal heritage and auspicious charm. Each kada in our collection is handcrafted by master artisans using organic shellac resin, embedded with micro-cut stones, Kundan polki, and delicate mirrors.
+              Jaipur Lakh bangles carry centuries of royal grace and auspicious symbolism. Each piece in our collection is handcrafted by generational master artisans using organic shellac resin, embedded with micro-cut stones, Kundan polki, and delicate glass mirrors.
             </p>
 
-            {/* Feature List */}
+            {/* Monograph Craft Steps — Elegant Roman Numerals */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              display: 'flex',
+              flexDirection: 'column',
               gap: '16px',
-              paddingTop: '10px'
+              paddingTop: '8px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(197, 168, 128, 0.15)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  color: 'var(--accent-gold)'
+              <div style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '18px',
+                paddingBottom: '14px',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1.25rem',
+                  color: 'var(--accent-gold)',
+                  fontWeight: 600,
+                  flexShrink: 0
                 }}>
-                  <ShieldCheck size={18} />
-                </div>
+                  I.
+                </span>
                 <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FFFFFF' }}>100% Skin Friendly</div>
-                  <div style={{ fontSize: '0.75rem', color: '#A89E94', marginTop: '2px' }}>Non-allergic natural resin & smooth inner rims.</div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', letterSpacing: '0.02em' }}>
+                    100% Pure Organic Shellac
+                  </div>
+                  <div style={{ fontSize: '0.8125rem', color: '#A69B90', marginTop: '2px', lineHeight: 1.5 }}>
+                    Non-allergic, skin-safe resin heat-shaped on traditional wooden spindles with mirror polish.
+                  </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(139, 38, 62, 0.25)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  color: '#FFA8BD'
+              <div style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '18px',
+                paddingBottom: '14px',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1.25rem',
+                  color: 'var(--accent-gold)',
+                  fontWeight: 600,
+                  flexShrink: 0
                 }}>
-                  <Palette size={18} />
-                </div>
+                  II.
+                </span>
                 <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FFFFFF' }}>Outfit Matching</div>
-                  <div style={{ fontSize: '0.75rem', color: '#A89E94', marginTop: '2px' }}>Send your lehenga or saree photo on WhatsApp.</div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', letterSpacing: '0.02em' }}>
+                    Bespoke Lehenga & Saree Matching
+                  </div>
+                  <div style={{ fontSize: '0.8125rem', color: '#A69B90', marginTop: '2px', lineHeight: 1.5 }}>
+                    Send your bridal outfit photo on WhatsApp for color-coordinated kadas and velvet choodas.
+                  </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(197, 168, 128, 0.15)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  color: 'var(--accent-gold)'
+              <div style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: '18px'
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1.25rem',
+                  color: 'var(--accent-gold)',
+                  fontWeight: 600,
+                  flexShrink: 0
                 }}>
-                  <Ruler size={18} />
-                </div>
+                  III.
+                </span>
                 <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FFFFFF' }}>All Sizes in Stock</div>
-                  <div style={{ fontSize: '0.75rem', color: '#A89E94', marginTop: '2px' }}>Sizes 2.2, 2.4, 2.6, 2.8 and custom fittings.</div>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(139, 38, 62, 0.25)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  color: '#FFA8BD'
-                }}>
-                  <HeartHandshake size={18} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FFFFFF' }}>Bridal & Return Favours</div>
-                  <div style={{ fontSize: '0.75rem', color: '#A89E94', marginTop: '2px' }}>Bulk custom sets for Mehendi & Sangeet.</div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', letterSpacing: '0.02em' }}>
+                    Flawless Size Calibration
+                  </div>
+                  <div style={{ fontSize: '0.8125rem', color: '#A69B90', marginTop: '2px', lineHeight: 1.5 }}>
+                    Sizes 2.2, 2.4, 2.6, 2.8 and custom fittings available in-store and via video consultation.
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', paddingTop: '16px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', paddingTop: '12px' }}>
               <button
                 onClick={onExploreBangles}
                 style={{
                   backgroundColor: 'var(--accent-gold)',
-                  color: '#1A1615',
+                  color: '#161312',
                   border: 'none',
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '0.875rem',
+                  fontSize: '0.8125rem',
                   fontWeight: 600,
-                  letterSpacing: '0.06em',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   padding: '14px 28px',
                   borderRadius: 'var(--radius-xs)',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 15px rgba(197, 168, 128, 0.35)'
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  boxShadow: '0 4px 18px rgba(191, 163, 124, 0.3)'
                 }}
               >
-                Explore Lakh Bangles
+                <span>View Lakh Collection</span>
+                <ArrowRight size={15} />
               </button>
 
               <a
@@ -248,10 +230,14 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
-                style={{ padding: '14px 24px' }}
+                style={{
+                  backgroundColor: 'transparent',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                  color: '#FFFFFF'
+                }}
               >
-                <MessageCircle size={18} />
-                <span>Custom Bridal Consultation</span>
+                <MessageCircle size={16} />
+                <span>Bridal Consultation on WhatsApp</span>
               </a>
             </div>
           </div>

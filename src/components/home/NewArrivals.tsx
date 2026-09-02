@@ -16,9 +16,9 @@ export const NewArrivals: React.FC<NewArrivalsProps> = ({
 
   return (
     <section id="new-arrivals" style={{
-      paddingTop: 'clamp(56px, 7vw, 84px)',
-      paddingBottom: 'clamp(56px, 7vw, 84px)',
-      backgroundColor: '#FAF4EB',
+      paddingTop: 'clamp(56px, 7vw, 92px)',
+      paddingBottom: 'clamp(56px, 7vw, 92px)',
+      backgroundColor: 'var(--bg-canvas-subtle)',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
       <div className="container-custom">
@@ -33,14 +33,14 @@ export const NewArrivals: React.FC<NewArrivalsProps> = ({
         }}>
           <div>
             <div className="section-eyebrow">
-              <Calendar size={12} />
-              <span>Refreshed Weekly</span>
+              <Calendar size={11} color="var(--accent-gold-dark)" />
+              <span>Weekly Atelier Additions</span>
             </div>
-            <h2 className="editorial-heading-1" style={{ marginTop: '6px' }}>
-              Fresh Boutique Arrivals
+            <h2 className="editorial-heading-1" style={{ marginTop: '8px' }}>
+              Fresh In The Boutique
             </h2>
             <p className="luxury-subtext" style={{ maxWidth: '520px', marginTop: '4px' }}>
-              Every week we introduce new handcrafted bangles, Korean aesthetic accessories, and skincare innovations.
+              Every week our store receives new artisanal Lakh patterns, Korean accessories, and pure floral distillations.
             </p>
           </div>
 
@@ -52,16 +52,19 @@ export const NewArrivals: React.FC<NewArrivalsProps> = ({
               gap: '6px',
               backgroundColor: 'transparent',
               border: 'none',
+              borderBottom: '1px solid var(--accent-rose)',
+              paddingBottom: '2px',
               color: 'var(--accent-rose)',
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.875rem',
+              fontSize: '0.75rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
               fontWeight: 700,
-              cursor: 'pointer',
-              textDecoration: 'underline'
+              cursor: 'pointer'
             }}
           >
             <span>View All New Arrivals</span>
-            <ArrowRight size={16} />
+            <ArrowRight size={14} />
           </button>
         </div>
 

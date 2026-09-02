@@ -82,7 +82,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(25, 21, 20, 0.75)',
+          backgroundColor: 'rgba(22, 19, 18, 0.78)',
           backdropFilter: 'blur(8px)',
         }}
       />
@@ -94,7 +94,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         maxWidth: '680px',
         maxHeight: '80vh',
         backgroundColor: '#FFFFFF',
-        borderRadius: 'var(--radius-md)',
+        borderRadius: 'var(--radius-xs)',
+        border: '1px solid var(--border-subtle)',
         boxShadow: 'var(--shadow-modal)',
         overflow: 'hidden',
         display: 'flex',
@@ -111,10 +112,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           gap: '12px',
           backgroundColor: '#FAF7F2'
         }}>
-          <Search size={20} color="var(--accent-rose)" />
+          <Search size={18} color="var(--accent-gold-dark)" />
           <input
             type="text"
-            placeholder="Search bangles, hair claws, scrunchies, face wash..."
+            placeholder="Search bangles, hair claws, perfumes, gifting..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
@@ -124,7 +125,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               outline: 'none',
               background: 'transparent',
               fontFamily: 'var(--font-sans)',
-              fontSize: '1rem',
+              fontSize: '0.9375rem',
               color: 'var(--text-main)'
             }}
           />
@@ -133,17 +134,19 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setQuery('')}
               style={{ background: 'none', border: 'none', color: 'var(--text-subtle)', cursor: 'pointer' }}
             >
-              <X size={16} />
+              <X size={15} />
             </button>
           )}
           <button
             onClick={onClose}
             style={{
-              padding: '6px 12px',
+              padding: '5px 10px',
               background: 'none',
               border: '1px solid var(--border-subtle)',
               borderRadius: 'var(--radius-xs)',
-              fontSize: '0.75rem',
+              fontSize: '0.6875rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
               color: 'var(--text-muted)',
               cursor: 'pointer'
             }}
@@ -167,12 +170,15 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setActiveTag(tag)}
               style={{
                 padding: '5px 12px',
-                borderRadius: 'var(--radius-full)',
-                border: activeTag === tag ? '1px solid var(--accent-rose)' : '1px solid var(--border-subtle)',
-                backgroundColor: activeTag === tag ? 'var(--accent-rose-light)' : '#FAF7F2',
-                color: activeTag === tag ? 'var(--accent-rose)' : 'var(--text-muted)',
-                fontSize: '0.75rem',
-                fontWeight: activeTag === tag ? 600 : 400,
+                borderRadius: 'var(--radius-xs)',
+                border: '1px solid',
+                borderColor: activeTag === tag ? 'var(--text-main)' : 'var(--border-subtle)',
+                backgroundColor: activeTag === tag ? 'var(--text-main)' : '#FAF7F2',
+                color: activeTag === tag ? '#FFFFFF' : 'var(--text-muted)',
+                fontSize: '0.6875rem',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                fontWeight: activeTag === tag ? 600 : 500,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap'
               }}
@@ -186,11 +192,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         <div style={{ flex: 1, overflowY: 'auto', padding: '12px 20px' }}>
           {filteredProducts.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-muted)' }}>
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '6px' }}>
                 No direct catalogue match found
               </p>
-              <p style={{ fontSize: '0.8125rem' }}>
-                We have 500+ additional offline designs in store! Ask our stylist on WhatsApp.
+              <p style={{ fontSize: '0.8125rem', fontWeight: 300 }}>
+                We have over 500 additional unlisted offline designs in store. Connect with our stylist on WhatsApp.
               </p>
               <a
                 href={createProductEnquiryUrl({
@@ -213,13 +219,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 className="btn-whatsapp"
                 style={{ marginTop: '16px', display: 'inline-flex' }}
               >
-                <MessageCircle size={16} />
+                <MessageCircle size={15} />
                 <span>Enquire "{query}" on WhatsApp</span>
               </a>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>
+              <div style={{ fontSize: '0.625rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '4px', fontWeight: 600 }}>
                 Showing {filteredProducts.length} Items
               </div>
               {filteredProducts.map(product => (
@@ -233,7 +239,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '10px 12px',
+                    padding: '10px 14px',
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid var(--border-subtle)',
                     backgroundColor: '#FAF7F2',
@@ -254,7 +260,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     <img
                       src={product.images[0]}
                       alt=""
-                      style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '4px' }}
+                      style={{ width: '44px', height: '44px', objectFit: 'cover', borderRadius: '2px' }}
                     />
                     <div>
                       <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-main)' }}>
@@ -269,10 +275,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   </div>
 
                   <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                    <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                    <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-main)' }}>
                       ₹{product.price}
                     </div>
-                    <div style={{ fontSize: '0.625rem', color: 'var(--accent-rose)', fontWeight: 600 }}>
+                    <div style={{ fontSize: '0.625rem', color: 'var(--accent-rose)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                       View Details ↗
                     </div>
                   </div>

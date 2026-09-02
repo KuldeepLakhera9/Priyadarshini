@@ -23,7 +23,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPriceFilter, setSelectedPriceFilter] = useState<string>(initialPriceTier || 'all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'newest'>('featured');
-  const [selectedTag, setSelectedTag] = useState<string>('all');
+  const [selectedTag] = useState<string>('all');
 
   const filteredProducts = useMemo(() => {
     let list = [...PRODUCTS];
@@ -82,8 +82,8 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
     <div style={{
       backgroundColor: '#FAF7F2',
       minHeight: '100vh',
-      paddingTop: '24px',
-      paddingBottom: '80px',
+      paddingTop: '28px',
+      paddingBottom: '90px',
     }}>
       <div className="container-custom">
         {/* Navigation Breadcrumb & Back button */}
@@ -91,7 +91,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '20px'
+          marginBottom: '24px'
         }}>
           <button
             onClick={onBackToHome}
@@ -102,19 +102,21 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
               background: 'none',
               border: 'none',
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.875rem',
-              fontWeight: 600,
+              fontSize: '0.75rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              fontWeight: 700,
               color: 'var(--accent-rose)',
               cursor: 'pointer',
               padding: '6px 0'
             }}
           >
-            <ArrowLeft size={16} />
-            <span>Back to Home</span>
+            <ArrowLeft size={15} />
+            <span>Back to Boutique</span>
           </button>
 
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-subtle)' }}>
-            Showing {filteredProducts.length} curated designs
+          <span style={{ fontSize: '0.6875rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-subtle)', fontWeight: 600 }}>
+            {filteredProducts.length} Curated Designs
           </span>
         </div>
 
@@ -122,19 +124,19 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           justifyContent: 'space-between',
-          gap: '16px',
-          marginBottom: '28px'
+          gap: '20px',
+          marginBottom: '32px'
         }}>
           <div>
-            <h1 className="editorial-heading-1" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)' }}>
+            <h1 className="editorial-heading-1" style={{ fontSize: 'clamp(1.85rem, 3.8vw, 2.65rem)' }}>
               {selectedCategory === 'all'
-                ? 'Complete Boutique Catalogue'
+                ? 'Complete Boutique Archive'
                 : CATEGORIES.find(c => c.id === selectedCategory)?.label || 'Product Collection'}
             </h1>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-              Handpicked Lakh bangles, bridal sets, accessories, and beauty essentials.
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '4px', fontWeight: 300 }}>
+              Handcrafted Jaipur Lakh, bridal suites, Parisian hair accessories, and restorative beauty.
             </p>
           </div>
 
@@ -146,15 +148,15 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             backgroundColor: '#FFFFFF',
             border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-xs)',
-            padding: '8px 14px',
+            padding: '9px 14px',
             width: '100%',
             maxWidth: '320px',
             boxShadow: 'var(--shadow-subtle)'
           }}>
-            <Search size={16} color="var(--accent-rose)" />
+            <Search size={15} color="var(--accent-gold-dark)" />
             <input
               type="text"
-              placeholder="Search in catalogue..."
+              placeholder="Search within archive..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -180,10 +182,10 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         {/* Filter Control Bar */}
         <div style={{
           backgroundColor: '#FFFFFF',
-          borderRadius: 'var(--radius-sm)',
+          borderRadius: 'var(--radius-xs)',
           border: '1px solid var(--border-subtle)',
-          padding: '16px 20px',
-          marginBottom: '28px',
+          padding: '18px 22px',
+          marginBottom: '32px',
           display: 'flex',
           flexDirection: 'column',
           gap: '14px',
@@ -191,18 +193,21 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         }}>
           {/* Category Pills */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto' }} className="hide-scrollbar">
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-subtle)', textTransform: 'uppercase', flexShrink: 0, marginRight: '4px' }}>
-              Category:
+            <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-subtle)', letterSpacing: '0.12em', textTransform: 'uppercase', flexShrink: 0, marginRight: '4px' }}>
+              Collection:
             </span>
             <button
               onClick={() => setSelectedCategory('all')}
               style={{
                 padding: '6px 14px',
-                borderRadius: 'var(--radius-full)',
-                border: selectedCategory === 'all' ? '1px solid var(--text-main)' : '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-xs)',
+                border: '1px solid',
+                borderColor: selectedCategory === 'all' ? 'var(--text-main)' : 'var(--border-subtle)',
                 backgroundColor: selectedCategory === 'all' ? 'var(--text-main)' : '#FAF7F2',
                 color: selectedCategory === 'all' ? '#FFFFFF' : 'var(--text-main)',
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
                 fontWeight: selectedCategory === 'all' ? 600 : 500,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap'
@@ -216,11 +221,14 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
                 onClick={() => setSelectedCategory(cat.id)}
                 style={{
                   padding: '6px 14px',
-                  borderRadius: 'var(--radius-full)',
-                  border: selectedCategory === cat.id ? '1px solid var(--accent-rose)' : '1px solid var(--border-subtle)',
-                  backgroundColor: selectedCategory === cat.id ? 'var(--accent-rose-light)' : '#FAF7F2',
+                  borderRadius: 'var(--radius-xs)',
+                  border: '1px solid',
+                  borderColor: selectedCategory === cat.id ? 'var(--accent-rose)' : 'var(--border-subtle)',
+                  backgroundColor: selectedCategory === cat.id ? 'var(--accent-rose-subtle)' : '#FAF7F2',
                   color: selectedCategory === cat.id ? 'var(--accent-rose)' : 'var(--text-main)',
-                  fontSize: '0.75rem',
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
                   fontWeight: selectedCategory === cat.id ? 700 : 500,
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
@@ -229,7 +237,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
                   gap: '4px'
                 }}
               >
-                {cat.id === 'lakh-bangles' && <Sparkles size={11} />}
+                {cat.id === 'lakh-bangles' && <Sparkles size={10} />}
                 <span>{cat.label}</span>
               </button>
             ))}
@@ -242,31 +250,33 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
-            paddingTop: '10px',
+            paddingTop: '12px',
             borderTop: '1px solid var(--border-subtle)'
           }}>
             {/* Price Tier Filter Buttons */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', overflowX: 'auto' }} className="hide-scrollbar">
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-subtle)', textTransform: 'uppercase', flexShrink: 0, marginRight: '4px' }}>
-                Budget:
+              <span style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--text-subtle)', letterSpacing: '0.12em', textTransform: 'uppercase', flexShrink: 0, marginRight: '4px' }}>
+                Curated Tier:
               </span>
               {[
-                { id: 'all', label: 'All Prices' },
-                { id: 'under-99', label: 'Under ₹99' },
-                { id: 'under-199', label: 'Under ₹199' },
-                { id: 'under-299', label: 'Under ₹299' },
-                { id: 'under-499', label: 'Under ₹499' }
+                { id: 'all', label: 'All Tiers' },
+                { id: 'under-99', label: 'The Petite Edit (Under ₹99)' },
+                { id: 'under-199', label: 'Daily Signature (Under ₹199)' },
+                { id: 'under-299', label: 'Statement (Under ₹299)' },
+                { id: 'under-499', label: 'Festive Suite (Under ₹499)' }
               ].map(tier => (
                 <button
                   key={tier.id}
                   onClick={() => setSelectedPriceFilter(tier.id)}
                   style={{
-                    padding: '4px 10px',
+                    padding: '5px 12px',
                     borderRadius: 'var(--radius-xs)',
-                    border: selectedPriceFilter === tier.id ? '1px solid var(--accent-gold-dark)' : '1px solid var(--border-subtle)',
+                    border: '1px solid',
+                    borderColor: selectedPriceFilter === tier.id ? 'var(--accent-gold-dark)' : 'var(--border-subtle)',
                     backgroundColor: selectedPriceFilter === tier.id ? 'var(--accent-gold-light)' : '#FFFFFF',
                     color: selectedPriceFilter === tier.id ? 'var(--accent-gold-dark)' : 'var(--text-muted)',
                     fontSize: '0.6875rem',
+                    letterSpacing: '0.04em',
                     fontWeight: 600,
                     cursor: 'pointer',
                     whiteSpace: 'nowrap'
@@ -279,12 +289,12 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
 
             {/* Sort Dropdown */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', fontWeight: 600 }}>Sort by:</span>
+              <span style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>Sort:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 style={{
-                  padding: '6px 10px',
+                  padding: '6px 12px',
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--border-subtle)',
                   backgroundColor: '#FAF7F2',
@@ -295,7 +305,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
                   cursor: 'pointer'
                 }}
               >
-                <option value="featured">Featured & Curated</option>
+                <option value="featured">Featured Curation</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
                 <option value="newest">Newest Additions</option>
@@ -308,28 +318,27 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         {filteredProducts.length === 0 ? (
           <div style={{
             backgroundColor: '#FFFFFF',
-            borderRadius: 'var(--radius-sm)',
+            borderRadius: 'var(--radius-xs)',
             border: '1px solid var(--border-subtle)',
-            padding: '60px 20px',
+            padding: '64px 20px',
             textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: '12px'
           }}>
-            <Sparkles size={32} color="var(--accent-rose)" />
+            <Sparkles size={28} color="var(--accent-rose)" />
             <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--text-main)' }}>
               No matches found for current filters
             </h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', maxWidth: '480px' }}>
-              We have thousands of offline designs in our physical boutique that are not yet listed online. Contact our team on WhatsApp to find exactly what you are looking for!
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', maxWidth: '480px', fontWeight: 300 }}>
+              We have over 500 unlisted offline designs in our boutique. Contact our family styling team on WhatsApp to request photos and size fittings.
             </p>
-            <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
               <button
                 onClick={() => {
                   setSelectedCategory('all');
                   setSelectedPriceFilter('all');
-                  setSelectedTag('all');
                   setSearchQuery('');
                 }}
                 className="btn-secondary"
@@ -344,7 +353,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
                 className="btn-whatsapp"
                 style={{ padding: '10px 20px', fontSize: '0.75rem' }}
               >
-                <MessageCircle size={15} />
+                <MessageCircle size={14} />
                 <span>Ask on WhatsApp</span>
               </a>
             </div>

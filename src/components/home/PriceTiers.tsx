@@ -1,15 +1,58 @@
-import { PRICE_TIERS } from '../../data/categories';
-import { ArrowRight, Tag } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface PriceTiersProps {
   onSelectPriceTier: (tierId: string) => void;
 }
 
+interface LuxuryTier {
+  id: string;
+  tierTitle: string;
+  priceLabel: string;
+  curationName: string;
+  description: string;
+  image: string;
+}
+
+const LUXURY_TIERS: LuxuryTier[] = [
+  {
+    id: 'under-99',
+    tierTitle: 'Collection I',
+    priceLabel: 'Under ₹99',
+    curationName: 'The Petite Edit',
+    description: 'Mini crystal hair accents, French pastel clips, and salon-shine nail lacquers.',
+    image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=600&auto=format&fit=crop',
+  },
+  {
+    id: 'under-199',
+    tierTitle: 'Collection II',
+    priceLabel: 'Under ₹199',
+    curationName: 'The Daily Signature',
+    description: 'Mulberry silk satin scrunchies, French acetate claws, and pure steam-distilled rose mist.',
+    image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop',
+  },
+  {
+    id: 'under-299',
+    tierTitle: 'Collection III',
+    priceLabel: 'Under ₹299',
+    curationName: 'The Statement Archive',
+    description: 'Handcrafted Jaipuri daily Lakh kadas, pearl-studded headbands, and artisanal pocket perfumes.',
+    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=600&auto=format&fit=crop',
+  },
+  {
+    id: 'under-499',
+    tierTitle: 'Collection IV',
+    priceLabel: 'Under ₹499',
+    curationName: 'The Festive Suite',
+    description: 'Royal Kundan bridal kadas, occasion jewellery, and ready-to-gift festive keepsake hampers.',
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
+  }
+];
+
 export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => {
   return (
     <section id="price-tiers" style={{
-      paddingTop: 'clamp(56px, 7vw, 84px)',
-      paddingBottom: 'clamp(56px, 7vw, 84px)',
+      paddingTop: 'clamp(64px, 8vw, 100px)',
+      paddingBottom: 'clamp(64px, 8vw, 100px)',
       backgroundColor: '#FAF7F2',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
@@ -20,20 +63,20 @@ export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => 
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          marginBottom: '40px',
-          gap: '8px'
+          marginBottom: '48px',
+          gap: '12px'
         }}>
           <div className="section-eyebrow">
-            <Tag size={12} />
+            <Sparkles size={11} color="var(--accent-gold-dark)" />
             <span>Honest & Accessible Luxury</span>
           </div>
 
           <h2 className="editorial-heading-1">
-            Shop by Price Range
+            Curated Tiers of Everyday Indulgence
           </h2>
 
           <p className="luxury-subtext" style={{ maxWidth: '560px' }}>
-            Elevate your everyday style or find the perfect party favor without breaking the bank.
+            Elevate your everyday rituals or discover the perfect festive token across four carefully curated price edits.
           </p>
         </div>
 
@@ -41,16 +84,16 @@ export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => 
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '20px',
+          gap: '24px',
         }}>
-          {PRICE_TIERS.map((tier) => (
+          {LUXURY_TIERS.map((tier) => (
             <div
               key={tier.id}
               onClick={() => onSelectPriceTier(tier.id)}
-              className="price-tier-card"
+              className="luxury-tier-card"
               style={{
                 backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-sm)',
+                borderRadius: 'var(--radius-xs)',
                 border: '1px solid var(--border-subtle)',
                 overflow: 'hidden',
                 boxShadow: 'var(--shadow-subtle)',
@@ -60,55 +103,80 @@ export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => 
                 flexDirection: 'column',
               }}
             >
-              {/* Image banner */}
-              <div style={{ height: '160px', overflow: 'hidden', position: 'relative' }}>
+              {/* Image banner with quiet label */}
+              <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
                 <img
                   src={tier.image}
-                  alt={tier.title}
+                  alt={tier.curationName}
                   loading="lazy"
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    transition: 'transform 0.6s ease'
+                    transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
                   }}
                   className="tier-img"
                 />
+                
                 <div style={{
                   position: 'absolute',
                   top: '12px',
                   right: '12px',
-                  backgroundColor: 'var(--text-main)',
+                  backgroundColor: 'rgba(22, 19, 18, 0.88)',
+                  backdropFilter: 'blur(6px)',
                   color: '#FAF7F2',
-                  padding: '4px 12px',
+                  padding: '4px 10px',
                   borderRadius: 'var(--radius-xs)',
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.25rem',
-                  fontWeight: 600
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.6875rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase'
                 }}>
-                  {tier.title}
+                  {tier.priceLabel}
                 </div>
               </div>
 
               {/* Card info */}
-              <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between', gap: '14px' }}>
+              <div style={{
+                padding: '22px 20px',
+                display: 'flex',
+                flexDirection: 'column',
+                flex: 1,
+                justifyContent: 'space-between',
+                gap: '16px'
+              }}>
                 <div>
                   <div style={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '1.2rem',
-                    fontWeight: 600,
-                    color: 'var(--text-main)'
+                    fontSize: '0.625rem',
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    color: 'var(--accent-gold-dark)',
+                    fontWeight: 700
                   }}>
-                    {tier.tagline}
+                    {tier.tierTitle}
                   </div>
-                  <div style={{
+
+                  <h3 style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: '1.25rem',
+                    fontWeight: 500,
+                    color: 'var(--text-main)',
+                    marginTop: '4px',
+                    lineHeight: 1.25
+                  }}>
+                    {tier.curationName}
+                  </h3>
+
+                  <p style={{
                     fontSize: '0.8125rem',
                     color: 'var(--text-muted)',
                     marginTop: '6px',
-                    lineHeight: 1.5
+                    lineHeight: 1.55,
+                    fontWeight: 300
                   }}>
-                    {tier.popularItems}
-                  </div>
+                    {tier.description}
+                  </p>
                 </div>
 
                 <div style={{
@@ -117,12 +185,14 @@ export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => 
                   justifyContent: 'space-between',
                   paddingTop: '12px',
                   borderTop: '1px solid var(--border-subtle)',
-                  fontSize: '0.8125rem',
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
                   fontWeight: 600,
                   color: 'var(--accent-rose)'
                 }}>
-                  <span>Browse Collection</span>
-                  <ArrowRight size={15} />
+                  <span>Explore Edit</span>
+                  <ArrowRight size={14} />
                 </div>
               </div>
             </div>
@@ -131,13 +201,13 @@ export const PriceTiers: React.FC<PriceTiersProps> = ({ onSelectPriceTier }) => 
       </div>
 
       <style>{`
-        .price-tier-card:hover .tier-img {
-          transform: scale(1.08);
+        .luxury-tier-card:hover .tier-img {
+          transform: scale(1.06);
         }
-        .price-tier-card:hover {
+        .luxury-tier-card:hover {
           transform: translateY(-4px);
           box-shadow: var(--shadow-card);
-          border-color: var(--accent-gold);
+          border-color: var(--border-medium);
         }
       `}</style>
     </section>

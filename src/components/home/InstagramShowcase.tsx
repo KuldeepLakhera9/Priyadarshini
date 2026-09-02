@@ -7,30 +7,30 @@ export const InstagramShowcase: React.FC = () => {
   const instaPosts = [
     {
       image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=600&auto=format&fit=crop',
-      caption: 'Jaipuri bridal lakh stacks ready for the wedding season 🌸✨ #LakhBangles #BridalStyle',
-      likes: '342'
+      caption: 'Jaipuri bridal Lakh stacks handcrafted for the festive season 🌸✨',
+      tag: '#LakhBangles'
     },
     {
       image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop',
-      caption: 'Parisian marble hair claws for effortless daily updos 🤎 #HairAccessories #Chic',
-      likes: '289'
+      caption: 'French cellulose acetate claws for effortless daily Parisian hair updos 🤎',
+      tag: '#HairAccents'
     },
     {
       image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
-      caption: 'Kundan polki openable kadas with micro gold polish ✨ In-store now! #FestiveBangles',
-      likes: '415'
+      caption: 'Kundan polki openable kadas with micro-gold antique finish ✨',
+      tag: '#BridalJewels'
     },
     {
       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop',
-      caption: 'Steam-distilled Kannauj Desi Gulab mist for morning glow 🌹 #SkincareEssentials',
-      likes: '512'
+      caption: 'Steam-distilled Kannauj Desi Gulab mist for natural morning skin hydration 🌹',
+      tag: '#BotanicalGlow'
     }
   ];
 
   return (
     <section style={{
-      paddingTop: 'clamp(56px, 7vw, 84px)',
-      paddingBottom: 'clamp(56px, 7vw, 84px)',
+      paddingTop: 'clamp(56px, 7vw, 92px)',
+      paddingBottom: 'clamp(56px, 7vw, 92px)',
       backgroundColor: '#FFFFFF',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
@@ -46,11 +46,11 @@ export const InstagramShowcase: React.FC = () => {
         }}>
           <div>
             <div className="section-eyebrow">
-              <InstagramIcon size={14} color="var(--accent-rose)" />
+              <InstagramIcon size={12} color="var(--accent-gold-dark)" />
               <span>{BRAND_CONFIG.contact.instagramHandle}</span>
             </div>
 
-            <h2 className="editorial-heading-1" style={{ marginTop: '6px' }}>
+            <h2 className="editorial-heading-1" style={{ marginTop: '8px' }}>
               Follow Our Latest Finds
             </h2>
 
@@ -72,16 +72,19 @@ export const InstagramShowcase: React.FC = () => {
               padding: '12px 22px',
               borderRadius: 'var(--radius-xs)',
               fontFamily: 'var(--font-sans)',
-              fontSize: '0.8125rem',
+              fontSize: '0.75rem',
               fontWeight: 600,
-              letterSpacing: '0.06em',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              transition: 'all var(--transition-fast)'
             }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-rose)')}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'var(--text-main)')}
           >
-            <InstagramIcon size={16} color="#FFFFFF" />
+            <InstagramIcon size={15} color="#FFFFFF" />
             <span>Follow on Instagram</span>
-            <ArrowUpRight size={14} />
+            <ArrowUpRight size={13} />
           </a>
         </div>
 
@@ -89,7 +92,7 @@ export const InstagramShowcase: React.FC = () => {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '16px'
+          gap: '18px'
         }}>
           {instaPosts.map((post, idx) => (
             <a
@@ -104,18 +107,19 @@ export const InstagramShowcase: React.FC = () => {
                 borderRadius: 'var(--radius-xs)',
                 overflow: 'hidden',
                 display: 'block',
-                backgroundColor: '#FAF4EB'
+                backgroundColor: 'var(--bg-surface-stone)',
+                border: '1px solid var(--border-subtle)'
               }}
             >
               <img
                 src={post.image}
                 alt={post.caption}
                 loading="lazy"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)' }}
                 className="insta-img"
               />
 
-              {/* Hover Overlay with caption & icon */}
+              {/* Hover Overlay with caption */}
               <div
                 className="insta-overlay"
                 style={{
@@ -124,20 +128,24 @@ export const InstagramShowcase: React.FC = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  backgroundColor: 'rgba(25, 21, 20, 0.75)',
-                  padding: '20px',
+                  backgroundColor: 'rgba(22, 19, 18, 0.78)',
+                  backdropFilter: 'blur(4px)',
+                  padding: '24px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   color: '#FFFFFF',
-                  transition: 'opacity 0.2s ease',
+                  transition: 'opacity 0.25s ease',
                   opacity: 0,
                 }}
               >
-                <div style={{ alignSelf: 'flex-end' }}>
-                  <InstagramIcon size={20} color="#FFFFFF" />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.625rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent-champagne)' }}>
+                    {post.tag}
+                  </span>
+                  <InstagramIcon size={18} color="#FFFFFF" />
                 </div>
-                <div style={{ fontSize: '0.8125rem', lineHeight: 1.4 }}>
+                <div style={{ fontSize: '0.8125rem', lineHeight: 1.45, fontWeight: 300 }}>
                   {post.caption}
                 </div>
               </div>
@@ -151,7 +159,7 @@ export const InstagramShowcase: React.FC = () => {
           opacity: 1;
         }
         .insta-card:hover .insta-img {
-          transform: scale(1.08);
+          transform: scale(1.06);
         }
       `}</style>
     </section>

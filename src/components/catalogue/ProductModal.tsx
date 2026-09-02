@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Product } from '../../types';
 import { BRAND_CONFIG } from '../../config/brand';
-import { X, MessageCircle, Sparkles, Check, Share2, MapPin, ShieldCheck, Ruler } from 'lucide-react';
+import { X, MessageCircle, Sparkles, Check, Share2, MapPin, Ruler } from 'lucide-react';
 import { createProductEnquiryUrl } from '../../utils/whatsapp';
 
 interface ProductModalProps {
@@ -20,10 +20,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
     product.sizes && product.sizes.length > 0 ? product.sizes[0] : ''
   );
   const [copied, setCopied] = useState(false);
-
-  const discountPercent = product.originalPrice
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
-    : 0;
 
   const handleShare = () => {
     if (navigator.share) {
@@ -61,7 +57,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(25, 21, 20, 0.75)',
+          backgroundColor: 'rgba(22, 19, 18, 0.78)',
           backdropFilter: 'blur(8px)',
         }}
       />
@@ -74,7 +70,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           maxWidth: '920px',
           maxHeight: '90vh',
           backgroundColor: '#FAF7F2',
-          borderRadius: 'var(--radius-md)',
+          borderRadius: 'var(--radius-xs)',
+          border: '1px solid var(--border-subtle)',
           boxShadow: 'var(--shadow-modal)',
           overflowY: 'auto',
           zIndex: 111,
@@ -92,27 +89,27 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             top: '16px',
             right: '16px',
             zIndex: 10,
-            background: 'rgba(255, 255, 255, 0.9)',
+            background: 'rgba(255, 255, 255, 0.94)',
             backdropFilter: 'blur(4px)',
             border: '1px solid var(--border-subtle)',
             borderRadius: '50%',
-            width: '38px',
-            height: '38px',
+            width: '36px',
+            height: '36px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             color: 'var(--text-main)',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
           }}
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         {/* Left Column: Gallery */}
         <div style={{
           padding: '24px',
-          backgroundColor: '#F5EFEB',
+          backgroundColor: 'var(--bg-canvas-subtle)',
           display: 'flex',
           flexDirection: 'column',
           gap: '12px'
@@ -120,12 +117,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           {/* Main Display Image */}
           <div style={{
             width: '100%',
-            aspectRatio: '1 / 1.1',
-            borderRadius: 'var(--radius-sm)',
+            aspectRatio: '4 / 5',
+            borderRadius: 'var(--radius-xs)',
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             position: 'relative',
-            boxShadow: 'var(--shadow-subtle)'
+            border: '1px solid var(--border-subtle)'
           }}>
             <img
               src={product.images[activeImageIndex] || product.images[0]}
@@ -157,8 +154,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
                   style={{
-                    width: '64px',
-                    height: '64px',
+                    width: '60px',
+                    height: '60px',
                     borderRadius: 'var(--radius-xs)',
                     overflow: 'hidden',
                     border: activeImageIndex === idx ? '2px solid var(--accent-rose)' : '1px solid var(--border-subtle)',
@@ -177,20 +174,19 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           <div style={{
             backgroundColor: '#FFFFFF',
             borderRadius: 'var(--radius-xs)',
-            padding: '12px 14px',
+            padding: '14px 16px',
             border: '1px solid var(--border-subtle)',
             fontSize: '0.75rem',
             color: 'var(--text-muted)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '6px'
+            gap: '4px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-rose)', fontWeight: 600 }}>
-              <ShieldCheck size={16} />
-              <span>100% In-Store Verified Quality</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-rose)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              <span>Atelier In-Store Assurance</span>
             </div>
-            <div>
-              Visit our boutique to try on sizes or request a WhatsApp live video demo before ordering.
+            <div style={{ lineHeight: 1.5, fontWeight: 300 }}>
+              Visit our boutique to try on sizes or request an instant live video preview on WhatsApp before placing an offline reservation.
             </div>
           </div>
         </div>
@@ -212,20 +208,20 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               marginBottom: '6px'
             }}>
               <span style={{
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
                 fontWeight: 700,
                 color: 'var(--accent-gold-dark)',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.14em',
                 textTransform: 'uppercase'
               }}>
                 {product.categoryLabel} • {product.subcategory}
               </span>
               <span style={{
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
                 fontFamily: 'monospace',
-                backgroundColor: 'var(--bg-stone)',
+                backgroundColor: 'var(--bg-surface-stone)',
                 padding: '2px 8px',
-                borderRadius: '3px',
+                borderRadius: 'var(--radius-xs)',
                 color: 'var(--text-muted)'
               }}>
                 CODE: {product.code}
@@ -236,7 +232,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             <h2 style={{
               fontFamily: 'var(--font-serif)',
               fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)',
-              fontWeight: 600,
+              fontWeight: 500,
               color: 'var(--text-main)',
               lineHeight: 1.25,
               marginBottom: '12px'
@@ -255,7 +251,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               <span style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: '1.75rem',
-                fontWeight: 700,
+                fontWeight: 600,
                 color: 'var(--text-main)'
               }}>
                 ₹{product.price}
@@ -263,7 +259,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
               {product.originalPrice && (
                 <span style={{
-                  fontSize: '1rem',
+                  fontSize: '0.9375rem',
                   color: 'var(--text-subtle)',
                   textDecoration: 'line-through'
                 }}>
@@ -271,31 +267,20 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 </span>
               )}
 
-              {discountPercent > 0 && (
-                <span style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  color: '#ffffff',
-                  backgroundColor: 'var(--accent-rose)',
-                  padding: '2px 8px',
-                  borderRadius: '3px'
-                }}>
-                  {discountPercent}% OFF
-                </span>
-              )}
-
               <span style={{
-                fontSize: '0.8125rem',
+                fontSize: '0.75rem',
                 color: 'var(--accent-gold-dark)',
-                fontWeight: 500,
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
                 marginLeft: 'auto'
               }}>
-                ({product.priceMode === 'pair' ? 'Per Pair' : product.priceMode === 'set' ? 'Full Set' : product.priceMode === 'box' ? 'Gift Box' : product.priceMode === 'starting_at' ? 'Starting Price' : 'Piece'})
+                ({product.priceMode === 'pair' ? 'Per Pair' : product.priceMode === 'set' ? 'Full Set' : product.priceMode === 'box' ? 'Curated Hamper' : product.priceMode === 'starting_at' ? 'Starting Price' : 'Piece'})
               </span>
             </div>
 
             {/* Description */}
-            <div style={{ marginTop: '16px', fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+            <div style={{ marginTop: '16px', fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.65, fontWeight: 300 }}>
               <p>{product.description}</p>
               {product.story && (
                 <p style={{ marginTop: '8px', fontStyle: 'italic', color: 'var(--accent-gold-dark)', fontSize: '0.8125rem' }}>
@@ -321,7 +306,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                         gap: '6px',
                         padding: '6px 12px',
                         borderRadius: 'var(--radius-xs)',
-                        border: selectedColor === c.name ? '2px solid var(--accent-rose)' : '1px solid var(--border-medium)',
+                        border: selectedColor === c.name ? '1.5px solid var(--accent-rose)' : '1px solid var(--border-medium)',
                         backgroundColor: '#FFFFFF',
                         cursor: 'pointer',
                         fontSize: '0.75rem',
@@ -329,8 +314,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                       }}
                     >
                       <span style={{
-                        width: '12px',
-                        height: '12px',
+                        width: '11px',
+                        height: '11px',
                         borderRadius: '50%',
                         backgroundColor: c.hex,
                         border: '1px solid rgba(0,0,0,0.1)'
@@ -369,7 +354,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                         minWidth: '46px',
                         padding: '8px 12px',
                         borderRadius: 'var(--radius-xs)',
-                        border: selectedSize === sz ? '2px solid var(--text-main)' : '1px solid var(--border-medium)',
+                        border: selectedSize === sz ? '1.5px solid var(--text-main)' : '1px solid var(--border-medium)',
                         backgroundColor: selectedSize === sz ? 'var(--text-main)' : '#FFFFFF',
                         color: selectedSize === sz ? '#FFFFFF' : 'var(--text-main)',
                         cursor: 'pointer',
@@ -388,10 +373,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             {/* Bullet Details */}
             {product.details && product.details.length > 0 && (
               <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px dashed var(--border-subtle)' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-main)', marginBottom: '8px' }}>
+                <div style={{ fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-main)', marginBottom: '8px' }}>
                   Product Highlights
                 </div>
-                <ul style={{ paddingLeft: '18px', fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                <ul style={{ paddingLeft: '16px', fontSize: '0.8125rem', color: 'var(--text-muted)', lineHeight: 1.6, fontWeight: 300 }}>
                   {product.details.map((d, idx) => (
                     <li key={idx}>{d}</li>
                   ))}
@@ -410,12 +395,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               style={{
                 width: '100%',
                 padding: '14px 20px',
-                fontSize: '0.9375rem',
+                fontSize: '0.8125rem',
                 justifyContent: 'center',
-                boxShadow: '0 6px 20px rgba(37, 211, 102, 0.35)'
               }}
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={18} />
               <span>Enquire & Order on WhatsApp</span>
             </a>
 
@@ -435,11 +419,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                   color: 'var(--text-main)',
                   textDecoration: 'none',
                   fontSize: '0.75rem',
-                  fontWeight: 600
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase'
                 }}
               >
-                <MapPin size={15} color="var(--accent-rose)" />
-                <span>Check In Physical Store</span>
+                <MapPin size={14} color="var(--accent-rose)" />
+                <span>Check In Store</span>
               </a>
 
               <button
@@ -458,8 +444,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                   gap: '6px'
                 }}
               >
-                <Share2 size={15} />
-                <span>{copied ? 'Link Copied!' : 'Share'}</span>
+                <Share2 size={14} />
+                <span>{copied ? 'Copied!' : 'Share'}</span>
               </button>
             </div>
           </div>

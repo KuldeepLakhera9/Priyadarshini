@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BRAND_CONFIG } from '../../config/brand';
-import { Search, MessageCircle, Menu, MapPin, Sparkles } from 'lucide-react';
+import { Search, MessageCircle, Menu, MapPin } from 'lucide-react';
 import { createGeneralEnquiryUrl } from '../../utils/whatsapp';
 
 interface HeaderProps {
@@ -33,61 +33,64 @@ export const Header: React.FC<HeaderProps> = ({
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        boxShadow: isScrolled ? '0 4px 20px rgba(25, 21, 20, 0.06)' : 'none',
+        boxShadow: isScrolled ? '0 4px 24px rgba(22, 19, 18, 0.05)' : 'none',
       }}
     >
+      {/* Main Top Header Bar */}
       <div className="container-custom" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 'var(--header-height)',
-        gap: '16px'
+        gap: '20px'
       }}>
-        {/* Left: Mobile Menu & Quick Search */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Left: Mobile Menu & Clean Search Trigger */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             onClick={onOpenDrawer}
-            aria-label="Open boutique menu"
+            aria-label="Open menu"
             style={{
               background: 'transparent',
               border: 'none',
               color: 'var(--text-main)',
               cursor: 'pointer',
-              padding: '10px',
+              padding: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 'var(--radius-xs)',
             }}
           >
-            <Menu size={22} />
+            <Menu size={22} strokeWidth={1.75} />
           </button>
 
           <button
             onClick={onOpenSearch}
             aria-label="Search collection"
             style={{
-              background: 'rgba(255,255,255,0.7)',
-              border: '1px solid var(--border-subtle)',
+              background: 'transparent',
+              border: 'none',
               color: 'var(--text-muted)',
               cursor: 'pointer',
-              padding: '8px 14px',
-              borderRadius: 'var(--radius-full)',
+              padding: '8px 10px',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
               fontSize: '0.8125rem',
+              letterSpacing: '0.04em',
+              transition: 'color var(--transition-fast)'
             }}
-            className="search-bar-trigger"
+            onMouseOver={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
+            onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
           >
-            <Search size={16} color="var(--accent-rose)" />
+            <Search size={18} strokeWidth={1.75} color="var(--text-main)" />
             <span className="search-text-label" style={{ display: 'inline-block' }}>
-              Search bangles, hair clips, perfumes...
+              Search Catalogue
             </span>
           </button>
         </div>
 
-        {/* Center: Brand Typographic Logo Wordmark */}
+        {/* Center: Brand Typographic Wordmark */}
         <div
           onClick={onNavigateHome}
           style={{
@@ -98,34 +101,30 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <div style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(1.25rem, 2.8vw, 1.85rem)',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
+            fontSize: 'clamp(1.35rem, 3vw, 2.05rem)',
+            fontWeight: 500,
+            letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: 'var(--text-main)',
             lineHeight: 1.1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '6px'
           }}>
-            <span>{BRAND_CONFIG.brandName}</span>
+            {BRAND_CONFIG.brandName}
           </div>
           <div style={{
             fontFamily: 'var(--font-sans)',
-            fontSize: '0.625rem',
-            letterSpacing: '0.2em',
+            fontSize: '0.5625rem',
+            letterSpacing: '0.28em',
             textTransform: 'uppercase',
             color: 'var(--accent-gold-dark)',
             fontWeight: 600,
-            marginTop: '2px'
+            marginTop: '3px'
           }}>
-            Bangles • Fashion • Beauty
+            Atelier • Bangles • Beauty
           </div>
         </div>
 
-        {/* Right: Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Right: Store Locator & WhatsApp Concierge */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           {/* Store Location Quick Link */}
           <a
             href="#visit-store"
@@ -133,34 +132,38 @@ export const Header: React.FC<HeaderProps> = ({
               display: 'none',
               alignItems: 'center',
               gap: '6px',
-              fontSize: '0.8125rem',
+              fontSize: '0.75rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
               color: 'var(--text-muted)',
               textDecoration: 'none',
-              fontWeight: 500,
-              padding: '6px 12px',
-              borderRadius: 'var(--radius-xs)',
-              border: '1px solid var(--border-subtle)',
-              backgroundColor: 'rgba(255,255,255,0.6)'
+              fontWeight: 600,
+              padding: '6px 0',
+              borderBottom: '1px solid transparent',
+              transition: 'all var(--transition-fast)'
             }}
             className="desktop-store-link"
+            onMouseOver={(e) => (e.currentTarget.style.borderColor = 'var(--accent-gold)')}
+            onMouseOut={(e) => (e.currentTarget.style.borderColor = 'transparent')}
           >
-            <MapPin size={15} color="var(--accent-rose)" />
-            <span>Store Locator</span>
+            <MapPin size={15} color="var(--accent-gold-dark)" />
+            <span>Boutique Store</span>
           </a>
 
-          {/* WhatsApp Direct Enquiry CTA */}
+          {/* WhatsApp Direct Enquiry CTA — Tailored Luxury */}
           <a
-            href={createGeneralEnquiryUrl('Boutique Catalogue')}
+            href={createGeneralEnquiryUrl('Header Nav')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp"
             style={{
-              padding: '8px 16px',
-              fontSize: '0.8125rem',
+              padding: '9px 18px',
+              fontSize: '0.75rem',
+              letterSpacing: '0.08em',
             }}
           >
-            <MessageCircle size={17} />
-            <span className="whatsapp-header-text">WhatsApp Us</span>
+            <MessageCircle size={15} />
+            <span className="whatsapp-header-text">WhatsApp Stylist</span>
           </a>
         </div>
       </div>
@@ -168,167 +171,69 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Desktop Category Navigation Sub-bar */}
       <div className="desktop-category-bar" style={{
         borderTop: '1px solid var(--border-subtle)',
-        backgroundColor: 'rgba(250, 247, 242, 0.95)',
+        backgroundColor: 'rgba(250, 247, 242, 0.98)',
       }}>
         <div className="container-custom" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '24px',
-          padding: '10px 0',
+          gap: '28px',
+          padding: '11px 0',
           overflowX: 'auto',
         }}>
           <button
             onClick={() => onSelectCategory('all')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-main)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-              transition: 'color var(--transition-fast)'
-            }}
+            className="category-nav-link"
           >
             All Catalogue
           </button>
           
           <button
             onClick={() => onSelectCategory('lakh-bangles')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--accent-rose)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}
+            className="category-nav-link highlight-link"
           >
-            <Sparkles size={13} />
             Lakh Bangles
           </button>
 
           <button
             onClick={() => onSelectCategory('fancy-bangles')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
           >
             Bridal & Fancy Bangles
           </button>
 
           <button
             onClick={() => onSelectCategory('hair-accessories')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
           >
             Hair Accessories
           </button>
 
           <button
             onClick={() => onSelectCategory('beauty-skincare')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
           >
             Beauty & Skincare
           </button>
 
           <button
             onClick={() => onSelectCategory('fragrance')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
           >
-            Artisanal Fragrance
+            Fragrance & Attar
           </button>
 
           <button
             onClick={() => onSelectCategory('gifts-hampers')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
           >
-            Gifts & Hampers
+            Gifting Atelier
           </button>
 
           <a
             href="#wholesale"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.785rem',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--accent-gold-dark)',
-              textDecoration: 'none',
-              padding: '4px 8px',
-              whiteSpace: 'nowrap',
-            }}
+            className="category-nav-link"
+            style={{ color: 'var(--accent-gold-dark)', fontWeight: 600 }}
           >
             Wholesale
           </a>
@@ -336,7 +241,47 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        .category-nav-link {
+          background: none;
+          border: none;
+          font-family: var(--font-sans);
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: '0.1em';
+          text-transform: uppercase;
+          color: var(--text-muted);
+          cursor: pointer;
+          padding: 4px 2px;
+          white-space: nowrap;
+          position: relative;
+          text-decoration: none;
+          transition: color var(--transition-fast);
+        }
+        .category-nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: var(--text-main);
+          transition: width var(--transition-smooth);
+        }
+        .category-nav-link:hover {
+          color: var(--text-main);
+        }
+        .category-nav-link:hover::after {
+          width: 100%;
+        }
+        .highlight-link {
+          color: var(--accent-rose);
+          font-weight: 600;
+        }
+        .highlight-link::after {
+          background-color: var(--accent-rose);
+        }
+
+        @media (max-width: 960px) {
           .desktop-category-bar {
             display: none !important;
           }
@@ -347,7 +292,7 @@ export const Header: React.FC<HeaderProps> = ({
             display: none !important;
           }
         }
-        @media (min-width: 901px) {
+        @media (min-width: 961px) {
           .desktop-store-link {
             display: inline-flex !important;
           }
@@ -357,7 +302,7 @@ export const Header: React.FC<HeaderProps> = ({
             display: none;
           }
           .btn-whatsapp {
-            padding: 8px 10px !important;
+            padding: 9px 12px !important;
           }
         }
       `}</style>

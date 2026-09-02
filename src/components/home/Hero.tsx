@@ -1,6 +1,6 @@
 import React from 'react';
-import { Sparkles, MessageCircle, ArrowDownRight, Compass } from 'lucide-react';
-import { createGeneralEnquiryUrl, createBridalCustomOrderUrl } from '../../utils/whatsapp';
+import { Sparkles, ArrowRight, ArrowDownRight } from 'lucide-react';
+import { createBridalCustomOrderUrl } from '../../utils/whatsapp';
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -11,164 +11,178 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
     <section style={{
       position: 'relative',
       backgroundColor: '#FAF7F2',
-      paddingTop: 'clamp(24px, 4vw, 48px)',
-      paddingBottom: 'clamp(40px, 6vw, 72px)',
+      paddingTop: 'clamp(36px, 5vw, 68px)',
+      paddingBottom: 'clamp(48px, 7vw, 92px)',
       overflow: 'hidden',
       borderBottom: '1px solid var(--border-subtle)',
     }}>
-      {/* Background Ambient Glows */}
-      <div style={{
-        position: 'absolute',
-        top: '-10%',
-        right: '-5%',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(197, 168, 128, 0.18) 0%, rgba(250, 247, 242, 0) 70%)',
-        pointerEvents: 'none',
-        zIndex: 0
-      }} />
-
-      <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container-custom">
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(32px, 5vw, 64px)',
+          gap: 'clamp(36px, 6vw, 80px)',
           alignItems: 'center',
         }}>
-          {/* Left Column: Editorial Headline & Actions */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {/* Boutique Badge */}
-            <div>
-              <div className="section-eyebrow">
-                <Sparkles size={12} />
-                <span>Boutique Digital Showroom</span>
-              </div>
+          {/* Left Column: High-Fashion Editorial Typography & Actions */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {/* Archival Kicker */}
+            <div className="section-eyebrow">
+              <Sparkles size={11} color="var(--accent-gold-dark)" />
+              <span>Jaipur Artisan Atelier • Est. 2008</span>
             </div>
 
-            {/* Main Luxury Heading */}
-            <h1 className="editorial-heading-hero">
-              Where Heritage <br />
-              <span style={{ fontStyle: 'italic', color: 'var(--accent-rose)', fontWeight: 400 }}>
-                Meets Modern
-              </span> Elegance.
+            {/* Display Editorial Heading */}
+            <h1 className="editorial-display">
+              The Poetry of <br />
+              <span className="editorial-serif-italic" style={{ color: 'var(--accent-rose)' }}>
+                Adornment.
+              </span>
             </h1>
 
-            {/* Subheading Positioning */}
+            {/* Editorial Body Text */}
             <p className="luxury-subtext" style={{ maxWidth: '520px' }}>
-              Handcrafted Jaipur Lakh & Bridal Bangles, Korean Hair Accessories, Artisanal Fragrances, and Everyday Beauty Essentials — curated for the graceful woman.
+              Handcrafted Jaipur Lakh and bridal bangles, Parisian hair claws, artisanal fragrances, and everyday skincare — curated with timeless grace for the discerning woman.
             </p>
 
             {/* Primary Action Buttons */}
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '12px',
-              paddingTop: '8px',
+              alignItems: 'center',
+              gap: '16px',
+              paddingTop: '6px',
             }}>
               <button
                 onClick={onExploreClick}
                 className="btn-primary"
-                style={{ flexGrow: 0 }}
               >
-                <Compass size={18} />
-                <span>Explore Catalogue</span>
+                <span>Explore The Archive</span>
+                <ArrowRight size={15} />
               </button>
 
-              <a
-                href={createGeneralEnquiryUrl('Hero Banner')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp"
-                style={{ flexGrow: 0 }}
-              >
-                <MessageCircle size={18} />
-                <span>WhatsApp Us</span>
-              </a>
-            </div>
-
-            {/* Custom Bridal Matching Sub-CTA */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              paddingTop: '8px',
-              fontSize: '0.8125rem',
-              color: 'var(--text-muted)'
-            }}>
-              <span style={{ color: 'var(--accent-rose)', fontWeight: 600 }}>Bride-to-be?</span>
               <a
                 href={createBridalCustomOrderUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: 'var(--text-main)',
-                  textDecoration: 'underline',
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.8125rem',
                   fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--text-main)',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid var(--accent-gold)',
+                  paddingBottom: '2px',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '4px'
+                  gap: '4px',
+                  transition: 'all var(--transition-fast)'
                 }}
+                onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-rose)')}
+                onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
               >
-                Request Custom Color & Bangle Sizing on WhatsApp
-                <ArrowDownRight size={14} color="var(--accent-rose)" />
+                <span>Bridal Consultation</span>
+                <ArrowDownRight size={14} color="var(--accent-gold-dark)" />
               </a>
             </div>
 
-            {/* Three Pillar Metric Tickers */}
+            {/* Architectural Stats (Clean, No SaaS Boxes) */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '12px',
-              paddingTop: '20px',
+              gap: '20px',
+              paddingTop: '28px',
               borderTop: '1px solid var(--border-subtle)',
               marginTop: '12px'
             }}>
               <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
+                  fontWeight: 500,
+                  color: 'var(--text-main)',
+                  lineHeight: 1.1
+                }}>
                   1,000+
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Offline Designs
+                <div style={{
+                  fontSize: '0.6875rem',
+                  color: 'var(--text-subtle)',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  marginTop: '4px'
+                }}>
+                  In-Store Designs
                 </div>
               </div>
 
               <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--accent-rose)' }}>
-                  100%
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
+                  fontWeight: 500,
+                  color: 'var(--accent-rose)',
+                  lineHeight: 1.1
+                }}>
+                  Pure Lakh
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Jaipur Lakh Craft
+                <div style={{
+                  fontSize: '0.6875rem',
+                  color: 'var(--text-subtle)',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  marginTop: '4px'
+                }}>
+                  Jaipuri Craft
                 </div>
               </div>
 
               <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--accent-gold-dark)' }}>
-                  ₹49+
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
+                  fontWeight: 500,
+                  color: 'var(--accent-gold-dark)',
+                  lineHeight: 1.1
+                }}>
+                  From ₹49
                 </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Affordable Luxe
+                <div style={{
+                  fontSize: '0.6875rem',
+                  color: 'var(--text-subtle)',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  marginTop: '4px'
+                }}>
+                  Accessible Luxury
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Visual Grid */}
+          {/* Right Column: Asymmetric Editorial Framing */}
           <div style={{ position: 'relative' }}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1.1fr 0.9fr',
+              gridTemplateColumns: '1.15fr 0.85fr',
               gap: '16px',
-              position: 'relative'
+              alignItems: 'end',
             }}>
-              {/* Main Feature Image */}
+              {/* Primary Tall Editorial Portrait */}
               <div
                 className="img-zoom-container"
                 style={{
-                  borderRadius: 'var(--radius-sm)',
+                  borderRadius: 'var(--radius-xs)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-elevated)',
-                  height: '420px',
-                  backgroundColor: '#EFE8DF'
+                  height: 'clamp(380px, 42vw, 490px)',
+                  backgroundColor: 'var(--bg-surface-stone)',
+                  border: '1px solid var(--border-subtle)',
+                  position: 'relative'
                 }}
               >
                 <img
@@ -176,18 +190,37 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                   alt="Jaipur Lakh Bangles Heritage Craft"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
+
+                {/* Subtle Archival Tag Overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: '16px',
+                  left: '16px',
+                  backgroundColor: 'rgba(22, 19, 18, 0.82)',
+                  backdropFilter: 'blur(6px)',
+                  color: '#FAF7F2',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  padding: '5px 10px',
+                  borderRadius: 'var(--radius-xs)'
+                }}>
+                  Signature Edition
+                </div>
               </div>
 
-              {/* Stacked Secondary Visuals */}
+              {/* Secondary Inset Visuals */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div
                   className="img-zoom-container"
                   style={{
-                    borderRadius: 'var(--radius-sm)',
+                    borderRadius: 'var(--radius-xs)',
                     overflow: 'hidden',
                     boxShadow: 'var(--shadow-card)',
-                    height: '198px',
-                    backgroundColor: '#EFE8DF'
+                    height: 'clamp(180px, 20vw, 235px)',
+                    backgroundColor: 'var(--bg-surface-stone)',
+                    border: '1px solid var(--border-subtle)'
                   }}
                 >
                   <img
@@ -197,57 +230,32 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                   />
                 </div>
 
-                <div
-                  className="img-zoom-container"
-                  style={{
-                    borderRadius: 'var(--radius-sm)',
-                    overflow: 'hidden',
-                    boxShadow: 'var(--shadow-card)',
-                    height: '206px',
-                    backgroundColor: '#EFE8DF'
-                  }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop"
-                    alt="Beauty & Skincare Essentials"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Luxury Tag Overlay */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-16px',
-              left: '20px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-xs)',
-              padding: '12px 18px',
-              boxShadow: '0 10px 25px rgba(25, 21, 20, 0.1)',
-              border: '1px solid var(--border-subtle)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              zIndex: 3
-            }}>
-              <div style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--accent-rose-light)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Sparkles size={16} color="var(--accent-rose)" />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-main)' }}>
-                  Offline Store & WhatsApp Concierge
-                </div>
-                <div style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
-                  Try in store or order via WhatsApp
+                {/* Editorial Caption Card */}
+                <div style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 'var(--radius-xs)',
+                  padding: '16px 18px',
+                  border: '1px solid var(--border-subtle)',
+                  boxShadow: 'var(--shadow-subtle)'
+                }}>
+                  <div style={{
+                    fontSize: '0.625rem',
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    color: 'var(--accent-gold-dark)',
+                    fontWeight: 700
+                  }}>
+                    Curated For Her
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: '1rem',
+                    color: 'var(--text-main)',
+                    marginTop: '4px',
+                    lineHeight: 1.3
+                  }}>
+                    "Crafted with devotion for celebratory moments."
+                  </div>
                 </div>
               </div>
             </div>

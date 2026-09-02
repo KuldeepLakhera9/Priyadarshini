@@ -1,4 +1,4 @@
-import { Gift, MessageCircle, Heart, CheckCircle2 } from 'lucide-react';
+import { Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
 import { createGeneralEnquiryUrl } from '../../utils/whatsapp';
 
 interface GiftingSectionProps {
@@ -8,8 +8,8 @@ interface GiftingSectionProps {
 export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }) => {
   return (
     <section id="gifting" style={{
-      paddingTop: 'clamp(56px, 7vw, 90px)',
-      paddingBottom: 'clamp(56px, 7vw, 90px)',
+      paddingTop: 'clamp(64px, 8vw, 108px)',
+      paddingBottom: 'clamp(64px, 8vw, 108px)',
       backgroundColor: '#FFFFFF',
       borderBottom: '1px solid var(--border-subtle)'
     }}>
@@ -17,22 +17,23 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(32px, 5vw, 64px)',
+          gap: 'clamp(40px, 7vw, 84px)',
           alignItems: 'center'
         }}>
           {/* Left Column: Visual Hamper Presentation */}
           <div style={{ position: 'relative' }}>
             <div style={{
-              borderRadius: 'var(--radius-sm)',
+              borderRadius: 'var(--radius-xs)',
               overflow: 'hidden',
               boxShadow: 'var(--shadow-elevated)',
               position: 'relative',
-              backgroundColor: '#FAF4EB'
+              backgroundColor: 'var(--bg-surface-stone)',
+              border: '1px solid var(--border-subtle)'
             }}>
               <img
                 src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=900&auto=format&fit=crop"
-                alt="Festive Gifting & Bridal Hampers"
-                style={{ width: '100%', height: '420px', objectFit: 'cover' }}
+                alt="The Gifting Atelier Curations"
+                style={{ width: '100%', height: 'clamp(380px, 42vw, 500px)', objectFit: 'cover' }}
               />
 
               <div style={{
@@ -41,84 +42,122 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: 'linear-gradient(180deg, rgba(25, 21, 20, 0.1) 0%, rgba(25, 21, 20, 0.7) 100%)'
+                background: 'linear-gradient(180deg, transparent 40%, rgba(22, 19, 18, 0.75) 100%)'
               }} />
 
-              {/* Floating Testimonial/Tag */}
+              {/* Inset Quote Overlay */}
               <div style={{
                 position: 'absolute',
-                bottom: '20px',
-                left: '20px',
-                right: '20px',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                bottom: '24px',
+                left: '24px',
+                right: '24px',
+                backgroundColor: 'rgba(255, 255, 255, 0.94)',
                 backdropFilter: 'blur(8px)',
-                padding: '14px 18px',
+                padding: '16px 20px',
                 borderRadius: 'var(--radius-xs)',
                 border: '1px solid var(--border-subtle)'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-rose)', fontWeight: 700, fontSize: '0.75rem' }}>
-                  <Heart size={14} fill="var(--accent-rose)" />
-                  <span>Custom Festive & Wedding Favours</span>
+                <div style={{
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'var(--accent-gold-dark)',
+                  fontWeight: 700
+                }}>
+                  The Boutique Touch
                 </div>
-                <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '3px' }}>
-                  "Pre-packaged aesthetic boxes containing bangles, scrunchies, and fragrance for Karwa Chauth, Diwali & Mehendi."
+                <div style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1rem',
+                  color: 'var(--text-main)',
+                  marginTop: '4px',
+                  lineHeight: 1.35
+                }}>
+                  "Every gift is nestled in textured keepsake boxes with satin ribbons and personalized calligraphy notes."
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Copy & Gifting Categories */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {/* Right Column: Editorial Copy & Curation Pillars */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
               <div className="section-eyebrow">
-                <Gift size={12} />
-                <span>The Gifting Studio</span>
+                <Sparkles size={11} color="var(--accent-gold-dark)" />
+                <span>The Gifting Atelier</span>
               </div>
 
-              <h2 className="editorial-heading-1" style={{ marginTop: '8px' }}>
-                Thoughtful Gifts, <br />
-                <span style={{ fontStyle: 'italic', color: 'var(--accent-rose)', fontWeight: 400 }}>
-                  Lovingly Packaged.
+              <h2 className="editorial-heading-1" style={{ marginTop: '10px' }}>
+                Something Cherished, <br />
+                <span className="editorial-serif-italic" style={{ color: 'var(--accent-rose)' }}>
+                  Lovingly Curated.
                 </span>
               </h2>
             </div>
 
             <p className="luxury-subtext">
-              Whether celebrating a birthday, seeking bridesmaids' return favors, or preparing festive hampers, we create charming gift boxes customized to your chosen budget.
+              Whether celebrating a milestone birthday, assembling bespoke return favors for a Sangeet, or creating a thoughtful token of affection, our atelier curates memorable gift boxes tailored to your exact budget.
             </p>
 
-            {/* Gifting Checklist */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '6px' }}>
-              {[
-                'Bespoke Bridal Favor Boxes (Bangles + Scrunchies + Attar)',
-                'Sweet 16 Pastel Birthday Gift Kits (Under ₹299)',
-                'Festive Corporate & Family Return Hampers',
-                'Complimentary personalized calligraphy gift message card'
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle2 size={18} color="var(--accent-rose)" style={{ flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.875rem', color: 'var(--text-main)', fontWeight: 500 }}>{item}</span>
+            {/* Gifting Architectural Points (No generic green checkboxes!) */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              paddingTop: '6px'
+            }}>
+              <div style={{
+                paddingBottom: '14px',
+                borderBottom: '1px solid var(--border-subtle)'
+              }}>
+                <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '0.02em' }}>
+                  Bridal & Mehendi Favor Suites
                 </div>
-              ))}
+                <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '2px', lineHeight: 1.5, fontWeight: 300 }}>
+                  Curated pairings of Jaipur Lakh kadas, mulberry satin scrunchies, and attar vials in coordinated celebratory tones.
+                </div>
+              </div>
+
+              <div style={{
+                paddingBottom: '14px',
+                borderBottom: '1px solid var(--border-subtle)'
+              }}>
+                <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '0.02em' }}>
+                  Birthday & Sweet-Sixteen Edits
+                </div>
+                <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '2px', lineHeight: 1.5, fontWeight: 300 }}>
+                  Aesthetic Korean hair accessories, French acetate claws, and mist elixirs under ₹299.
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '0.02em' }}>
+                  Bespoke Calligraphy & Packaging
+                </div>
+                <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '2px', lineHeight: 1.5, fontWeight: 300 }}>
+                  Each gift box includes complimentary handwritten cards and reusable eco-luxury keepsake packaging.
+                </div>
+              </div>
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '10px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', paddingTop: '12px' }}>
               <button
                 onClick={onExploreGifts}
                 className="btn-primary"
               >
-                <span>Browse Gift Hampers</span>
+                <span>Explore Gift Hampers</span>
+                <ArrowRight size={15} />
               </button>
 
               <a
-                href={createGeneralEnquiryUrl('Custom Gifting Box')}
+                href={createGeneralEnquiryUrl('Custom Gifting Atelier')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
               >
-                <MessageCircle size={17} />
-                <span>Custom Bulk Gifting on WhatsApp</span>
+                <MessageCircle size={16} />
+                <span>Custom Bulk Hamper Inquiry</span>
               </a>
             </div>
           </div>
