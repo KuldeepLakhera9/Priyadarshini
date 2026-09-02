@@ -1,61 +1,70 @@
 /**
- * BRAND CONFIGURATION & CENTRAL SETTINGS
- * =====================================
- * This file is the SINGLE SOURCE OF TRUTH for all business details, contact information,
- * WhatsApp conversion channels, physical store location, Google Maps, social handles,
- * and Local SEO metadata.
+ * REAL BUSINESS IDENTITY & CENTRAL CONTENT CONFIGURATION
+ * =====================================================
+ * This file is the single source of truth for the brand.
  * 
- * Edit the values below to update the entire website instantly without touching UI code.
+ * Edit the fields below to update the entire website instantly.
+ * Any field with a bracket like [REAL BRAND NAME] is ready for your real business data.
  */
 
 export interface BrandConfig {
-  brandName: string;
-  brandTagline: string;
-  brandSubtext: string;
+  // 1. Core Brand Identity
+  brandName: string;            // Primary customer-facing brand name
+  businessName: string;         // Legal or registered store name (if different)
+  tagline: string;              // Tasteful brand tagline
+  brandSubtext: string;         // Concise brand positioning
   establishedYear: string;
-  websiteUrl: string; // Primary domain for QR code generation and canonical SEO
-  
+  websiteUrl: string;           // Primary live domain
+
+  // 2. Direct Contact & Communication Channels
   contact: {
-    whatsappNumber: string;       // International format without '+' or spaces (e.g. 919876543210)
-    whatsappDisplay: string;      // User-facing formatted number (e.g. +91 98765 43210)
-    phoneNumber: string;          // Direct dial phone number (e.g. +919876543210)
-    phoneDisplay: string;
+    whatsappNumber: string;     // International format: e.g. "919876543210" (no spaces or '+' sign)
+    whatsappDisplay: string;    // Formatted for customers: e.g. "+91 98765 43210"
+    phoneNumber: string;        // Direct calling number
+    phoneDisplay: string;       // Formatted calling display
     email: string;
-    instagramHandle: string;
-    instagramUrl: string;
-    facebookUrl?: string;
-    googleReviewUrl?: string;     // Direct Google Business Profile review link (when available)
+    instagramHandle: string;    // e.g. "@brandname_official"
+    instagramUrl: string;       // Full Instagram profile URL
+    googleReviewUrl?: string;   // Google Business Profile direct review URL
   };
 
+  // 3. Physical Boutique Store Location
   store: {
     name: string;
-    addressLine1: string;
-    addressLine2: string;
+    addressLine1: string;       // Shop / building number and street
+    addressLine2: string;       // Area, market, or road
     city: string;
     state: string;
     pincode: string;
     country: string;
     landmark: string;
-    googleMapsUrl: string;        // Real Google Maps navigation link
-    googleMapsEmbedQuery: string; // Safe search query for map display
-    timings: string;
-    openDays: string;
-    priceRange: string;
+    googleMapsUrl: string;      // Google Maps directions URL
+    googleMapsEmbedQuery: string;
+    timings: string;            // Opening hours: e.g. "10:30 AM – 9:30 PM"
+    openDays: string;           // Working days: e.g. "Open All 7 Days"
+    priceRange: string;         // Accessible luxury indicator
   };
 
+  // 4. Authentic Brand Story & Heritage
+  story: {
+    kicker: string;
+    heading: string;
+    quote: string;
+    paragraphs: string[];
+    pillars: {
+      title: string;
+      desc: string;
+    }[];
+  };
+
+  // 5. Offline-to-Online QR Campaign Targets
   qrCampaign: {
-    counterTentUrl: string;       // Counter display QR target
-    shoppingBagUrl: string;       // Shopping bag printed QR target
-    businessCardUrl: string;      // Visiting card QR target
+    counterTentUrl: string;
+    shoppingBagUrl: string;
+    businessCardUrl: string;
   };
 
-  businessPillars: {
-    heritage: string;
-    variety: string;
-    curation: string;
-    wholesale: string;
-  };
-
+  // 6. Top Announcement Ribbon
   announcement: {
     enabled: boolean;
     badge: string;
@@ -64,6 +73,7 @@ export interface BrandConfig {
     linkHref?: string;
   };
 
+  // 7. Local SEO & Meta Tags
   seo: {
     title: string;
     description: string;
@@ -73,28 +83,29 @@ export interface BrandConfig {
 }
 
 export const BRAND_CONFIG: BrandConfig = {
-  // Brand Identity (Update with your registered business name)
-  brandName: "[BRAND NAME]",
-  brandTagline: "Bangles • Fashion Accessories • Beauty Essentials",
-  brandSubtext: "Curating authentic Jaipur Lakh artistry, bridal choodas, Korean hair accents, and pure botanical beauty for the modern woman.",
+  // 1. Core Brand Identity
+  brandName: "[REAL BRAND NAME]",
+  businessName: "[REAL BUSINESS NAME]",
+  tagline: "Everyday Elegance, Beautifully Curated.",
+  brandSubtext: "Handcrafted bangles, daily hair accessories, botanical beauty rituals and celebratory gifts.",
   establishedYear: "2008",
   websiteUrl: "https://priyadarshini-boutique.com",
 
-  // Direct Contact Channels (Update with real store phone & WhatsApp numbers)
+  // 2. Direct Contact Channels
   contact: {
-    whatsappNumber: "919876543210", // [PLACEHOLDER] Replace with real store WhatsApp: 91XXXXXXXXXX
-    whatsappDisplay: "+91 98765 43210",
-    phoneNumber: "+919876543210",   // [PLACEHOLDER] Replace with real store calling number
+    whatsappNumber: "919876543210",       // [REPLACE] Real store WhatsApp number (e.g. 91XXXXXXXXXX)
+    whatsappDisplay: "+91 98765 43210",   // [REPLACE] Customer display format
+    phoneNumber: "+919876543210",         // [REPLACE] Real store telephone
     phoneDisplay: "+91 98765 43210",
     email: "contact@brandname.com",
-    instagramHandle: "@brandname_official", // [PLACEHOLDER] Replace with real boutique Instagram handle
+    instagramHandle: "@brandname_official", // [REPLACE] Official Instagram handle
     instagramUrl: "https://instagram.com",
     googleReviewUrl: "https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID",
   },
 
-  // Physical Boutique Store Location (Update with father's actual store address)
+  // 3. Physical Boutique Store Location
   store: {
-    name: "[BRAND NAME] Boutique & Bangles Studio",
+    name: "[REAL BRAND NAME] Boutique & Bangles Studio",
     addressLine1: "Shop No. 14, Ground Floor, Central Market Complex",
     addressLine2: "Main Commercial High Street, Near Gandhi Chowk",
     city: "City Centre",
@@ -102,29 +113,51 @@ export const BRAND_CONFIG: BrandConfig = {
     pincode: "302001",
     country: "India",
     landmark: "Opposite Rajwada Square",
-    googleMapsUrl: "https://maps.google.com/?q=Central+Market+Complex", // [PLACEHOLDER] Replace with exact Google Maps pin
+    googleMapsUrl: "https://maps.google.com/?q=Central+Market+Complex", // [REPLACE] Real Google Maps link
     googleMapsEmbedQuery: "Central Market Complex, Main High Street",
     timings: "10:30 AM – 9:30 PM",
     openDays: "Open All 7 Days",
-    priceRange: "₹₹ (Accessible Luxury: ₹49 - ₹899)",
+    priceRange: "₹₹ (Affordable Premium: ₹49 - ₹899)",
   },
 
-  // QR Code Offline-to-Online Campaign Targets
+  // 4. Authentic Brand Story
+  story: {
+    kicker: "The Boutique Journey",
+    heading: "From Traditional Bangles to Everyday Elegance",
+    quote: "What began with a love for beautiful bangles has grown into a carefully curated destination for women's fashion, beauty and everyday accessories.",
+    paragraphs: [
+      "Our story started with the timeless charm of handcrafted Jaipur Lakh bangles — the rich colours, the artisan mirror-work, and the quiet joy of finding the exact wrist fit for a festive celebration.",
+      "Over the years, our customers asked us for pieces to complete their daily looks. Listening to their desires, we thoughtfully expanded our shelves: French acetate hair claws for effortless mornings, pure botanical rosewater mists for daily glow, and ready-to-gift celebratory keepsakes.",
+      "Today, our physical store is a vibrant, welcoming sanctuary where traditional Indian heritage effortlessly meets modern feminine taste — always curated with personal warmth and honest pricing."
+    ],
+    pillars: [
+      {
+        title: "Heirloom Craftsmanship",
+        desc: "Pure organic Lakh and bridal choodas hand-sculpted by master artisans."
+      },
+      {
+        title: "Fresh Weekly Curations",
+        desc: "New Korean hair claws, trending studs, and skin essentials arriving every 7 days."
+      },
+      {
+        title: "Honest Affordable Luxury",
+        desc: "Thoughtful quality from ₹49 daily essentials to royal bridal suites without excessive retail markups."
+      },
+      {
+        title: "Warm Personal Service",
+        desc: "Complimentary mandrel sizing in store or live video previews on WhatsApp."
+      }
+    ]
+  },
+
+  // 5. QR Code Offline Campaign Targets
   qrCampaign: {
     counterTentUrl: "https://priyadarshini-boutique.com/?ref=qr_counter",
     shoppingBagUrl: "https://priyadarshini-boutique.com/?ref=qr_bag",
     businessCardUrl: "https://priyadarshini-boutique.com/?ref=qr_card",
   },
 
-  // Core Value Propositions
-  businessPillars: {
-    heritage: "Heritage Jaipur Lakh & Handcrafted Auspicious Bangles",
-    variety: "1,000+ Curated Bangles, Hair Accents & Beauty Must-Haves",
-    curation: "Fresh Arrivals & Trending Korean Designs Every Week",
-    wholesale: "Bespoke Bulk Supply & Sangeet Return Favors",
-  },
-
-  // Announcement Ribbon
+  // 6. Announcement Ribbon
   announcement: {
     enabled: true,
     badge: "VISIT BOUTIQUE",
@@ -133,22 +166,20 @@ export const BRAND_CONFIG: BrandConfig = {
     linkHref: "#visit-store"
   },
 
-  // Comprehensive Local SEO & OpenGraph Metadata
+  // 7. Local SEO & Meta Tags
   seo: {
-    title: "[BRAND NAME] | Handcrafted Jaipur Lakh Bangles, Fashion Accessories & Beauty Boutique",
+    title: "[REAL BRAND NAME] | Handcrafted Jaipur Lakh Bangles, Fashion Accessories & Beauty Boutique",
     description: "Discover handcrafted Jaipur Lakh bangles, bridal choodas, Parisian acetate hair claws, and pure botanical beauty rituals. Visit our offline boutique or enquire instantly on WhatsApp.",
     keywords: [
       "lakh bangles",
       "jaipur lakh kadas",
       "bridal chooda set",
       "bangles shop near me",
-      "traditional bangles",
       "hair accessories",
       "acetate hair claws",
       "mulberry silk scrunchies",
       "kannauj rosewater mist",
       "ladies accessories boutique",
-      "wedding return gifts",
       "women beauty essentials"
     ],
     ogImage: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=1200&auto=format&fit=crop"

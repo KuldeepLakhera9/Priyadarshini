@@ -11,6 +11,7 @@ import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 import { Hero } from './components/home/Hero';
 import { CategoryGrid } from './components/home/CategoryGrid';
 import { HeritageBangles } from './components/home/HeritageBangles';
+import { BrandStory } from './components/home/BrandStory';
 import { SeasonalCollections } from './components/home/SeasonalCollections';
 import { FeaturedProducts } from './components/home/FeaturedProducts';
 import { NewArrivals } from './components/home/NewArrivals';
@@ -150,18 +151,22 @@ export function App() {
               onExploreBangles={() => navigateToCatalogue('lakh-bangles')}
             />
 
-            <SeasonalCollections
-              onSelectCollection={() => navigateToCatalogue('all')}
+            <BrandStory
+              onExploreCollection={() => navigateToCatalogue('all')}
             />
 
-            <FeaturedProducts
-              onQuickView={handleOpenProduct}
-              onViewAllCatalogue={() => navigateToCatalogue('all')}
+            <SeasonalCollections
+              onSelectCollection={() => navigateToCatalogue('all')}
             />
 
             <NewArrivals
               onQuickView={handleOpenProduct}
               onViewAllCatalogue={() => navigateToCatalogue('new-arrivals')}
+            />
+
+            <FeaturedProducts
+              onQuickView={handleOpenProduct}
+              onViewAllCatalogue={() => navigateToCatalogue('all')}
             />
 
             <PriceTiers

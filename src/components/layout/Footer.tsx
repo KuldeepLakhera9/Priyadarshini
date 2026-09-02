@@ -42,13 +42,13 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
             </div>
             <div style={{
               fontSize: '0.625rem',
-              letterSpacing: '0.24em',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
               color: 'var(--accent-gold)',
               fontWeight: 600,
               marginBottom: '18px'
             }}>
-              Atelier • Bangles • Beauty
+              {BRAND_CONFIG.tagline}
             </div>
             <p style={{
               fontSize: '0.8125rem',

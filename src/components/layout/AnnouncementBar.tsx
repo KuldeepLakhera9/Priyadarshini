@@ -38,9 +38,9 @@ export const AnnouncementBar: React.FC = () => {
         </span>
         <span style={{ opacity: 0.4 }}>•</span>
         <a
-          href={createGeneralEnquiryUrl('Announcement Bar')}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={BRAND_CONFIG.announcement.linkHref || createGeneralEnquiryUrl('Announcement Bar')}
+          target={BRAND_CONFIG.announcement.linkHref?.startsWith('#') ? '_self' : '_blank'}
+          rel={BRAND_CONFIG.announcement.linkHref?.startsWith('#') ? undefined : 'noopener noreferrer'}
           style={{
             color: 'var(--accent-gold)',
             textDecoration: 'none',

@@ -25,10 +25,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         }}>
           {/* Left Column: High-Fashion Editorial Typography & Actions */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {/* Archival Kicker */}
+            {/* Brand Eyebrow */}
             <div className="section-eyebrow">
               <Sparkles size={11} color="var(--accent-gold-dark)" />
-              <span>Jaipur Artisan Atelier • Est. 2008</span>
+              <span>Everyday Elegance, Beautifully Curated</span>
             </div>
 
             {/* Display Editorial Heading */}
@@ -39,9 +39,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               </span>
             </h1>
 
-            {/* Editorial Body Text */}
+            {/* Authentic Brand Voice Subtext */}
             <p className="luxury-subtext" style={{ maxWidth: '520px' }}>
-              Handcrafted Jaipur Lakh and bridal bangles, Parisian hair claws, artisanal fragrances, and everyday skincare — curated with timeless grace for the discerning woman.
+              Beautiful pieces for everyday moments, celebrations and everything in between. Handcrafted Jaipur Lakh bangles, Korean hair accessories, botanical skincare and festive gifts.
             </p>
 
             {/* Primary Action Buttons */}
