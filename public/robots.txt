@@ -1,6 +1,6 @@
-# Robots.txt for Priyadarshini Boutique & Bangles Studio
+# Robots.txt for Priyadarshani Bangles & Fancy Collections, Jalgaon
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://priyadarshini-boutique.com/sitemap.xml
+Sitemap: https://priyadarshani-boutique.com/sitemap.xml

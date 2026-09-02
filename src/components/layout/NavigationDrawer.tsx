@@ -84,10 +84,10 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               fontSize: '0.625rem',
               color: 'var(--accent-gold-dark)',
               fontWeight: 600,
-              letterSpacing: '0.2em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase'
             }}>
-              Boutique Atelier
+              Bhawani Peth, Jalgaon
             </div>
           </div>
 

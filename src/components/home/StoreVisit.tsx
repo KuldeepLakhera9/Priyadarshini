@@ -28,12 +28,12 @@ export const StoreVisit: React.FC = () => {
               </div>
 
               <h2 className="editorial-heading-1" style={{ marginTop: '10px' }}>
-                Visit Our Physical Boutique
+                Visit Priyadarshani
               </h2>
             </div>
 
             <p className="luxury-subtext">
-              Experience the full depth of our collection in person. Try on over 1,000 handcrafted bangle sets, determine your exact size on our brass mandrels, sample our botanical fragrances, and receive warm personal styling from our family team.
+              Experience the full depth of our collection in person at Om Tulsi Plaza, Bhawani Peth. Try on over 1,000 handcrafted bangle sets, determine your exact size on our brass mandrels, discover Korean hair accessories, sample fine fragrances, and receive warm personal styling from our family team.
             </p>
 
             {/* Architectural Store Details */}
@@ -93,7 +93,7 @@ export const StoreVisit: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
-                style={{ flex: 1, minWidth: '190px' }}
+                style={{ flex: 1, minWidth: '180px' }}
                 onClick={() => trackConversionEvent('directions_clicked', { source: 'store_section' })}
               >
                 <Navigation size={15} />
@@ -105,36 +105,64 @@ export const StoreVisit: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
-                style={{ flex: 1, minWidth: '190px' }}
+                style={{ flex: 1, minWidth: '180px' }}
                 onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'store_section_pin' })}
               >
                 <MessageCircle size={15} />
-                <span>Send WhatsApp Location Pin</span>
+                <span>WhatsApp Location</span>
               </a>
 
-              <a
-                href={`tel:${BRAND_CONFIG.contact.phoneNumber}`}
-                onClick={() => trackConversionEvent('call_clicked', { source: 'store_section' })}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  backgroundColor: '#FFFFFF',
-                  color: 'var(--text-main)',
-                  border: '1px solid var(--border-strong)',
-                  padding: '13px 20px',
-                  borderRadius: 'var(--radius-xs)',
-                  textDecoration: 'none',
-                  fontSize: '0.8125rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase'
-                }}
-              >
-                <Phone size={14} color="var(--accent-rose)" />
-                <span>Call Store</span>
-              </a>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <a
+                  href={`tel:${BRAND_CONFIG.contact.primaryPhone}`}
+                  onClick={() => trackConversionEvent('call_clicked', { source: 'store_section_primary' })}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    backgroundColor: '#FFFFFF',
+                    color: 'var(--text-main)',
+                    border: '1px solid var(--border-strong)',
+                    padding: '13px 16px',
+                    borderRadius: 'var(--radius-xs)',
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase'
+                  }}
+                  title="Call 9403478600"
+                >
+                  <Phone size={14} color="var(--accent-rose)" />
+                  <span>94034 78600</span>
+                </a>
+
+                <a
+                  href={`tel:${BRAND_CONFIG.contact.secondaryPhone}`}
+                  onClick={() => trackConversionEvent('call_clicked', { source: 'store_section_secondary' })}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    backgroundColor: '#FFFFFF',
+                    color: 'var(--text-muted)',
+                    border: '1px solid var(--border-subtle)',
+                    padding: '13px 16px',
+                    borderRadius: 'var(--radius-xs)',
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase'
+                  }}
+                  title="Call 9325299923"
+                >
+                  <Phone size={14} color="var(--accent-gold-dark)" />
+                  <span>93252 99923</span>
+                </a>
+              </div>
             </div>
 
             {/* Genuine Google Review CTA (No fabricated ratings or fake stars) */}

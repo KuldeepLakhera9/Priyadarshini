@@ -1,7 +1,7 @@
 import React from 'react';
 import { BRAND_CONFIG } from '../../config/brand';
 import { CATEGORIES } from '../../data/categories';
-import { MessageCircle, Phone, MapPin, Mail, Sparkles } from 'lucide-react';
+import { MessageCircle, Phone, MapPin, Sparkles } from 'lucide-react';
 import { InstagramIcon } from '../common/Icons';
 import { createGeneralEnquiryUrl, createStoreVisitEnquiryUrl, createWholesaleEnquiryUrl } from '../../utils/whatsapp';
 
@@ -236,16 +236,20 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <MapPin size={16} color="#BFA37C" style={{ marginTop: '2px', flexShrink: 0 }} />
                 <span>
-                  {BRAND_CONFIG.store.addressLine1}, {BRAND_CONFIG.store.addressLine2}, {BRAND_CONFIG.store.city}
+                  {BRAND_CONFIG.store.addressLine1}, {BRAND_CONFIG.store.addressLine2}, {BRAND_CONFIG.store.city}, {BRAND_CONFIG.store.state} – {BRAND_CONFIG.store.pincode}
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Phone size={15} color="#BFA37C" style={{ flexShrink: 0 }} />
-                <span>{BRAND_CONFIG.contact.phoneDisplay}</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={15} color="#BFA37C" style={{ flexShrink: 0 }} />
-                <span>{BRAND_CONFIG.contact.email}</span>
+                <span>
+                  <a href={`tel:${BRAND_CONFIG.contact.primaryPhone}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {BRAND_CONFIG.contact.primaryPhoneDisplay}
+                  </a>
+                  {' • '}
+                  <a href={`tel:${BRAND_CONFIG.contact.secondaryPhone}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    {BRAND_CONFIG.contact.secondaryPhoneDisplay}
+                  </a>
+                </span>
               </div>
               <div style={{
                 paddingTop: '8px',
@@ -256,26 +260,45 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
                 🕒 {BRAND_CONFIG.store.timings} • {BRAND_CONFIG.store.openDays}
               </div>
               
-              <a
-                href={createStoreVisitEnquiryUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  color: '#FFFFFF',
-                  textDecoration: 'none',
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  borderBottom: '1px solid var(--accent-gold)',
-                  paddingBottom: '2px',
-                  width: 'fit-content',
-                  marginTop: '4px'
-                }}
-              >
-                Request In-Store Location Pin ↗
-              </a>
+              <div style={{ display: 'flex', gap: '12px', marginTop: '6px' }}>
+                <a
+                  href={BRAND_CONFIG.store.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    color: 'var(--accent-gold)',
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    borderBottom: '1px solid var(--accent-gold)',
+                    paddingBottom: '2px',
+                  }}
+                >
+                  Get Directions ↗
+                </a>
+
+                <a
+                  href={createStoreVisitEnquiryUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    borderBottom: '1px solid rgba(255,255,255,0.5)',
+                    paddingBottom: '2px',
+                  }}
+                >
+                  WhatsApp Location Pin ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>

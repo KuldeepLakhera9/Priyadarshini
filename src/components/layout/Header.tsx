@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BRAND_CONFIG } from '../../config/brand';
-import { Search, MessageCircle, Menu, MapPin } from 'lucide-react';
+import { Search, MessageCircle, Menu } from 'lucide-react';
+import { InstagramIcon } from '../common/Icons';
 import { createGeneralEnquiryUrl } from '../../utils/whatsapp';
+import { trackConversionEvent } from '../../utils/analytics';
 
 interface HeaderProps {
   onOpenSearch: () => void;
@@ -59,23 +61,25 @@ export const Header: React.FC<HeaderProps> = ({
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 'var(--radius-xs)',
+              transition: 'background var(--transition-fast)'
             }}
           >
-            <Menu size={22} strokeWidth={1.75} />
+            <Menu size={22} strokeWidth={1.5} />
           </button>
 
           <button
             onClick={onOpenSearch}
-            aria-label="Search collection"
+            aria-label="Search catalogue"
             style={{
               background: 'transparent',
               border: 'none',
-              color: 'var(--text-muted)',
-              cursor: 'pointer',
-              padding: '8px 10px',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              color: 'var(--text-muted)',
+              cursor: 'pointer',
+              padding: '6px 12px',
+              borderRadius: 'var(--radius-xs)',
               fontSize: '0.8125rem',
               letterSpacing: '0.04em',
               transition: 'color var(--transition-fast)'
@@ -101,61 +105,61 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <div style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(1.35rem, 3vw, 2.05rem)',
+            fontSize: 'clamp(1.4rem, 3.2vw, 2.15rem)',
             fontWeight: 500,
-            letterSpacing: '0.2em',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: 'var(--text-main)',
-            lineHeight: 1.1,
+            lineHeight: 1.05,
           }}>
             {BRAND_CONFIG.brandName}
           </div>
           <div style={{
             fontFamily: 'var(--font-sans)',
             fontSize: '0.5625rem',
-            letterSpacing: '0.28em',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: 'var(--accent-gold-dark)',
             fontWeight: 600,
             marginTop: '3px'
           }}>
-            Atelier • Bangles • Beauty
+            {BRAND_CONFIG.tagline}
           </div>
         </div>
 
-        {/* Right: Store Locator & WhatsApp Concierge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          {/* Store Location Quick Link */}
+        {/* Right: Search, Instagram & WhatsApp Concierge */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          {/* Instagram Link */}
           <a
-            href="#visit-store"
+            href={BRAND_CONFIG.contact.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Priyadarshani on Instagram"
+            onClick={() => trackConversionEvent('instagram_clicked', { source: 'header' })}
             style={{
-              display: 'none',
+              display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              fontSize: '0.75rem',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
+              justifyContent: 'center',
+              color: 'var(--text-main)',
+              padding: '8px',
+              borderRadius: 'var(--radius-xs)',
               textDecoration: 'none',
-              fontWeight: 600,
-              padding: '6px 0',
-              borderBottom: '1px solid transparent',
-              transition: 'all var(--transition-fast)'
+              transition: 'color var(--transition-fast)'
             }}
-            className="desktop-store-link"
-            onMouseOver={(e) => (e.currentTarget.style.borderColor = 'var(--accent-gold)')}
-            onMouseOut={(e) => (e.currentTarget.style.borderColor = 'transparent')}
+            onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-rose)')}
+            onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
+            title="Follow @the_bangle_edit_store"
           >
-            <MapPin size={15} color="var(--accent-gold-dark)" />
-            <span>Boutique Store</span>
+            <InstagramIcon size={19} color="currentColor" />
           </a>
 
-          {/* WhatsApp Direct Enquiry CTA — Tailored Luxury */}
+          {/* WhatsApp Direct Enquiry CTA */}
           <a
             href={createGeneralEnquiryUrl('Header Nav')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp"
+            onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'header' })}
             style={{
               padding: '9px 18px',
               fontSize: '0.75rem',
@@ -163,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({
             }}
           >
             <MessageCircle size={15} />
-            <span className="whatsapp-header-text">WhatsApp Stylist</span>
+            <span className="whatsapp-header-text">WhatsApp Us</span>
           </a>
         </div>
       </div>
@@ -177,7 +181,7 @@ export const Header: React.FC<HeaderProps> = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '28px',
+          gap: '24px',
           padding: '11px 0',
           overflowX: 'auto',
         }}>
@@ -185,57 +189,64 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => onSelectCategory('all')}
             className="category-nav-link"
           >
-            All Catalogue
+            Shop
           </button>
-          
+
+          <a
+            href="#seasonal-collections"
+            className="category-nav-link"
+          >
+            Collections
+          </a>
+
           <button
             onClick={() => onSelectCategory('lakh-bangles')}
             className="category-nav-link highlight-link"
           >
-            Lakh Bangles
+            Bangles
           </button>
 
           <button
-            onClick={() => onSelectCategory('fancy-bangles')}
+            onClick={() => onSelectCategory('fashion-accessories')}
             className="category-nav-link"
           >
-            Bridal & Fancy Bangles
+            Accessories
           </button>
 
           <button
-            onClick={() => onSelectCategory('hair-accessories')}
+            onClick={() => onSelectCategory('beauty')}
             className="category-nav-link"
           >
-            Hair Accessories
-          </button>
-
-          <button
-            onClick={() => onSelectCategory('beauty-skincare')}
-            className="category-nav-link"
-          >
-            Beauty & Skincare
+            Beauty
           </button>
 
           <button
             onClick={() => onSelectCategory('fragrance')}
             className="category-nav-link"
           >
-            Fragrance & Attar
+            Fragrance
           </button>
 
           <button
-            onClick={() => onSelectCategory('gifts-hampers')}
+            onClick={() => onSelectCategory('gifts')}
             className="category-nav-link"
           >
-            Gifting Atelier
+            Gifts
           </button>
 
           <a
-            href="#wholesale"
+            href="#brand-story"
             className="category-nav-link"
-            style={{ color: 'var(--accent-gold-dark)', fontWeight: 600 }}
           >
-            Wholesale
+            About
+          </a>
+
+          <a
+            href="#visit-store"
+            className="category-nav-link"
+            style={{ color: 'var(--accent-rose)', fontWeight: 600 }}
+          >
+            Visit Store
           </a>
         </div>
       </div>
@@ -247,7 +258,7 @@ export const Header: React.FC<HeaderProps> = ({
           font-family: var(--font-sans);
           font-size: 0.75rem;
           font-weight: 500;
-          letter-spacing: '0.1em';
+          letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--text-muted);
           cursor: pointer;
@@ -257,52 +268,42 @@ export const Header: React.FC<HeaderProps> = ({
           text-decoration: none;
           transition: color var(--transition-fast);
         }
+        .category-nav-link:hover {
+          color: var(--text-main);
+        }
+        .category-nav-link.highlight-link {
+          color: var(--accent-rose);
+          font-weight: 600;
+        }
         .category-nav-link::after {
           content: '';
           position: absolute;
           bottom: 0;
           left: 0;
-          width: 0;
-          height: 1px;
-          background-color: var(--text-main);
-          transition: width var(--transition-smooth);
-        }
-        .category-nav-link:hover {
-          color: var(--text-main);
+          width: 0%;
+          height: 1.5px;
+          background-color: var(--accent-rose);
+          transition: width var(--transition-fast);
         }
         .category-nav-link:hover::after {
           width: 100%;
         }
-        .highlight-link {
-          color: var(--accent-rose);
-          font-weight: 600;
-        }
-        .highlight-link::after {
-          background-color: var(--accent-rose);
-        }
 
-        @media (max-width: 960px) {
+        @media (max-width: 860px) {
           .desktop-category-bar {
-            display: none !important;
-          }
-          .desktop-store-link {
             display: none !important;
           }
           .search-text-label {
             display: none !important;
           }
         }
-        @media (min-width: 961px) {
-          .desktop-store-link {
-            display: inline-flex !important;
-          }
-        }
+
         @media (max-width: 480px) {
           .whatsapp-header-text {
-            display: none;
+            display: none !important;
           }
           .btn-whatsapp {
-            padding: 9px 12px !important;
+            padding: 8px !important;
           }
         }
       `}</style>

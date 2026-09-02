@@ -28,20 +28,20 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             {/* Brand Eyebrow */}
             <div className="section-eyebrow">
               <Sparkles size={11} color="var(--accent-gold-dark)" />
-              <span>Everyday Elegance, Beautifully Curated</span>
+              <span>Bhawani Peth, Jalgaon • Adornment Studio</span>
             </div>
 
             {/* Display Editorial Heading */}
             <h1 className="editorial-display">
-              The Poetry of <br />
+              Priyadarshani <br />
               <span className="editorial-serif-italic" style={{ color: 'var(--accent-rose)' }}>
-                Adornment.
+                Adornment, Beauty & Everyday Elegance.
               </span>
             </h1>
 
             {/* Authentic Brand Voice Subtext */}
-            <p className="luxury-subtext" style={{ maxWidth: '520px' }}>
-              Beautiful pieces for everyday moments, celebrations and everything in between. Handcrafted Jaipur Lakh bangles, Korean hair accessories, botanical skincare and festive gifts.
+            <p className="luxury-subtext" style={{ maxWidth: '540px' }}>
+              Bringing together traditional & fancy bangles, Korean hair accessories, daily beauty essentials, fine fragrances and thoughtful gifts in Bhawani Peth, Jalgaon.
             </p>
 
             {/* Primary Action Buttons */}
@@ -49,16 +49,23 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
-              gap: '16px',
+              gap: '14px',
               paddingTop: '6px',
             }}>
               <button
                 onClick={onExploreClick}
                 className="btn-primary"
               >
-                <span>Explore The Archive</span>
+                <span>Explore Collections</span>
                 <ArrowRight size={15} />
               </button>
+
+              <a
+                href="#visit-store"
+                className="btn-secondary"
+              >
+                <span>Visit Our Store</span>
+              </a>
 
               <a
                 href={createBridalCustomOrderUrl()}
@@ -68,22 +75,18 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                   fontFamily: 'var(--font-sans)',
                   fontSize: '0.8125rem',
                   fontWeight: 600,
-                  letterSpacing: '0.08em',
+                  letterSpacing: '0.06em',
                   textTransform: 'uppercase',
-                  color: 'var(--text-main)',
+                  color: 'var(--accent-whatsapp)',
                   textDecoration: 'none',
-                  borderBottom: '1px solid var(--accent-gold)',
-                  paddingBottom: '2px',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '6px',
                   transition: 'all var(--transition-fast)'
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-rose)')}
-                onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
               >
-                <span>Bridal Consultation</span>
-                <ArrowDownRight size={14} color="var(--accent-gold-dark)" />
+                <span>WhatsApp Us</span>
+                <ArrowDownRight size={14} />
               </a>
             </div>
 
