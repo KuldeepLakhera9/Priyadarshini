@@ -53,11 +53,11 @@ export const InstagramShowcase: React.FC = () => {
             </div>
 
             <h2 className="editorial-heading-1" style={{ marginTop: '8px' }}>
-              Follow Our Latest Finds
+              Follow the Edit
             </h2>
 
             <p className="luxury-subtext" style={{ maxWidth: '520px', marginTop: '4px' }}>
-              New arrivals, styling inspiration and beautiful finds from our store.
+              New arrivals, styling inspiration and beautiful finds from our boutique in Jalgaon.
             </p>
           </div>
 

@@ -87,7 +87,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
             <div>
               <div className="section-eyebrow" style={{ color: 'var(--accent-gold)' }}>
                 <Sparkles size={11} color="var(--accent-gold)" />
-                <span>The Heritage Monograph</span>
+                <span>Signature Heritage • Priyadarshani</span>
               </div>
 
               <h2 style={{
@@ -99,9 +99,9 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 letterSpacing: '-0.02em',
                 marginTop: '10px'
               }}>
-                Tradition, Reimagined <br />
+                The Bangle Edit <br />
                 <span className="editorial-serif-italic" style={{ color: 'var(--accent-champagne)' }}>
-                  For Every Celebration.
+                  Colour, Craftsmanship & Celebration.
                 </span>
               </h2>
             </div>
@@ -112,7 +112,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               lineHeight: 1.75,
               fontWeight: 300
             }}>
-              Jaipur Lakh bangles carry centuries of royal grace and auspicious symbolism. Each piece in our collection is handcrafted by generational master artisans using organic shellac resin, embedded with micro-cut stones, Kundan polki, and delicate glass mirrors.
+              Bangles are the heartbeat of Priyadarshani. From hand-sculpted Jaipur Lakh kadas and velvet chooris to openable crystal kadas and celebratory bridal choodas — each set is curated to bring color, texture, and festive joy to your wrists.
             </p>
 
             {/* Monograph Craft Steps — Elegant Roman Numerals */}

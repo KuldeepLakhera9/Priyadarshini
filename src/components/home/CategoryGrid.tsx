@@ -29,15 +29,15 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
         }}>
           <div className="section-eyebrow">
             <Sparkles size={11} color="var(--accent-gold-dark)" />
-            <span>The Curated Collections</span>
+            <span>Departments • Priyadarshani</span>
           </div>
 
           <h2 className="editorial-heading-1">
-            Explore the Boutique
+            Shop by Category
           </h2>
 
           <p className="luxury-subtext" style={{ maxWidth: '560px' }}>
-            From time-honored Jaipur Lakh artistry to Parisian hair accents and daily skin glow rituals.
+            From time-honored Lakh artistry to Korean hair accents, botanical skincare and celebratory gifts in Jalgaon.
           </p>
         </div>
 
