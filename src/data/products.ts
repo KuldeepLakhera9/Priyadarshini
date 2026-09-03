@@ -219,34 +219,74 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'fancy-03',
-    code: 'KADA-OPENABLE-CRYSTAL',
-    name: 'Micro-Gold Plated Openable Crystal Kada Pair',
+    code: 'FANCY-NAVRATNA-PAVE',
+    name: 'Navratna Multistone & Pave Crystal Broad Kada Pair',
     category: 'fancy-bangles',
     categoryLabel: 'Fancy Bangles',
     subcategory: 'Crystal Metal Kadas',
-    price: 349,
+    price: 380,
     priceMode: 'pair',
-    priceLabel: '₹349 (Pair)',
+    priceLabel: '₹380 (Pair)',
     images: [
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop'
+      '/images/products/navratna-pave-kada-1.jpg',
+      '/images/products/navratna-pave-kada-2.jpg',
+      '/images/products/navratna-pave-kada-3.jpg'
     ],
-    description: 'Precision brass kada pair with screw-clasp mechanism for effortless wearing, paved with Swiss zircon crystals.',
+    description: 'Statement broad gold-plated kada pair studded with vibrant dome cabochons in emerald green, rose pink, ruby magenta, turquoise, and yellow, encircled by radiant pavé crystal cluster domes.',
+    story: 'Direct in-store favorite from Priyadarshani, Jalgaon. Hand-finished with micro-pavé shimmer and vibrant candy-gem cabochons.',
     details: [
-      'Convenient side-hinge openable screw clasp',
-      '1-gram micro gold polish',
-      'One size fits wrists 2.4 to 2.8'
+      'Pair of 2 broad designer kadas with rich textured gold plating',
+      'Micro-pavé rhinestone crystal cluster discs',
+      'Vibrant polished dome cabochon stones in multiple festive hues',
+      'Smooth skin-friendly inner brass core',
+      'Sizes: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Champagne Gold', hex: '#D4AF37' },
-      { name: 'Rose Gold', hex: '#B76E79' }
+      { name: 'Multicolor & Gold', hex: '#D4AF37' }
     ],
-    sizes: ['Free Size (Openable)'],
-    material: 'Micro-Gold Plated Brass & Zirconia',
-    tags: ['Openable', 'Party Wear'],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Textured Gold-Plated Brass & Pavé Crystals',
+    tags: ['In-Store Real Pic', 'Best Seller', 'Festive Statement'],
+    isFeatured: true,
+    isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['fancy-01', 'trad-01', 'acc-01']
+    relatedProducts: ['fancy-01', 'fancy-04', 'trad-01']
+  },
+  {
+    id: 'fancy-04',
+    code: 'FANCY-FLORAL-BAGUETTE-4',
+    name: 'Floral Enamel & Pastel Baguette Chooriyan (Set of 4)',
+    category: 'fancy-bangles',
+    categoryLabel: 'Fancy Bangles',
+    subcategory: 'Crystal Metal Kadas',
+    price: 240,
+    priceMode: 'set',
+    priceLabel: '₹240 (Set of 4)',
+    images: [
+      '/images/products/floral-meenakari-baguette-1.jpg',
+      '/images/products/floral-meenakari-baguette-2.jpg'
+    ],
+    description: 'Exquisite four-piece sleek bangle set crafted with alternating faceted baguette gemstones in ruby red, jade green, magenta, and blush, bordered by handcrafted white enamel blossoms.',
+    story: 'Curated for Priyadarshani customers who adore minimalist elegance with traditional floral meenakari touch.',
+    details: [
+      'Complete set of 4 sleek stacking bangles',
+      'Hand-applied white enamel floral flowerets with golden core',
+      'Faceted rectangular crystal baguettes',
+      'Versatile: wear standalone or stack alongside bridal velvet glass chooris',
+      'Sizes: 2.4, 2.6, 2.8'
+    ],
+    colors: [
+      { name: 'Pastel Garden Multi', hex: '#C27B88' }
+    ],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Gold-Plated Alloy, Enamel & Baguette Crystals',
+    tags: ['In-Store Real Pic', 'New Arrival', 'Under 299'],
+    isNew: true,
+    isFeatured: true,
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
+    relatedProducts: ['fancy-02', 'fancy-03', 'trad-01']
   },
 
   // ==========================================
@@ -254,35 +294,41 @@ export const PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'trad-01',
-    code: 'TEMPLE-ANTIQUE-KADA',
-    name: 'South Indian Antique Temple Lakshmi Kada Pair',
+    code: 'TRAD-MOTI-JAAL-BRIDAL',
+    name: 'Moti Jaal Royal Seed Pearl & Ruby-Emerald Scalloped Kada Pair',
     category: 'traditional-bangles',
     categoryLabel: 'Traditional Bangles',
     subcategory: 'Temple Antique Kadas',
-    price: 399,
+    price: 490,
+    originalPrice: 650,
     priceMode: 'pair',
-    priceLabel: '₹399 (Pair)',
+    priceLabel: '₹490 (Pair)',
     images: [
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop'
+      '/images/products/moti-jaal-kadas-1.jpg',
+      '/images/products/moti-jaal-kadas-2.jpg',
+      '/images/products/moti-jaal-kadas-3.jpg'
     ],
-    description: 'Carved temple architecture motifs featuring Goddess Lakshmi seated on a lotus, finished in warm antique matte gold.',
+    description: 'Regal bridal kada pair richly woven with dense micro seed pearls in intricate scalloped diamond trellis motifs, accented with sparkling ruby red and emerald green stones.',
+    story: 'Heirloom styling photographed directly in our Bhawani Peth showroom. Perfect centerpiece kada for bridal choodas or wedding lehengas.',
     details: [
-      'Hand-carved temple motifs with ruby-red Kemp stones',
-      'Matte antique golden finish with vintage patina',
+      'Heavy bridal kada pair (2 pieces)',
+      'Intricate moti jaal (seed pearl embroidery) over gold brass core',
+      'Scalloped crown outer border with ruby and emerald gemstone accents',
+      'Smooth non-snagging inner gold lining for skin comfort',
       'Sizes: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Antique Matte Gold', hex: '#A37E36' }
+      { name: 'Pearl Gold with Ruby & Emerald', hex: '#EAE6DF' }
     ],
     sizes: ['2.4', '2.6', '2.8'],
-    material: 'Brass with Antique Temple Polish',
-    tags: ['Temple Jewellery', 'Festive Heritage'],
+    material: 'Seed Pearls, Brass & Faceted Gemstones',
+    tags: ['In-Store Real Pic', 'Bridal Heirloom', 'Signature'],
     isFeatured: true,
+    isBestSeller: true,
     isHeritage: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['trad-02', 'lakh-01', 'acc-01']
+    relatedProducts: ['fancy-01', 'fancy-03', 'lakh-01']
   },
   {
     id: 'trad-02',
