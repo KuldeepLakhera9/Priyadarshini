@@ -228,9 +228,7 @@ export const PRODUCTS: Product[] = [
     priceMode: 'pair',
     priceLabel: '₹380 (Pair)',
     images: [
-      '/images/products/navratna-pave-kada-1.jpg',
-      '/images/products/navratna-pave-kada-2.jpg',
-      '/images/products/navratna-pave-kada-3.jpg'
+      '/images/products/navratna-pave-kadas.jpg'
     ],
     description: 'Statement broad gold-plated kada pair studded with vibrant dome cabochons in emerald green, rose pink, ruby magenta, turquoise, and yellow, encircled by radiant pavé crystal cluster domes.',
     story: 'Direct in-store favorite from Priyadarshani, Jalgaon. Hand-finished with micro-pavé shimmer and vibrant candy-gem cabochons.',
@@ -246,12 +244,12 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ['2.4', '2.6', '2.8'],
     material: 'Textured Gold-Plated Brass & Pavé Crystals',
-    tags: ['In-Store Real Pic', 'Best Seller', 'Festive Statement'],
+    tags: ['Boutique Exclusive', 'Best Seller', 'Festive Statement'],
     isFeatured: true,
     isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['fancy-01', 'fancy-04', 'trad-01']
+    relatedProducts: ['fancy-01', 'fancy-04', 'fancy-05']
   },
   {
     id: 'fancy-04',
@@ -264,8 +262,7 @@ export const PRODUCTS: Product[] = [
     priceMode: 'set',
     priceLabel: '₹240 (Set of 4)',
     images: [
-      '/images/products/floral-meenakari-baguette-1.jpg',
-      '/images/products/floral-meenakari-baguette-2.jpg'
+      '/images/products/floral-baguette-bangles.jpg'
     ],
     description: 'Exquisite four-piece sleek bangle set crafted with alternating faceted baguette gemstones in ruby red, jade green, magenta, and blush, bordered by handcrafted white enamel blossoms.',
     story: 'Curated for Priyadarshani customers who adore minimalist elegance with traditional floral meenakari touch.',
@@ -281,12 +278,79 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ['2.4', '2.6', '2.8'],
     material: 'Gold-Plated Alloy, Enamel & Baguette Crystals',
-    tags: ['In-Store Real Pic', 'New Arrival', 'Under 299'],
+    tags: ['Boutique Exclusive', 'New Arrival', 'Under 299'],
     isNew: true,
     isFeatured: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['fancy-02', 'fancy-03', 'trad-01']
+    relatedProducts: ['fancy-02', 'fancy-03', 'fancy-06']
+  },
+  {
+    id: 'fancy-05',
+    code: 'FANCY-HEART-PEARL-SILVER',
+    name: 'Crystal Solitaire Heart & Seed Pearl Silver Kada Pair',
+    category: 'fancy-bangles',
+    categoryLabel: 'Fancy Bangles',
+    subcategory: 'Crystal Metal Kadas',
+    price: 360,
+    priceMode: 'pair',
+    priceLabel: '₹360 (Pair)',
+    images: [
+      '/images/products/crystal-heart-pearl-kadas.jpg'
+    ],
+    description: 'Shimmering rhodium-plated silver kada pair featuring faceted heart-shaped clear solitaire crystals, each encircled in a delicate scalloped halo of micro seed pearls with rainbow aurora borealis crystal accents.',
+    story: 'A radiant cocktail piece photographed on warm limestone and linen for modern evening and sangeet elegance.',
+    details: [
+      'Pair of 2 silver rhodium-finish designer kadas',
+      'Faceted heart-cut solitaire crystals with brilliant prismatic light reflection',
+      'Circled with micro seed pearl scallops and aurora borealis accents',
+      'Smooth inner finish for snag-free, all-day comfort',
+      'Sizes: 2.4, 2.6, 2.8'
+    ],
+    colors: [
+      { name: 'Silver Solitaire & Pearl', hex: '#E2E6EA' }
+    ],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Rhodium-Plated Brass, Solitaire Crystals & Seed Pearls',
+    tags: ['Boutique Exclusive', 'Silver Collection', 'Party Wear'],
+    isFeatured: true,
+    isNew: true,
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
+    relatedProducts: ['fancy-03', 'fancy-06', 'trad-01']
+  },
+  {
+    id: 'fancy-06',
+    code: 'FANCY-CANDY-PEARL-FLOWER',
+    name: 'Candy Cabochon & Pearl Blossom Silver Kada Pair',
+    category: 'fancy-bangles',
+    categoryLabel: 'Fancy Bangles',
+    subcategory: 'Crystal Metal Kadas',
+    price: 320,
+    priceMode: 'pair',
+    priceLabel: '₹320 (Pair)',
+    images: [
+      '/images/products/candy-pearl-silver-kadas.jpg'
+    ],
+    description: 'Playful frosted silver kadas studded with smooth oval candy cabochons in pastel pink, amber yellow, ruby red, and turquoise mint, interspersed with 5-pearl flowerets with multicolored crystal centers.',
+    story: 'A fresh, feminine boutique design bringing together joyful pastel colors, lustrous pearls, and sparkling frosted silver.',
+    details: [
+      'Pair of 2 frosted silver-glitter finish kadas',
+      'Smooth oval cabochons in festive pastel colors',
+      '5-petal pearl floral clusters with multicolor rhinestone crystal cores',
+      'Versatile styling: pairs beautifully with both Indo-western and traditional ethnic attire',
+      'Sizes: 2.4, 2.6, 2.8'
+    ],
+    colors: [
+      { name: 'Multicolor & Frosted Silver', hex: '#DCDFE3' }
+    ],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Frosted Silver Finish Brass, Pearl Clusters & Cabochon Gems',
+    tags: ['Boutique Exclusive', 'New Arrival', 'Under 499'],
+    isNew: true,
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
+    relatedProducts: ['fancy-04', 'fancy-05', 'trad-01']
   },
 
   // ==========================================
@@ -304,12 +368,10 @@ export const PRODUCTS: Product[] = [
     priceMode: 'pair',
     priceLabel: '₹490 (Pair)',
     images: [
-      '/images/products/moti-jaal-kadas-1.jpg',
-      '/images/products/moti-jaal-kadas-2.jpg',
-      '/images/products/moti-jaal-kadas-3.jpg'
+      '/images/products/moti-jaal-kadas.jpg'
     ],
     description: 'Regal bridal kada pair richly woven with dense micro seed pearls in intricate scalloped diamond trellis motifs, accented with sparkling ruby red and emerald green stones.',
-    story: 'Heirloom styling photographed directly in our Bhawani Peth showroom. Perfect centerpiece kada for bridal choodas or wedding lehengas.',
+    story: 'Heirloom styling presented on antique mirrored tray and limestone pedestal. Perfect centerpiece kada for bridal choodas or wedding lehengas.',
     details: [
       'Heavy bridal kada pair (2 pieces)',
       'Intricate moti jaal (seed pearl embroidery) over gold brass core',
@@ -322,13 +384,13 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ['2.4', '2.6', '2.8'],
     material: 'Seed Pearls, Brass & Faceted Gemstones',
-    tags: ['In-Store Real Pic', 'Bridal Heirloom', 'Signature'],
+    tags: ['Bridal Heirloom', 'Signature', 'Best Seller'],
     isFeatured: true,
     isBestSeller: true,
     isHeritage: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['fancy-01', 'fancy-03', 'lakh-01']
+    relatedProducts: ['fancy-01', 'fancy-03', 'fancy-05']
   },
   {
     id: 'trad-02',
