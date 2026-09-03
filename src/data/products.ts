@@ -6,70 +6,69 @@ export const PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'lakh-01',
-    code: 'LAKH-ROYAL-RED',
-    name: 'Jaipuri Handcrafted Bridal Lakh Kada Pair',
+    code: 'LAKH-RANI-PINK-VINES',
+    name: 'Jaipuri Rani Pink Hand-Painted Lakh Kada Pair',
     category: 'lakh-bangles',
     categoryLabel: 'Lakh Bangles',
     subcategory: 'Bridal Lakh Sets',
-    price: 449,
-    originalPrice: 599,
+    price: 420,
+    originalPrice: 550,
     priceMode: 'pair',
-    priceLabel: '₹449 (Pair)',
+    priceLabel: '₹420 (Pair)',
     images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop'
+      '/images/products/jaipuri-rani-pink-lakh-kadas.jpg'
     ],
-    description: 'Sculpted from organic Jaipur shellac resin and embedded with hand-cut Austrian crystals and delicate Kundan polki accents.',
-    story: 'Melted over simmering charcoal embers and shaped by master craftsmen in Jaipur.',
+    description: 'Exquisite pair of broad handcrafted Jaipur Lakh kadas in vibrant rani pink, detailed with hand-painted Rajasthani floral vines, pearl-encircled pavé crystal medallions, and micro-rhinestone crystal trims.',
+    story: 'Melted over simmering charcoal embers and shaped by master artisans in Jaipur. A radiant centerpiece for festive suits and bridal trousseaus.',
     details: [
-      'Material: 100% natural organic shellac resin with micro-crystal stones',
-      'Skin-safe and non-allergic inner lining',
-      'Sizes available: 2.2, 2.4, 2.6, 2.8',
-      'Ideal for: Karwa Chauth, Teej, Weddings, and Bridal Trousseau'
+      'Pair of 2 broad authentic Jaipur Lakh kadas',
+      'Hand-painted Rajasthani floral vine artistry',
+      'Round circular pavé champagne crystal medallions bordered with seed pearls',
+      'Sparkling diamond rhinestone crystal chain borders',
+      'Smooth skin-safe inner shellac lacquer lining',
+      'Sizes available: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Royal Crimson', hex: '#8B0000' },
-      { name: 'Emerald Forest', hex: '#1B4D3E' },
-      { name: 'Imperial Maroon', hex: '#58111A' }
+      { name: 'Rani Pink & Gold', hex: '#C21E56' }
     ],
-    sizes: ['2.2', '2.4', '2.6', '2.8'],
-    material: 'Natural Shellac & Austrian Crystals',
-    tags: ['Best Seller', 'Jaipur Craft', 'Bridal Pick'],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Organic Shellac Resin, Crystals & Seed Pearls',
+    tags: ['Best Seller', 'Jaipur Craft', 'Boutique Exclusive'],
     isFeatured: true,
     isBestSeller: true,
     isHeritage: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['lakh-02', 'lakh-03', 'fancy-01']
+    relatedProducts: ['lakh-02', 'lakh-04', 'fancy-03']
   },
   {
     id: 'lakh-02',
-    code: 'LAKH-MIRROR-GOLD',
-    name: 'Shish Mahal Traditional Mirror Lakh Kadas',
+    code: 'LAKH-SHISH-MAHAL-EMERALD',
+    name: 'Shish Mahal Emerald Mirror-Work Lakh Kadas',
     category: 'lakh-bangles',
     categoryLabel: 'Lakh Bangles',
     subcategory: 'Jaipuri Mirror Bangles',
-    price: 349,
+    price: 380,
     priceMode: 'pair',
-    priceLabel: '₹349 (Pair)',
+    priceLabel: '₹380 (Pair)',
     images: [
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop'
+      '/images/products/shish-mahal-mirror-lakh-kadas.jpg'
     ],
-    description: 'Heritage hand-faceted circular glass mirror inlays set against warm natural resin with radiant gloss finish.',
+    description: 'Heritage hand-faceted circular glass mirror inlays set into deep imperial emerald green lacquer with warm gold hand-painted vines and seed pearl borders.',
+    story: 'Inspired by the Shish Mahal of Amer Fort. Handcrafted natural resin embedded with circular mirrors reflecting celebratory candlelight.',
     details: [
-      'Authentic micro-mirror glass work',
-      'Smooth edges preventing thread-snagging with sarees',
+      'Authentic hand-faceted glass mirror inlays (aaina shish-mahal work)',
+      'Deep imperial emerald green lacquer with golden floral vine motifs',
+      'Micro seed pearl halos around each mirror disc',
+      'Smooth edges preventing thread-snagging with festive sarees',
       'Sizes available: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Warm Amber Gold', hex: '#C59B27' },
-      { name: 'Ruby Vermillion', hex: '#A81C07' },
-      { name: 'Deep Indigo', hex: '#1A2A44' }
+      { name: 'Imperial Emerald & Gold', hex: '#1B4D3E' }
     ],
     sizes: ['2.4', '2.6', '2.8'],
-    material: 'Organic Resin & Faceted Mirror Glass',
-    tags: ['Handcrafted', 'Festive Favorite'],
+    material: 'Organic Shellac Resin, Mirror Glass & Pearl Halos',
+    tags: ['Handcrafted', 'Festive Heritage', 'Signature'],
     isFeatured: true,
     isHeritage: true,
     availability: 'in_stock',
@@ -78,71 +77,73 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'lakh-03',
-    code: 'LAKH-DAILY-SLIM',
-    name: 'Everyday Minimalist Sleek Lakh Chooris (Set of 12)',
+    code: 'LAKH-TRICOLOR-FESTIVE-8',
+    name: 'Auspicious Tri-Color Festive Lakh Bangle Set (Set of 8)',
     category: 'lakh-bangles',
     categoryLabel: 'Lakh Bangles',
     subcategory: 'Daily Wear Kadas',
-    price: 249,
+    price: 290,
     priceMode: 'set',
-    priceLabel: '₹249 (Set of 12)',
+    priceLabel: '₹290 (Set of 8)',
     images: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop'
+      '/images/products/festive-tricolor-lakh-set.jpg'
     ],
-    description: 'Lightweight, everyday thin Lakh bangles in timeless solid jewel tones. Smooth polish for daily home and office comfort.',
+    description: 'Traditional festive 8-piece stacking set in auspicious vermilion red, turmeric yellow, and forest green high-gloss lacquer, alternating with textured golden stone spacer kadas.',
+    story: 'The timeless suhaag trio of red, haldi yellow, and green. A celebratory favorite at Priyadarshani for Teej, Karwa Chauth, and weddings.',
     details: [
-      'Set of 12 slender organic lakh bangles',
-      'Featherlight weight for everyday stack styling',
-      'Sizes: 2.2, 2.4, 2.6, 2.8'
+      'Complete set of 8 festive Lakh bangles',
+      'Auspicious tri-color palette: Vermilion Red, Haldi Yellow & Bottle Green',
+      'Alternating with textured gold shimmer stone kadas',
+      'High-gloss smooth finish with soothing chime',
+      'Sizes: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Maroon', hex: '#631622' },
-      { name: 'Forest Green', hex: '#19422F' },
-      { name: 'Sunset Rani Pink', hex: '#C21E56' },
-      { name: 'Turquoise', hex: '#1F7A8C' }
+      { name: 'Auspicious Tri-Color', hex: '#8B0000' }
     ],
-    sizes: ['2.2', '2.4', '2.6', '2.8'],
-    material: 'Pure Organic Shellac',
-    tags: ['Daily Wear', 'Under 299'],
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Pure Organic Shellac & Gold Stone Spacers',
+    tags: ['Festive Favorite', 'Under 299', 'New Arrival'],
     isNew: true,
+    isFeatured: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
     relatedProducts: ['lakh-01', 'lakh-02', 'fancy-02']
   },
   {
     id: 'lakh-04',
-    code: 'LAKH-KUNDAN-ROYAL',
-    name: 'Maharani Kundan Lakh Statement Broad Kada',
+    code: 'LAKH-KUNDAN-BRIDAL-CHOODA',
+    name: 'Maharani Kundan Polki Bridal Lakh Chooda Suite',
     category: 'lakh-bangles',
     categoryLabel: 'Lakh Bangles',
     subcategory: 'Bridal Lakh Sets',
-    price: 499,
-    originalPrice: 650,
-    priceMode: 'pair',
-    priceLabel: '₹499 (Pair)',
+    price: 580,
+    originalPrice: 750,
+    priceMode: 'set',
+    priceLabel: '₹580 (Full Suite)',
     images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop'
+      '/images/products/bridal-kundan-lakh-chooda.jpg'
     ],
-    description: 'Broad bridal statement kada studded with Kundan polki medallions and pearl-finish borders. Ideal lehenga companion.',
+    description: 'Regal bridal Lakh chooda suite featuring two broad crimson-red kadas encrusted with Kundan polki florets and seed pearls, stacked with rich crimson bangles and gold filigree spacer chooris.',
+    story: 'Crafted for the royal Indian bride. Photographed on warm limestone pedestal with draped raw silk for timeless bridal trousseau grandeur.',
     details: [
-      'Broad 1.25-inch regal silhouette',
-      'Intricate Kundan setting on dark maroon lacquer',
-      'Sizes: 2.4, 2.6'
+      'Complete bridal chooda stack with 2 broad Kundan kadas and spacer bangles',
+      'Kundan polki flower medallions set on royal crimson lacquer',
+      'Gold filigree and micro-rhinestone spacers',
+      'Smooth non-allergenic natural shellac inner core',
+      'Sizes: 2.4, 2.6, 2.8'
     ],
     colors: [
-      { name: 'Bridal Crimson', hex: '#7D0A14' },
-      { name: 'Deep Emerald', hex: '#0B3B24' }
+      { name: 'Royal Bridal Crimson', hex: '#7D0A14' }
     ],
-    sizes: ['2.4', '2.6'],
-    material: 'Shellac Resin & Kundan Polki',
+    sizes: ['2.4', '2.6', '2.8'],
+    material: 'Shellac Resin, Kundan Polki & Gold Filigree',
     tags: ['Bridal Pick', 'Heirloom', 'Best Seller'],
+    isFeatured: true,
     isBestSeller: true,
     isHeritage: true,
-    availability: 'limited',
-    stockStatus: 'limited',
-    relatedProducts: ['lakh-01', 'fancy-01', 'trad-02']
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
+    relatedProducts: ['lakh-01', 'fancy-01', 'trad-01']
   },
 
   // ==========================================

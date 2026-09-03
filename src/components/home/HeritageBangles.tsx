@@ -34,7 +34,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               backgroundColor: '#1C1817'
             }}>
               <img
-                src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=1000&auto=format&fit=crop"
+                src="/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
                 alt="Handcrafted Jaipur Lakh Bangles"
                 style={{ width: '100%', height: 'clamp(380px, 44vw, 520px)', objectFit: 'cover', display: 'block' }}
               />

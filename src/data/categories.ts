@@ -6,7 +6,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Lakh Bangles',
     subtitle: 'Jaipur Heritage & Handcrafted Artistry',
     description: 'Explore our heirloom collection of Jaipur Lakh bangles, hand-melted over embers and studded with glass mirrors, Kundan polki, and Austrian stones.',
-    heroImage: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
     badge: 'Signature Heritage',
     itemCountDesc: '50+ In-Store Designs',
     subcategories: ['Bridal Lakh Sets', 'Daily Wear Kadas', 'Kundan Lakh Choodas', 'Jaipuri Mirror Bangles'],
