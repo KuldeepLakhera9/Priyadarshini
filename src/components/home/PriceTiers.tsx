@@ -19,7 +19,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     tierTitle: 'Under ₹99',
     priceLabel: 'Under ₹99',
     curationName: 'The Little Accents Edit',
-    description: 'Mini crystal hair accents, French pastel clips, and salon-shine gel nail lacquers.',
+    description: 'Mini pastel Korean hair claws, carved antique silver rings, and crystal pins.',
     image: '/images/products/korean-pastel-hair-claws.jpg',
   },
   {
@@ -27,7 +27,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     tierTitle: 'Under ₹199',
     priceLabel: 'Under ₹199',
     curationName: 'Little Finds Worth Discovering',
-    description: 'Mulberry silk satin scrunchies, French cellulose acetate claws, and Kannauj rosewater mist.',
+    description: 'Mulberry silk satin scrunchies, organza butterfly hairpins, and pure roll-on attars.',
     image: '/images/products/butterfly-clips-pearl-headband.jpg',
   },
   {
@@ -35,7 +35,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     tierTitle: 'Under ₹299',
     priceLabel: 'Under ₹299',
     curationName: 'The Everyday Statement Edit',
-    description: 'Handcrafted daily Jaipur Lakh kadas, pearl-studded headbands, and pure botanical pocket attars.',
+    description: 'Handcrafted daily Jaipur Lakh kadas, pearl-studded headbands, and Bohemian oxidised necklace sets.',
     image: '/images/products/artisanal-pocket-perfumes-attar.jpg',
   },
   {

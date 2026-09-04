@@ -5,7 +5,6 @@ export type ProductCategory =
   | 'traditional-bangles'
   | 'fashion-accessories'
   | 'hair-accessories'
-  | 'beauty'
   | 'fragrance'
   | 'gifts'
   | 'new-arrivals'

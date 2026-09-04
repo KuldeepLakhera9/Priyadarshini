@@ -37,7 +37,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
           </h2>
 
           <p className="luxury-subtext" style={{ maxWidth: '560px' }}>
-            From time-honored Lakh artistry to Korean hair accents, botanical skincare and celebratory gifts in Jalgaon.
+            From time-honored Lakh artistry to Korean hair accents, oxidised jewellery, fine fragrances and celebratory gifts in Jalgaon.
           </p>
         </div>
 
@@ -49,9 +49,9 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
         }}>
           {displayCategories.map((cat, index) => {
             // Asymmetrical grid column spans:
-            // 0 (Lakh): 7 cols, 1 (Fancy): 5 cols
-            // 2 (Traditional): 4 cols, 3 (Hair): 4 cols, 4 (Fashion): 4 cols
-            // 5 (Beauty): 4 cols, 6 (Fragrance): 4 cols, 7 (Gifts): 4 cols
+            // Row 1: 0 (Lakh): 7 cols, 1 (Fancy): 5 cols
+            // Row 2: 2 (Traditional): 4 cols, 3 (Fashion Accessories): 4 cols, 4 (Hair Accessories): 4 cols
+            // Row 3: 5 (Artisanal Fragrance): 6 cols, 6 (Gifts & Favors): 6 cols
             let colSpan = 'span 4';
             let cardHeight = '360px';
 
@@ -61,6 +61,9 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
             } else if (index === 1) {
               colSpan = 'span 5';
               cardHeight = '420px';
+            } else if (index >= 5) {
+              colSpan = 'span 6';
+              cardHeight = '380px';
             }
 
             return (

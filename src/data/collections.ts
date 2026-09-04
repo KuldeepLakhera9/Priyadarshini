@@ -26,23 +26,23 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
     id: 'karwa-chauth-teej',
     title: 'Auspicious Karwa Chauth & Teej Edit',
     tagline: 'Traditional Crimson & Velvet Chimes',
-    description: 'Sculpted organic Lakh kadas in vibrant sindoori reds, Firozabad velvet glass chooris, and steam-distilled rose mist for festive celebrations.',
+    description: 'Sculpted organic Lakh kadas in vibrant sindoori reds, Firozabad velvet glass chooris, and traditional botanical attars for festive celebrations.',
     heroImage: '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
     badge: 'Festive Ritual',
     season: 'Festive Puja',
     isActive: true,
-    productIds: ['lakh-01', 'lakh-02', 'fancy-02', 'beauty-01', 'frag-01']
+    productIds: ['lakh-01', 'lakh-02', 'fancy-02', 'frag-01', 'acc-03']
   },
   {
     id: 'parisian-everyday-chic',
     title: 'The Parisian Everyday Chic Edit',
-    tagline: 'Effortless Hair & Skin Rituals Under ₹199',
-    description: 'French cellulose acetate hair claws, mulberry silk cloud scrunchies, and fast-drying nude gel lacquers for effortless modern elegance.',
+    tagline: 'Effortless Hair & Accessory Accents Under ₹199',
+    description: 'Korean pastel hair claws, whimsical butterfly pins, velvet headbands, and carved antique silver rings for effortless modern elegance.',
     heroImage: '/images/products/korean-pastel-hair-claws.jpg',
     badge: 'Daily Essentials',
     season: 'All Year',
     isActive: true,
-    productIds: ['hair-01', 'hair-02', 'hair-03', 'hair-04', 'beauty-03']
+    productIds: ['hair-01', 'hair-02', 'hair-03', 'hair-04', 'acc-02']
   },
   {
     id: 'gifting-favors',

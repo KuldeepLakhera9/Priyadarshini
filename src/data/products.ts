@@ -591,7 +591,7 @@ export const PRODUCTS: Product[] = [
     isNew: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['hair-01', 'hair-03', 'beauty-01']
+    relatedProducts: ['hair-01', 'hair-03', 'hair-04']
   },
   {
     id: 'hair-03',
@@ -653,125 +653,11 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['hair-01', 'hair-02', 'beauty-03']
+    relatedProducts: ['hair-01', 'hair-02', 'hair-03']
   },
 
   // ==========================================
-  // 6. BEAUTY & SKINCARE
-  // ==========================================
-  {
-    id: 'beauty-01',
-    code: 'BEAUTY-ROSEWATER-MIST',
-    name: 'Pure Steam-Distilled Kannauj Desi Gulab Facial Mist',
-    category: 'beauty',
-    categoryLabel: 'Beauty & Skincare',
-    subcategory: 'Floral Toners & Mists',
-    price: 169,
-    originalPrice: 220,
-    priceMode: 'fixed',
-    priceLabel: '₹169 (100ml)',
-    images: [
-      '/images/products/luxury-skincare-beauty-suite.jpg'
-    ],
-    description: '100% pure steam distillation of Indian Damask roses sourced directly from Kannauj. Alcohol-free hydrating skin refresher in an amber glass bottle.',
-    details: [
-      '100ml amber glass spray bottle with ultra-fine mist nozzle',
-      'No artificial fragrance, zero alcohol, zero parabens',
-      'Naturally balances skin pH, tightens pores, and sets mineral makeup'
-    ],
-    material: 'Pure Rosa Damascena Hydrosol',
-    tags: ['Pure Glow', 'Under 199', 'Best Seller'],
-    isFeatured: true,
-    isBestSeller: true,
-    availability: 'in_stock',
-    stockStatus: 'in_stock',
-    relatedProducts: ['beauty-02', 'beauty-03', 'frag-01']
-  },
-  {
-    id: 'beauty-02',
-    code: 'BEAUTY-FACEWASH-SAFFRON',
-    name: 'Kashmiri Saffron Clarifying Gentle Face Cleanser',
-    category: 'beauty',
-    categoryLabel: 'Beauty & Skincare',
-    subcategory: 'Facial Cleansers & Washes',
-    price: 189,
-    priceMode: 'fixed',
-    priceLabel: '₹189 (150ml)',
-    images: [
-      '/images/products/luxury-skincare-beauty-suite.jpg'
-    ],
-    description: 'Non-drying clarifying gel cleanser infused with real Kashmiri Kesar filaments and chandan extract, leaving skin fresh, radiant, and luminous.',
-    details: [
-      '150ml glass pump dispenser bottle with visible saffron threads',
-      'Gentle sulfate-free lather suitable for sensitive and all skin types',
-      'Restores skin brightness and washes away daily pollutants'
-    ],
-    material: 'Pure Kashmiri Saffron & Botanical Extracts',
-    tags: ['Daily Cleanser', 'Under 199'],
-    isNew: true,
-    availability: 'in_stock',
-    stockStatus: 'in_stock',
-    relatedProducts: ['beauty-01', 'beauty-03', 'gifts-01']
-  },
-  {
-    id: 'beauty-03',
-    code: 'BEAUTY-NAIL-GEL-SET',
-    name: 'Salon High-Shine Gel Nail Lacquers (Set of 2)',
-    category: 'beauty',
-    categoryLabel: 'Beauty & Skincare',
-    subcategory: 'Gel Nail Lacquers',
-    price: 99,
-    priceMode: 'set',
-    priceLabel: '₹99 (Duo)',
-    images: [
-      '/images/products/luxury-skincare-beauty-suite.jpg'
-    ],
-    description: '7-Free quick-drying gel nail polish duo in Pastel Petal Pink and Crimson Bloom Red, delivering plump salon gel gloss with gold caps.',
-    details: [
-      'Two 12ml bottles with wide-fan flat bristle brush for streak-free application',
-      'Dries in under 60 seconds without UV lamp requirement',
-      'Chip-resistant gloss lasting up to 7 days'
-    ],
-    colors: [
-      { name: 'Pastel Petal Pink', hex: '#E8A5A5' },
-      { name: 'Crimson Bloom Red', hex: '#8B0000' }
-    ],
-    material: '7-Free Toxic Free Formulation',
-    tags: ['Petite Edit', 'Under 99', 'Fast Drying'],
-    isBestSeller: true,
-    availability: 'in_stock',
-    stockStatus: 'in_stock',
-    relatedProducts: ['beauty-01', 'beauty-02', 'acc-03']
-  },
-  {
-    id: 'beauty-04',
-    code: 'BEAUTY-KUMKUMADI-ELIXIR',
-    name: 'Ayurvedic Kumkumadi Radiance Day & Night Facial Suite',
-    category: 'beauty',
-    categoryLabel: 'Beauty & Skincare',
-    subcategory: 'Facial Oils & Lip Care',
-    price: 299,
-    originalPrice: 399,
-    priceMode: 'fixed',
-    priceLabel: '₹299',
-    images: [
-      '/images/products/luxury-skincare-beauty-suite.jpg'
-    ],
-    description: 'Complete Ayurvedic beauty ritual featuring pure Kannauj rose hydrosol and saffron nectar formulated for timeless skin radiance.',
-    details: [
-      'Enriched with saffron, lotus stamens, and soothing rose petals',
-      'Non-comedogenic, 100% plant-based holistic formulation',
-      'Presented in amber glass bottles protecting active botanical extracts'
-    ],
-    material: 'Ayurvedic Herbal Infusion',
-    tags: ['Ayurvedic Glow', 'Under 299'],
-    availability: 'in_stock',
-    stockStatus: 'in_stock',
-    relatedProducts: ['beauty-01', 'beauty-02', 'frag-02']
-  },
-
-  // ==========================================
-  // 7. ARTISANAL FRAGRANCE (Attars & Scents)
+  // 6. ARTISANAL FRAGRANCE (Attars & Scents)
   // ==========================================
   {
     id: 'frag-01',
@@ -799,7 +685,7 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['frag-02', 'frag-03', 'beauty-01']
+    relatedProducts: ['frag-02', 'frag-03', 'lakh-01']
   },
   {
     id: 'frag-02',
@@ -855,7 +741,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // ==========================================
-  // 8. GIFTS & HAMPERS
+  // 7. GIFTS & HAMPERS
   // ==========================================
   {
     id: 'gifts-01',
@@ -870,10 +756,10 @@ export const PRODUCTS: Product[] = [
     priceLabel: '₹499 (Box)',
     images: [
       '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
-      '/images/products/luxury-skincare-beauty-suite.jpg',
+      '/images/products/artisanal-pocket-perfumes-attar.jpg',
       '/images/products/butterfly-clips-pearl-headband.jpg'
     ],
-    description: 'An elegant gift set including 1 Pair of Jaipur Lakh kadas, 1 Kannauj Rosewater Mist (50ml), and 1 Mulberry Silk scrunchie.',
+    description: 'An elegant gift set including 1 Pair of Jaipur Lakh kadas, 1 Pure Botanical Roll-On Attar (6ml), and 1 Mulberry Silk scrunchie.',
     details: [
       'Gold foil embossed textured gift box with satin ribbon',
       'Includes complimentary handwritten blessing calligraphy note',
@@ -890,7 +776,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'gifts-02',
     code: 'GIFT-PASTEL-BIRTHDAY',
-    name: 'Sweet Sixteen Pastel Hair & Gloss Surprise Kit',
+    name: 'Sweet Sixteen Pastel Hair & Accessories Surprise Kit',
     category: 'gifts',
     categoryLabel: 'Gifts & Hampers',
     subcategory: 'Pastel Birthday Kits',
@@ -900,15 +786,15 @@ export const PRODUCTS: Product[] = [
     images: [
       '/images/products/korean-pastel-hair-claws.jpg',
       '/images/products/butterfly-clips-pearl-headband.jpg',
-      '/images/products/luxury-skincare-beauty-suite.jpg'
+      '/images/products/crystal-pearl-saree-pins.jpg'
     ],
-    description: 'A charming aesthetic gift box featuring 2 French acetate claws, 2 pastel nail lacquers, and 3 Korean snap clips in a soft pink gift box.',
+    description: 'A charming aesthetic gift box featuring 2 French acetate claws, 1 set of embroidered butterfly pins, and 3 Korean snap clips in a soft pink gift box.',
     details: [
       'Pastel aesthetics curated for young girls & birthdays',
       'Ready-to-gift box with shredded paper and bow',
       'Custom color selections available via WhatsApp'
     ],
-    material: 'Korean Accessories & Cosmetics',
+    material: 'Korean Accessories & Keepsake Items',
     tags: ['Birthday Pick', 'Under 299'],
     isNew: true,
     availability: 'in_stock',

@@ -57,17 +57,6 @@ export const CATEGORIES: CategoryInfo[] = [
     featured: true,
   },
   {
-    id: 'beauty',
-    label: 'Beauty & Skincare',
-    subtitle: 'Botanical Mists, High-Shine Lacquers & Glow Essentials',
-    description: 'Carefully curated gentle face washes, pure steam-distilled Kannauj rosewater, nourishing Kumkumadi face elixirs, and salon-finish gel nail paints.',
-    heroImage: '/images/products/luxury-skincare-beauty-suite.jpg',
-    badge: 'Pure Glow',
-    itemCountDesc: '40+ Tested Favorites',
-    subcategories: ['Facial Cleansers & Washes', 'Floral Toners & Mists', 'Gel Nail Lacquers', 'Facial Oils & Lip Care'],
-    featured: true,
-  },
-  {
     id: 'fragrance',
     label: 'Artisanal Fragrance',
     subtitle: 'Pure Floral Attars & Travel-Friendly Eau De Parfums',
@@ -97,7 +86,7 @@ export const CATEGORIES: CategoryInfo[] = [
     heroImage: '/images/products/butterfly-clips-pearl-headband.jpg',
     badge: 'Just Landed',
     itemCountDesc: 'Weekly Curations',
-    subcategories: ['Latest Bangles', 'Trending Hair Accents', 'Fresh Beauty Drops'],
+    subcategories: ['Latest Bangles', 'Trending Hair Accents', 'Oxidised Jewellery'],
     featured: false,
   },
   {
@@ -108,7 +97,7 @@ export const CATEGORIES: CategoryInfo[] = [
     heroImage: '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
     badge: 'Customer Favorites',
     itemCountDesc: 'In-Store Favorites',
-    subcategories: ['Top Lakh Kadas', 'Signature Silk Scrunchies', 'Pure Rosewater'],
+    subcategories: ['Top Lakh Kadas', 'Signature Silk Scrunchies', 'Pure Botanical Attars'],
     featured: false,
   },
 ];
@@ -119,7 +108,7 @@ export const PRICE_TIERS: PriceTier[] = [
     title: 'Under ₹99',
     maxPrice: 99,
     tagline: 'The Petite Edit',
-    popularItems: 'Pastel Claw Clips, Salon Gel Nail Lacquers, Crystal Pins',
+    popularItems: 'Pastel Claw Clips, Carved Antique Rings, Crystal Pins',
     image: '/images/products/korean-pastel-hair-claws.jpg',
     badgeColor: '#A3705C'
   },
@@ -128,7 +117,7 @@ export const PRICE_TIERS: PriceTier[] = [
     title: 'Under ₹199',
     maxPrice: 199,
     tagline: 'The Daily Signature',
-    popularItems: 'Mulberry Silk Scrunchies, French Acetate Claws, Pure Rosewater Mist',
+    popularItems: 'Mulberry Silk Scrunchies, Organza Butterfly Pins, Roll-On Botanical Attars',
     image: '/images/products/butterfly-clips-pearl-headband.jpg',
     badgeColor: '#802035'
   },
@@ -137,7 +126,7 @@ export const PRICE_TIERS: PriceTier[] = [
     title: 'Under ₹299',
     maxPrice: 299,
     tagline: 'The Statement Archive',
-    popularItems: 'Handcrafted Lakh Kadas, Pearl Headbands, Roll-on Floral Attars',
+    popularItems: 'Handcrafted Lakh Kadas, Pearl Headbands, Bohemian Oxidised Sets',
     image: '/images/products/artisanal-pocket-perfumes-attar.jpg',
     badgeColor: '#BFA37C'
   },

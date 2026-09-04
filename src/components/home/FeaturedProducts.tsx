@@ -50,7 +50,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
           </h2>
 
           <p className="luxury-subtext" style={{ maxWidth: '540px' }}>
-            Hand-selected heirloom bangles, viral acetate hair accessories, and restorative beauty rituals.
+            Hand-selected heirloom bangles, viral Korean hair accessories, oxidised jewellery, and fine fragrances.
           </p>
 
           {/* Minimalist Filter Tabs */}
@@ -65,9 +65,9 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               { id: 'all', label: 'All Highlights' },
               { id: 'lakh-bangles', label: 'Lakh Bangles' },
               { id: 'fancy-bangles', label: 'Bridal Sets' },
-              { id: 'traditional-bangles', label: 'Temple Jewels' },
+              { id: 'traditional-bangles', label: 'Temple Bangles' },
+              { id: 'fashion-accessories', label: 'Oxidised Jewels' },
               { id: 'hair-accessories', label: 'Hair Accents' },
-              { id: 'beauty', label: 'Beauty & Skin' },
               { id: 'fragrance', label: 'Fragrance' },
               { id: 'gifts', label: 'Gifting' },
             ].map((tab) => (

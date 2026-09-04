@@ -211,7 +211,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             </h1>
             <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '4px', fontWeight: 300, maxWidth: '640px' }}>
               {currentCategoryInfo?.description ||
-                'Explore handcrafted Jaipur Lakh, bridal choodas, Parisian hair accents, and restorative botanical beauty.'}
+                'Explore handcrafted Jaipur Lakh, bridal choodas, Korean hair accents, oxidised jewellery, and fine fragrances.'}
             </p>
           </div>
 

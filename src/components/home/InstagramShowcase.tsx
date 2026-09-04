@@ -23,9 +23,9 @@ export const InstagramShowcase: React.FC = () => {
       tag: '#OxidisedJewels'
     },
     {
-      image: '/images/products/luxury-skincare-beauty-suite.jpg',
-      caption: 'Steam-distilled Kannauj Desi Gulab mist & saffron cleanser for daily glow 🌹',
-      tag: '#BotanicalGlow'
+      image: '/images/products/crystal-pearl-saree-pins.jpg',
+      caption: 'Artisanal crystal floral saree pins & twin swan brooches for wedding guest glam ✨',
+      tag: '#SareeBrooches'
     }
   ];
 

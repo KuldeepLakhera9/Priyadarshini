@@ -214,10 +214,10 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <button
-            onClick={() => onSelectCategory('beauty')}
+            onClick={() => onSelectCategory('hair-accessories')}
             className="category-nav-link"
           >
-            Beauty
+            Hair Accents
           </button>
 
           <button

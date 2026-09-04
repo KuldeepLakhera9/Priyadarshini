@@ -49,7 +49,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                 />
               </div>
 
-              {/* Secondary Inset Image: Everyday Beauty & Hair */}
+              {/* Secondary Inset Image: Everyday Hair & Fragrance */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -65,7 +65,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                 }}>
                   <img
                     src="/images/products/korean-pastel-hair-claws.jpg"
-                    alt="Everyday Hair Accents"
+                    alt="Everyday Korean Hair Accents"
                     loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -80,8 +80,8 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                   height: 'clamp(170px, 20vw, 225px)'
                 }}>
                   <img
-                    src="/images/products/luxury-skincare-beauty-suite.jpg"
-                    alt="Botanical Glow Care"
+                    src="/images/products/artisanal-pocket-perfumes-attar.jpg"
+                    alt="Fine Fragrances & Roll-On Attars"
                     loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />

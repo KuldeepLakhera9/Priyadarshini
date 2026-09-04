@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
             {/* Authentic Brand Voice Subtext */}
             <p className="luxury-subtext" style={{ maxWidth: '540px' }}>
-              Bringing together traditional & fancy bangles, Korean hair accessories, daily beauty essentials, fine fragrances and thoughtful gifts in Bhawani Peth, Jalgaon.
+              Bringing together traditional & fancy bangles, Korean hair accessories, oxidised jewellery, fine fragrances and thoughtful gifts in Bhawani Peth, Jalgaon.
             </p>
 
             {/* Primary Action Buttons */}

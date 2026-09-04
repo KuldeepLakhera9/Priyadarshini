@@ -93,7 +93,7 @@ export const BRAND_CONFIG: BrandConfig = {
   brandName: "Priyadarshani",
   businessName: "Priyadarshani Bangles & Fancy Collections",
   tagline: "Adornment, Beauty & Everyday Elegance.",
-  brandSubtext: "Curating traditional & fancy bangles, fashion accessories, beauty essentials, fine fragrances and celebratory gifts in Jalgaon.",
+  brandSubtext: "Curating traditional & fancy bangles, Korean hair accessories, oxidised jewellery, fine fragrances and celebratory gifts in Jalgaon.",
   websiteUrl: "https://priyadarshani-boutique.com",
 
   // 2. Direct Contact Channels
@@ -138,10 +138,10 @@ export const BRAND_CONFIG: BrandConfig = {
   story: {
     kicker: "The Priyadarshani Journey",
     heading: "From Timeless Bangles to Modern Lifestyle Adornment",
-    quote: "What began with a love for beautiful bangles has grown into a carefully curated destination for women's fashion, beauty and everyday accessories in Jalgaon.",
+    quote: "What began with a love for beautiful bangles has grown into a carefully curated destination for women's fashion, accessories, and fragrances in Jalgaon.",
     paragraphs: [
       "Our story started with the rich artistry of handcrafted Lakh, fancy, and bridal bangles — celebrating the shimmer, vibrant colours, and auspicious grace of Indian womanhood.",
-      "Over time, listening to our customers across Jalgaon, we thoughtfully expanded into everyday fashion accessories: French acetate hair claws, mulberry silk scrunchies, salon gel nail paints, daily face care, fine fragrances, and celebratory gifting edits.",
+      "Over time, listening to our customers across Jalgaon, we thoughtfully expanded into everyday fashion accessories: Korean pastel hair claws, organza butterfly pins, Bohemian oxidised jewellery, carved rings, crystal saree brooches, fine pocket perfumes, and celebratory gifting edits.",
       "Located at Om Tulsi Plaza in Bhawani Peth, our boutique is a welcoming space where heritage Indian jewellery seamlessly blends with contemporary taste — always backed by warm personal assistance and fair pricing."
     ],
     pillars: [
@@ -151,7 +151,7 @@ export const BRAND_CONFIG: BrandConfig = {
       },
       {
         title: "Weekly Fresh Curation",
-        desc: "New Korean hair claws, trending studs, and beauty essentials every 7 days."
+        desc: "New Korean hair claws, trending oxidised jewellery, and fine attars every 7 days."
       },
       {
         title: "Affordable Elegance",
@@ -175,26 +175,24 @@ export const BRAND_CONFIG: BrandConfig = {
   announcement: {
     enabled: true,
     badge: "VISIT OUR STORE",
-    text: "Visit our boutique at Bhawani Peth, Jalgaon to explore 1,000+ bangles, accessories, beauty & fragrances.",
+    text: "Visit our boutique at Bhawani Peth, Jalgaon to explore 1,000+ bangles, hair accessories, oxidised jewellery & fragrances.",
     linkText: "Get Directions",
     linkHref: "#visit-store"
   },
 
   // 7. Local SEO & Meta Tags
   seo: {
-    title: "Priyadarshani | Bangles, Fashion Accessories & Beauty in Jalgaon",
-    description: "Discover handcrafted Lakh bangles, bridal choodas, Korean hair accessories, skincare essentials, fine fragrances and gift items at Priyadarshani in Bhawani Peth, Jalgaon. Visit our boutique or enquire on WhatsApp.",
+    title: "Priyadarshani | Bangles, Fashion Accessories & Fragrance in Jalgaon",
+    description: "Discover handcrafted Lakh bangles, bridal choodas, Korean hair accessories, oxidised jewellery, fine fragrances and gift items at Priyadarshani in Bhawani Peth, Jalgaon. Visit our boutique or enquire on WhatsApp.",
     keywords: [
-      "Priyadarshani Jalgaon",
-      "Priyadarshani Bangles & Fancy Collections",
-      "bangles shop in jalgaon",
+      "bangles jalgaon",
       "lakh bangles jalgaon",
-      "fancy bangles jalgaon",
       "bridal chooda jalgaon",
-      "bhawani peth jalgaon bangles",
+      "fancy bangles bhawani peth",
+      "priyadarshani jalgaon",
       "om tulsi plaza jalgaon",
       "hair accessories jalgaon",
-      "ladies beauty products jalgaon",
+      "oxidised jewellery jalgaon",
       "perfumes and fragrance jalgaon",
       "women gifts and hampers jalgaon"
     ],
