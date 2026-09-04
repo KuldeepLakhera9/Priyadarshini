@@ -42,7 +42,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                 height: 'clamp(360px, 44vw, 480px)'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=900&auto=format&fit=crop"
+                  src="/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
                   alt="Jaipur Lakh Craftsmanship"
                   loading="lazy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -64,7 +64,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                   height: 'clamp(170px, 20vw, 225px)'
                 }}>
                   <img
-                    src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop"
+                    src="/images/products/korean-pastel-hair-claws.jpg"
                     alt="Everyday Hair Accents"
                     loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -80,7 +80,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                   height: 'clamp(170px, 20vw, 225px)'
                 }}>
                   <img
-                    src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop"
+                    src="/images/products/luxury-skincare-beauty-suite.jpg"
                     alt="Botanical Glow Care"
                     loading="lazy"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}

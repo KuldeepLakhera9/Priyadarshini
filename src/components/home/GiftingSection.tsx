@@ -31,7 +31,7 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
               border: '1px solid var(--border-subtle)'
             }}>
               <img
-                src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=900&auto=format&fit=crop"
+                src="/images/products/crystal-pearl-saree-pins.jpg"
                 alt="The Gifting Atelier Curations"
                 style={{ width: '100%', height: 'clamp(380px, 42vw, 500px)', objectFit: 'cover' }}
               />

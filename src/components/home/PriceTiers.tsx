@@ -20,7 +20,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     priceLabel: 'Under ₹99',
     curationName: 'The Little Accents Edit',
     description: 'Mini crystal hair accents, French pastel clips, and salon-shine gel nail lacquers.',
-    image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/korean-pastel-hair-claws.jpg',
   },
   {
     id: 'under-199',
@@ -28,7 +28,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     priceLabel: 'Under ₹199',
     curationName: 'Little Finds Worth Discovering',
     description: 'Mulberry silk satin scrunchies, French cellulose acetate claws, and Kannauj rosewater mist.',
-    image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/butterfly-clips-pearl-headband.jpg',
   },
   {
     id: 'under-299',
@@ -36,7 +36,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     priceLabel: 'Under ₹299',
     curationName: 'The Everyday Statement Edit',
     description: 'Handcrafted daily Jaipur Lakh kadas, pearl-studded headbands, and pure botanical pocket attars.',
-    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/artisanal-pocket-perfumes-attar.jpg',
   },
   {
     id: 'under-499',
@@ -44,7 +44,7 @@ const LUXURY_TIERS: LuxuryTier[] = [
     priceLabel: 'Under ₹499',
     curationName: 'Elevated Picks for Every Occasion',
     description: 'Kundan polki openable kadas, festive velvet bangles, and celebratory keepsake gift hampers.',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/bridal-kundan-lakh-chooda.jpg',
   }
 ];
 

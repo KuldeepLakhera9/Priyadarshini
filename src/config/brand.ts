@@ -198,6 +198,6 @@ export const BRAND_CONFIG: BrandConfig = {
       "perfumes and fragrance jalgaon",
       "women gifts and hampers jalgaon"
     ],
-    ogImage: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=1200&auto=format&fit=crop"
+    ogImage: "/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
   }
 };

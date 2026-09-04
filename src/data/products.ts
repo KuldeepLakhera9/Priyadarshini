@@ -161,8 +161,8 @@ export const PRODUCTS: Product[] = [
     priceMode: 'set',
     priceLabel: '₹899 (Full Set)',
     images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop'
+      '/images/products/bridal-kundan-lakh-chooda.jpg',
+      '/images/products/moti-jaal-kadas.jpg'
     ],
     description: 'Complete bridal chooda suite featuring rich red gloss bangles bordered by intricate white pearl-accented kadas.',
     details: [
@@ -195,8 +195,8 @@ export const PRODUCTS: Product[] = [
     priceMode: 'set',
     priceLabel: '₹180 (Pack of 24)',
     images: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop'
+      '/images/products/festive-tricolor-lakh-set.jpg',
+      '/images/products/floral-baguette-bangles.jpg'
     ],
     description: 'Authentic Firozabad glass chooris coated in a soft matte-velvet texture that produces a soothing traditional chime.',
     details: [
@@ -404,8 +404,8 @@ export const PRODUCTS: Product[] = [
     priceMode: 'pair',
     priceLabel: '₹299 (Pair)',
     images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop'
+      '/images/products/floral-baguette-bangles.jpg',
+      '/images/products/shish-mahal-mirror-lakh-kadas.jpg'
     ],
     description: 'Enamelled with vibrant peacock blues and emerald greens using centuries-old Jaipur Meenakari firing techniques.',
     details: [
@@ -430,95 +430,102 @@ export const PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'acc-01',
-    code: 'EARRING-KUNDAN-CHAND',
-    name: 'Kundan Pearl Meenakari Festive Chandbalis',
-    category: 'fashion-accessories',
-    categoryLabel: 'Fashion Accessories',
-    subcategory: 'Festive Jhumkas',
-    price: 249,
-    originalPrice: 350,
-    priceMode: 'fixed',
-    priceLabel: '₹249',
-    images: [
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Crescent moon silhouette adorned with teardrop pearls and uncut Kundan glass stones. Featherlight on earlobes.',
-    details: [
-      'Comfortable lightweight brass construction',
-      'Hypoallergenic ear-posts with rubber push backs',
-      'Length: 6.5 cm'
-    ],
-    colors: [
-      { name: 'Pearl White & Gold', hex: '#F0E6D2' },
-      { name: 'Ruby Pink & Gold', hex: '#C2185B' }
-    ],
-    material: 'Brass, Kundan Glass & Faux Pearls',
-    tags: ['Best Seller', 'Wedding Guest', 'Under 299'],
-    isBestSeller: true,
-    availability: 'in_stock',
-    stockStatus: 'in_stock',
-    relatedProducts: ['acc-02', 'fancy-01', 'lakh-01']
-  },
-  {
-    id: 'acc-02',
-    code: 'EARRING-OXIDISED-JHUMKA',
-    name: 'Tribal German Silver Oxidised Bell Jhumkas',
+    code: 'JEWEL-OXIDISED-NECKLACE-SET',
+    name: 'Bohemian German Silver Tribal Coin & Ghungroo Necklace Set',
     category: 'fashion-accessories',
     categoryLabel: 'Fashion Accessories',
     subcategory: 'Oxidised Silver',
-    price: 149,
+    price: 199,
+    originalPrice: 280,
     priceMode: 'fixed',
-    priceLabel: '₹149',
+    priceLabel: '₹199',
     images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop'
+      '/images/products/oxidised-silver-necklace-rings.jpg'
     ],
-    description: 'Vintage-washed oxidised silver alloy jhumkas with delicate tinkling ghungroo drops, perfect for kurti and fusion outfits.',
+    description: 'Vintage-washed German silver tribal statement necklace detailed with hanging chime ghungroos, engraved antique coin pendants, carnelian and turquoise accent beads, paired with a matching bell jhumka.',
+    story: 'Sourced directly from our Jalgaon counter. A Bohemian festival favorite that pairs effortlessly with cotton kurtis, fusion sarees, and Navratri chaniyas.',
     details: [
-      'German silver alloy with antique patina',
-      'Zero lead & zero nickel',
-      'Weight: 22g pair'
+      'Artisanal German silver alloy with antique matte patina',
+      'Tinkling ghungroo bells and embossed temple coin charms',
+      'Turquoise and terracotta bead spacers',
+      'Matching statement bell jhumka included',
+      'Zero lead & zero nickel skin-safe alloy'
     ],
     colors: [
-      { name: 'Antique Silver', hex: '#9E9E9E' }
+      { name: 'Antique Silver Patina', hex: '#8C9298' }
     ],
-    material: 'German Silver Alloy',
-    tags: ['College Style', 'Under 199'],
-    isNew: true,
+    material: 'German Silver Alloy & Glass Accent Beads',
+    tags: ['Best Seller', 'Oxidised Silver', 'Under 199'],
+    isFeatured: true,
+    isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['acc-01', 'hair-01', 'hair-02']
+    relatedProducts: ['acc-02', 'acc-03', 'lakh-02']
   },
   {
-    id: 'acc-03',
-    code: 'RING-KUNDAN-ADJUSTABLE',
-    name: 'Bespoke Kundan Mirror Adjustable Statement Ring',
+    id: 'acc-02',
+    code: 'RING-OXIDISED-FLORAL-SET',
+    name: 'Shivson Handcrafted Antique Silver Carved Statement Rings',
     category: 'fashion-accessories',
     categoryLabel: 'Fashion Accessories',
     subcategory: 'Statement Rings',
-    price: 99,
+    price: 89,
     priceMode: 'fixed',
-    priceLabel: '₹99',
+    priceLabel: '₹89 (Set of 2)',
     images: [
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop'
+      '/images/products/oxidised-silver-necklace-rings.jpg'
     ],
-    description: 'Cocktail ring featuring a circular sunburst Kundan polki setting with an adjustable back band fitting all finger sizes.',
+    description: 'Set of two intricately engraved antique silver finger rings featuring traditional mandala and filigree petal motifs. Fitted with an adjustable back band for universal sizing.',
+    story: 'The timeless college and daily-wear staple from Priyadarshani\'s jewellery counter, photographed on raw slate stone.',
     details: [
-      'Universal adjustable band',
-      'High-gloss antique gold finish',
-      'Diameter: 3.2 cm'
+      'Set of 2 statement finger rings with mandala and petal engravings',
+      'Smooth adjustable comfort band fitting any finger size',
+      'Matte antique silver oxidised finish',
+      'Lightweight and comfortable for all-day wear'
     ],
     colors: [
-      { name: 'Gold & Clear', hex: '#E8D3A2' }
+      { name: 'Oxidised Antique Silver', hex: '#9E9E9E' }
     ],
     sizes: ['Free Size (Adjustable)'],
-    material: 'Brass & Polki Glass',
-    tags: ['Petite Edit', 'Under 99'],
+    material: 'German Silver Alloy',
+    tags: ['Petite Edit', 'Under 99', 'College Favorite'],
+    isNew: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['acc-01', 'lakh-02', 'hair-03']
+    relatedProducts: ['acc-01', 'acc-03', 'hair-01']
+  },
+  {
+    id: 'acc-03',
+    code: 'BROOCH-CRYSTAL-PEARL-SUITE',
+    name: 'Artisanal Crystal Floral Saree Pins & Pearl Swan Brooches Suite',
+    category: 'fashion-accessories',
+    categoryLabel: 'Fashion Accessories',
+    subcategory: 'Brooches & Saree Pins',
+    price: 149,
+    originalPrice: 199,
+    priceMode: 'set',
+    priceLabel: '₹149 (Curated Pair)',
+    images: [
+      '/images/products/crystal-pearl-saree-pins.jpg'
+    ],
+    description: 'Exquisite jewelry suite featuring pastel crystal-petal floral saree safety pins with teardrop crystal drops, accompanied by pavé crystal twin swan brooches and pearl-encrusted heart pins.',
+    story: 'Handcrafted with brilliant aurora borealis crystals and lustrous simulated pearls on champagne velvet, designed to elevate saree drapes, dupattas, and festive cardigans without damaging fabric.',
+    details: [
+      'Includes 1 crystal floral saree pin + 1 pearl swan or heart brooch pin',
+      'Multi-color pastel crystal petals (rose, mint, champagne, lavender)',
+      'High-grade stainless steel safety pin needle with safety lock clasp',
+      'Snag-free backing that protects delicate silk, georgette, and organza fabrics'
+    ],
+    colors: [
+      { name: 'Pastel Crystal & Pearl Gold', hex: '#F0E6D2' }
+    ],
+    material: 'Austrian Crystals, Seed Pearls & Rose Gold Tone Alloy',
+    tags: ['Saree Essentials', 'Boutique Exclusive', 'Under 199'],
+    isFeatured: true,
+    isBestSeller: true,
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
+    relatedProducts: ['acc-01', 'fancy-03', 'hair-03']
   },
 
   // ==========================================
@@ -526,32 +533,30 @@ export const PRODUCTS: Product[] = [
   // ==========================================
   {
     id: 'hair-01',
-    code: 'HAIR-CLAW-ACETATE-L',
-    name: 'French Cellulose Acetate Marbled Jumbo Hair Claw',
+    code: 'HAIR-KOREAN-PASTEL-CLAWS',
+    name: 'Korean Pastel Floral & Butterfly Mini Hair Claws Collection',
     category: 'hair-accessories',
     categoryLabel: 'Hair Accessories',
     subcategory: 'Acetate Hair Claws',
-    price: 149,
-    priceMode: 'fixed',
-    priceLabel: '₹149',
+    price: 99,
+    priceMode: 'set',
+    priceLabel: '₹99 (Set of 6)',
     images: [
-      'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop'
+      '/images/products/korean-pastel-hair-claws.jpg'
     ],
-    description: 'Eco-friendly biodegradable cellulose acetate hair claw with high-tension rust-proof spring. Strong all-day hold for thick or curly hair.',
+    description: 'Delightful 6-piece assortment of Korean matte pastel mini flower claws, butterfly pins, and square clips in soft blush pink, lilac, mint green, baby blue, and cream, along with jumbo tortoiseshell and glitter claws.',
+    story: 'Fresh from our Jalgaon boutique hair counter. Ultra-lightweight with anti-slip interlocking teeth, styled on warm travertine stone.',
     details: [
-      '10.5 cm wide jumbo silhouette',
-      'Smooth hand-polished teeth prevents hair breakage',
-      'Heavy-duty non-slip spring mechanism'
+      'Curated set of 6 aesthetic matte pastel hair claws',
+      'Includes floral, butterfly, and geometric square silhouette shapes',
+      'High-tension rust-proof spring with rounded non-scratch teeth',
+      'Gentle on fine and thick hair; perfect for half-up twists and bangs'
     ],
     colors: [
-      { name: 'Tortoiseshell Amber', hex: '#633B19' },
-      { name: 'Smoky Olive', hex: '#556B2F' },
-      { name: 'Pearl Ivory', hex: '#FDFBF7' },
-      { name: 'Blush Marble', hex: '#D8A096' }
+      { name: 'Pastel Garden Assortment', hex: '#D8B4E2' }
     ],
-    material: 'Biodegradable Cellulose Acetate',
-    tags: ['Viral Favorite', 'Under 199', 'Best Seller'],
+    material: 'Matte Soft-Touch Resin & Coated Steel Spring',
+    tags: ['Viral Favorite', 'Under 99', 'Best Seller'],
     isFeatured: true,
     isBestSeller: true,
     availability: 'in_stock',
@@ -569,17 +574,17 @@ export const PRODUCTS: Product[] = [
     priceMode: 'set',
     priceLabel: '₹129 (Set of 3)',
     images: [
-      'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=800&auto=format&fit=crop'
+      '/images/products/butterfly-clips-pearl-headband.jpg',
+      '/images/products/korean-pastel-hair-claws.jpg'
     ],
     description: 'Zero friction, anti-breakage mulberry satin scrunchies designed to glide over strands without creasing or tugging delicate hair.',
     details: [
-      'Pack includes 3 harmonized pastel shades',
+      'Pack includes 3 harmonized pastel shades (Rose, Sage & Champagne)',
       'High-elasticity durable natural rubber core',
       'Gentle on treated, wavy, and delicate hair'
     ],
     colors: [
-      { name: 'Champagne, Rose & Mocha', hex: '#CBB29E' }
+      { name: 'Champagne, Rose & Sage', hex: '#CBB29E' }
     ],
     material: 'Mulberry Satin & Soft Elastic',
     tags: ['Hair Care', 'Under 199'],
@@ -590,48 +595,49 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'hair-03',
-    code: 'HAIR-HEADBAND-VELVET-PEARL',
-    name: 'Vintage Padded Velvet Headband with Hand-Set Pearls',
+    code: 'HAIR-BUTTERFLY-VELVET-SUITE',
+    name: 'Whimsical Organza Butterfly Hairpins & Pearl Velvet Headband Suite',
     category: 'hair-accessories',
     categoryLabel: 'Hair Accessories',
     subcategory: 'Velvet Headbands',
-    price: 199,
-    priceMode: 'fixed',
-    priceLabel: '₹199',
+    price: 179,
+    originalPrice: 240,
+    priceMode: 'set',
+    priceLabel: '₹179 (Suite)',
     images: [
-      'https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=800&auto=format&fit=crop'
+      '/images/products/butterfly-clips-pearl-headband.jpg'
     ],
-    description: 'Plush velvet padded band adorned with assorted ivory simulated pearls. Flexible comfort structure that never presses behind the ears.',
+    description: 'Dreamy boutique hair suite featuring double-layered translucent embroidered organza butterfly hairpins, a padded dusty-rose velvet comfort headband with pearl beading, and lustrous satin scrunchies.',
+    story: 'Photographed on soft cream linen in natural morning sunlight. Ideal for birthdays, festive occasions, and youthful ethnic ensembles.',
     details: [
-      'Ergonomic flex band with zero headache pressure',
-      'Hand-stitched faux pearls on rich velvet',
-      'Width: 3.5 cm'
+      '1 Padded velvet headband with hand-sewn pearl clusters and gold criss-cross embroidery',
+      'Pair of 2 3D organza fluttering butterfly alligator hairpins',
+      'Flexible headband core that prevents headache pressure behind ears',
+      'Suitable for girls, teens, and women'
     ],
     colors: [
-      { name: 'Midnight Onyx', hex: '#1C1C1C' },
-      { name: 'Wine Velvet', hex: '#58111A' },
-      { name: 'Warm Taupe', hex: '#8B7D6B' }
+      { name: 'Dusty Rose & Pearl Ivory', hex: '#B86F77' }
     ],
-    material: 'Italian Velvet & Simulated Pearls',
-    tags: ['Trending', 'Under 199'],
+    material: 'Plush Velvet, Embroidered Organza & Faux Pearls',
+    tags: ['Trending', 'Under 199', 'Boutique Exclusive'],
+    isFeatured: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['hair-01', 'hair-02', 'acc-01']
+    relatedProducts: ['hair-01', 'hair-02', 'acc-03']
   },
   {
     id: 'hair-04',
     code: 'HAIR-CLIPS-KOREAN-SET',
-    name: 'Korean Matte Pastel Snap Hair Pins (Pack of 6)',
+    name: 'Korean Matte Pastel Snap Hair Pins & Clips (Pack of 6)',
     category: 'hair-accessories',
     categoryLabel: 'Hair Accessories',
     subcategory: 'Pastel Barrettes & Clips',
-    price: 79,
+    price: 69,
     priceMode: 'set',
-    priceLabel: '₹79 (Set of 6)',
+    priceLabel: '₹69 (Set of 6)',
     images: [
-      'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=800&auto=format&fit=crop'
+      '/images/products/korean-pastel-hair-claws.jpg',
+      '/images/products/butterfly-clips-pearl-headband.jpg'
     ],
     description: 'Set of 6 aesthetic matte rubberised snap barrettes in muted Korean cafe shades. Perfect for pinning front fringes and baby hairs.',
     details: [
@@ -665,14 +671,13 @@ export const PRODUCTS: Product[] = [
     priceMode: 'fixed',
     priceLabel: '₹169 (100ml)',
     images: [
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop'
+      '/images/products/luxury-skincare-beauty-suite.jpg'
     ],
-    description: '100% pure steam distillation of Indian Damask roses sourced directly from Kannauj. Alcohol-free hydrating skin refresher.',
+    description: '100% pure steam distillation of Indian Damask roses sourced directly from Kannauj. Alcohol-free hydrating skin refresher in an amber glass bottle.',
     details: [
-      '100ml spray bottle with fine-mist nozzle',
-      'No artificial fragrance, no alcohol, no parabens',
-      'Balances skin pH and tightens enlarged pores'
+      '100ml amber glass spray bottle with ultra-fine mist nozzle',
+      'No artificial fragrance, zero alcohol, zero parabens',
+      'Naturally balances skin pH, tightens pores, and sets mineral makeup'
     ],
     material: 'Pure Rosa Damascena Hydrosol',
     tags: ['Pure Glow', 'Under 199', 'Best Seller'],
@@ -680,88 +685,83 @@ export const PRODUCTS: Product[] = [
     isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['beauty-02', 'beauty-04', 'frag-01']
+    relatedProducts: ['beauty-02', 'beauty-03', 'frag-01']
   },
   {
     id: 'beauty-02',
     code: 'BEAUTY-FACEWASH-SAFFRON',
-    name: 'Kashmiri Saffron & Sandalwood Clarifying Face Cleanser',
+    name: 'Kashmiri Saffron Clarifying Gentle Face Cleanser',
     category: 'beauty',
     categoryLabel: 'Beauty & Skincare',
     subcategory: 'Facial Cleansers & Washes',
     price: 189,
     priceMode: 'fixed',
-    priceLabel: '₹189 (100ml)',
+    priceLabel: '₹189 (150ml)',
     images: [
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop'
+      '/images/products/luxury-skincare-beauty-suite.jpg'
     ],
-    description: 'Non-drying gel face wash infused with real Kashmiri Kesar filaments and pure chandan extract for radiant, clean skin.',
+    description: 'Non-drying clarifying gel cleanser infused with real Kashmiri Kesar filaments and chandan extract, leaving skin fresh, radiant, and luminous.',
     details: [
-      '100ml pump bottle',
-      'Gentle sulfate-free lather suitable for all skin types',
-      'Reduces tan and restores natural skin radiance'
+      '150ml glass pump dispenser bottle with visible saffron threads',
+      'Gentle sulfate-free lather suitable for sensitive and all skin types',
+      'Restores skin brightness and washes away daily pollutants'
     ],
-    material: 'Saffron & Sandalwood Botanical Extract',
+    material: 'Pure Kashmiri Saffron & Botanical Extracts',
     tags: ['Daily Cleanser', 'Under 199'],
     isNew: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['beauty-01', 'beauty-04', 'gifts-01']
+    relatedProducts: ['beauty-01', 'beauty-03', 'gifts-01']
   },
   {
     id: 'beauty-03',
     code: 'BEAUTY-NAIL-GEL-SET',
-    name: 'Salon High-Shine Chip-Resistant Gel Nail Paint',
+    name: 'Salon High-Shine Gel Nail Lacquers (Set of 2)',
     category: 'beauty',
     categoryLabel: 'Beauty & Skincare',
     subcategory: 'Gel Nail Lacquers',
-    price: 89,
-    priceMode: 'fixed',
-    priceLabel: '₹89',
+    price: 99,
+    priceMode: 'set',
+    priceLabel: '₹99 (Duo)',
     images: [
-      'https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop'
+      '/images/products/luxury-skincare-beauty-suite.jpg'
     ],
-    description: '7-Free, toxic-free quick-drying formula delivering salon-like plump gel gloss that stays chip-free for up to 7 days.',
+    description: '7-Free quick-drying gel nail polish duo in Pastel Petal Pink and Crimson Bloom Red, delivering plump salon gel gloss with gold caps.',
     details: [
-      '12ml wide-fan flat bristle brush for single-stroke coating',
-      'Dries in under 60 seconds without UV lamp',
-      'Over 20+ shades available in store'
+      'Two 12ml bottles with wide-fan flat bristle brush for streak-free application',
+      'Dries in under 60 seconds without UV lamp requirement',
+      'Chip-resistant gloss lasting up to 7 days'
     ],
     colors: [
-      { name: 'Deep Cherry Wine', hex: '#630D16' },
-      { name: 'Nude Almond', hex: '#C29B7F' },
-      { name: 'French Ballerina Pink', hex: '#E8A5A5' },
-      { name: 'Glazed Pearl Chrome', hex: '#EBE5DF' }
+      { name: 'Pastel Petal Pink', hex: '#E8A5A5' },
+      { name: 'Crimson Bloom Red', hex: '#8B0000' }
     ],
     material: '7-Free Toxic Free Formulation',
     tags: ['Petite Edit', 'Under 99', 'Fast Drying'],
     isBestSeller: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
-    relatedProducts: ['beauty-01', 'hair-04', 'acc-03']
+    relatedProducts: ['beauty-01', 'beauty-02', 'acc-03']
   },
   {
     id: 'beauty-04',
     code: 'BEAUTY-KUMKUMADI-ELIXIR',
-    name: 'Ayurvedic Kumkumadi Miraculous Night Face Oil',
+    name: 'Ayurvedic Kumkumadi Radiance Day & Night Facial Suite',
     category: 'beauty',
     categoryLabel: 'Beauty & Skincare',
     subcategory: 'Facial Oils & Lip Care',
     price: 299,
     originalPrice: 399,
     priceMode: 'fixed',
-    priceLabel: '₹299 (15ml)',
+    priceLabel: '₹299',
     images: [
-      'https://images.unsplash.com/photo-1608248597359-002d99d34e9e?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop'
+      '/images/products/luxury-skincare-beauty-suite.jpg'
     ],
-    description: 'Traditional 26-herb Ayurvedic formulation with saffron, lotus stamens, and goat milk for nocturnal cellular rejuvenation.',
+    description: 'Complete Ayurvedic beauty ritual featuring pure Kannauj rose hydrosol and saffron nectar formulated for timeless skin radiance.',
     details: [
-      '15ml amber glass dropper bottle',
-      'Pure saffron & sandalwood scent',
-      'Apply 2-3 drops nightly on clean skin'
+      'Enriched with saffron, lotus stamens, and soothing rose petals',
+      'Non-comedogenic, 100% plant-based holistic formulation',
+      'Presented in amber glass bottles protecting active botanical extracts'
     ],
     material: 'Ayurvedic Herbal Infusion',
     tags: ['Ayurvedic Glow', 'Under 299'],
@@ -776,24 +776,24 @@ export const PRODUCTS: Product[] = [
   {
     id: 'frag-01',
     code: 'FRAG-GULAB-ATTAR',
-    name: 'Gulab Khas Pure Concentrated Roll-On Attar (6ml)',
+    name: 'Artisanal Cut-Crystal Roll-On Pure Botanical Attar (6ml)',
     category: 'fragrance',
     categoryLabel: 'Artisanal Fragrance',
     subcategory: 'Roll-On Pure Attars',
-    price: 199,
+    price: 149,
     priceMode: 'fixed',
-    priceLabel: '₹199 (6ml)',
+    priceLabel: '₹149 (6ml)',
     images: [
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop'
+      '/images/products/artisanal-pocket-perfumes-attar.jpg'
     ],
-    description: '100% alcohol-free traditional roll-on perfume oil extracted from Kannauj desi roses. Long-lasting scent projection up to 12 hours.',
+    description: '100% alcohol-free traditional concentrated perfume oil in cut-crystal glass flacons with gold filigree domed caps. Long-lasting scent projection up to 12 hours.',
+    story: 'Direct from our fragrance shelf. Pure concentrated botanical extracts of Rose de Damas and Sweet Khaleej, aged over sandalwood essential oils.',
     details: [
-      '6ml crystal roll-on vial with gold cap',
-      'Zero alcohol, zero synthetic preservatives',
-      'Notes: Crisp fresh rose, gentle morning dewdrops, warm amber drydown'
+      '6ml traditional faceted crystal vial with embossed gold filigree cap',
+      '100% alcohol-free, skin-nourishing concentrated fragrance oil',
+      'Available in: Rose de Damas, Sandalwood Khus, and Sweet Heart'
     ],
-    material: 'Pure Essential Oils in Sandalwood Base',
+    material: 'Pure Concentrated Perfume Oil',
     tags: ['Alcohol Free', 'Long Lasting', 'Under 199'],
     isFeatured: true,
     isBestSeller: true,
@@ -803,27 +803,27 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'frag-02',
-    code: 'FRAG-WHITE-OUD-EDP',
-    name: 'Royal White Oud & Jasmine Pocket Eau De Parfum (20ml)',
+    code: 'FRAG-POCKET-EDP-SERIES',
+    name: 'Whisky Smoke & Sandalwood Essence Pocket Eau De Parfum (20ml)',
     category: 'fragrance',
     categoryLabel: 'Artisanal Fragrance',
     subcategory: 'Pocket Eau De Parfum',
-    price: 249,
+    price: 199,
     priceMode: 'fixed',
-    priceLabel: '₹249 (20ml)',
+    priceLabel: '₹199 (20ml)',
     images: [
-      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop'
+      '/images/products/artisanal-pocket-perfumes-attar.jpg'
     ],
-    description: 'Travel-friendly luxury spray opening with fresh Indian jasmine blossoms over a rich, velvety white oud and cashmere wood trail.',
+    description: 'Travel-friendly luxury pocket spray perfumes with gold atomizers in frosted glass and matte black finishes. Featuring popular notes of Whisky Smoke, Jade, and Sandalwood Essence.',
     details: [
-      '20ml slim pocket glass spray',
+      '20ml slim pocket glass spray with gold fine-mist pump',
       'Over 250+ sprays per bottle',
-      'Top Notes: Jasmine Sambac; Heart: Saffron; Base: White Oud'
+      'High oil concentration (EDP) with 8+ hours longevity'
     ],
     material: 'Eau De Parfum (20% Concentration)',
-    tags: ['Luxury Scent', 'Under 299'],
+    tags: ['Pocket Perfume', 'Under 199', 'Travel Ready'],
     isNew: true,
+    isFeatured: true,
     availability: 'in_stock',
     stockStatus: 'in_stock',
     relatedProducts: ['frag-01', 'frag-03', 'gifts-01']
@@ -831,27 +831,26 @@ export const PRODUCTS: Product[] = [
   {
     id: 'frag-03',
     code: 'FRAG-CHANDAN-PURE',
-    name: 'Mysore Sandalwood Pure Heritage Attar (6ml)',
+    name: 'Pure Mysore Sandalwood & Amber Royal Attar (6ml)',
     category: 'fragrance',
     categoryLabel: 'Artisanal Fragrance',
     subcategory: 'Roll-On Pure Attars',
-    price: 299,
+    price: 199,
     priceMode: 'fixed',
-    priceLabel: '₹299 (6ml)',
+    priceLabel: '₹199 (6ml)',
     images: [
-      'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=800&auto=format&fit=crop'
+      '/images/products/artisanal-pocket-perfumes-attar.jpg'
     ],
-    description: 'Earthy, sacred sandalwood distilled over slow fire, revered for calming the senses during meditative rituals and celebratory evenings.',
+    description: 'Sacred creamy sandalwood distilled over slow fire, revered for calming the senses during festive celebrations and evening gatherings.',
     details: [
-      '6ml crystal applicator vial',
+      '6ml faceted crystal applicator bottle with gold cap',
       'Warm woody profile that deepens with body heat',
-      '100% alcohol-free skin safe'
+      '100% alcohol-free and skin safe'
     ],
-    material: 'Pure Sandalwood Oil Base',
-    tags: ['Sacred Heritage', 'Under 299'],
-    availability: 'limited',
-    stockStatus: 'limited',
+    material: 'Pure Sandalwood Essential Oil Base',
+    tags: ['Sacred Heritage', 'Under 199'],
+    availability: 'in_stock',
+    stockStatus: 'in_stock',
     relatedProducts: ['frag-01', 'frag-02', 'lakh-01']
   },
 
@@ -870,8 +869,9 @@ export const PRODUCTS: Product[] = [
     priceMode: 'box',
     priceLabel: '₹499 (Box)',
     images: [
-      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=800&auto=format&fit=crop'
+      '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
+      '/images/products/luxury-skincare-beauty-suite.jpg',
+      '/images/products/butterfly-clips-pearl-headband.jpg'
     ],
     description: 'An elegant gift set including 1 Pair of Jaipur Lakh kadas, 1 Kannauj Rosewater Mist (50ml), and 1 Mulberry Silk scrunchie.',
     details: [
@@ -898,8 +898,9 @@ export const PRODUCTS: Product[] = [
     priceMode: 'box',
     priceLabel: '₹299 (Box)',
     images: [
-      'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop'
+      '/images/products/korean-pastel-hair-claws.jpg',
+      '/images/products/butterfly-clips-pearl-headband.jpg',
+      '/images/products/luxury-skincare-beauty-suite.jpg'
     ],
     description: 'A charming aesthetic gift box featuring 2 French acetate claws, 2 pastel nail lacquers, and 3 Korean snap clips in a soft pink gift box.',
     details: [
@@ -924,8 +925,9 @@ export const PRODUCTS: Product[] = [
     priceMode: 'price_on_request',
     priceLabel: 'Price on Request (Bulk Orders)',
     images: [
-      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop'
+      '/images/products/bridal-kundan-lakh-chooda.jpg',
+      '/images/products/crystal-pearl-saree-pins.jpg',
+      '/images/products/artisanal-pocket-perfumes-attar.jpg'
     ],
     description: 'Customized favors for wedding guests featuring traditional Lakh bangles, pocket floral attars, and personalized bride & groom tags.',
     details: [

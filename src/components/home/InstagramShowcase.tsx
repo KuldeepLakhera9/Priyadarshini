@@ -8,23 +8,23 @@ import { trackConversionEvent } from '../../utils/analytics';
 export const InstagramShowcase: React.FC = () => {
   const instaPosts = [
     {
-      image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=600&auto=format&fit=crop',
+      image: '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
       caption: 'Jaipuri bridal Lakh stacks handcrafted for the festive season 🌸✨',
       tag: '#LakhBangles'
     },
     {
-      image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop',
-      caption: 'French cellulose acetate claws for effortless daily Parisian hair updos 🤎',
+      image: '/images/products/korean-pastel-hair-claws.jpg',
+      caption: 'Korean pastel mini claws for effortless daily aesthetic hair updos 🌸',
       tag: '#HairAccents'
     },
     {
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
-      caption: 'Kundan polki openable kadas with micro-gold antique finish ✨',
-      tag: '#BridalJewels'
+      image: '/images/products/oxidised-silver-necklace-rings.jpg',
+      caption: 'Bohemian German silver coin & ghungroo necklace with carved rings ✨',
+      tag: '#OxidisedJewels'
     },
     {
-      image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop',
-      caption: 'Steam-distilled Kannauj Desi Gulab mist for natural morning skin hydration 🌹',
+      image: '/images/products/luxury-skincare-beauty-suite.jpg',
+      caption: 'Steam-distilled Kannauj Desi Gulab mist & saffron cleanser for daily glow 🌹',
       tag: '#BotanicalGlow'
     }
   ];

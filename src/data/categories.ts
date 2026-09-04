@@ -39,7 +39,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Fashion Accessories',
     subtitle: 'Statement Jhumkas & Boutique Finds',
     description: 'Elevate your daily outfits with lightweight Chandbalis, oxidised silver studs, modern rings, and versatile women\'s accessories.',
-    heroImage: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/oxidised-silver-necklace-rings.jpg',
     badge: 'Style Essentials',
     itemCountDesc: '60+ Modern Pieces',
     subcategories: ['Festive Jhumkas', 'Oxidised Silver', 'Statement Rings', 'Chokers & Neckpieces'],
@@ -50,7 +50,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Hair Accessories',
     subtitle: 'French Acetate Claws, Silk Scrunchies & Pearl Bands',
     description: 'Effortless Parisian and Korean hair accents including cellulose acetate claws, mulberry satin scrunchies, crystal hairpins, and velvet headbands.',
-    heroImage: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/korean-pastel-hair-claws.jpg',
     badge: 'Daily Chic',
     itemCountDesc: '120+ Accents',
     subcategories: ['Acetate Hair Claws', 'Silk Satin Scrunchies', 'Velvet Headbands', 'Pastel Barrettes & Clips'],
@@ -61,7 +61,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Beauty & Skincare',
     subtitle: 'Botanical Mists, High-Shine Lacquers & Glow Essentials',
     description: 'Carefully curated gentle face washes, pure steam-distilled Kannauj rosewater, nourishing Kumkumadi face elixirs, and salon-finish gel nail paints.',
-    heroImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/luxury-skincare-beauty-suite.jpg',
     badge: 'Pure Glow',
     itemCountDesc: '40+ Tested Favorites',
     subcategories: ['Facial Cleansers & Washes', 'Floral Toners & Mists', 'Gel Nail Lacquers', 'Facial Oils & Lip Care'],
@@ -72,7 +72,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Artisanal Fragrance',
     subtitle: 'Pure Floral Attars & Travel-Friendly Eau De Parfums',
     description: 'Enchanting botanical distillations, alcohol-free roll-on attars with 12-hour longevity, and luxury travel perfumes crafted from rose, oud, and amber.',
-    heroImage: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/artisanal-pocket-perfumes-attar.jpg',
     badge: 'Signature Scents',
     itemCountDesc: '25+ Exotic Blends',
     subcategories: ['Roll-On Pure Attars', 'Pocket Eau De Parfum', 'Luxury Mist Sprays', 'Oud & Amber Blends'],
@@ -83,7 +83,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Gifts & Hampers',
     subtitle: 'Thoughtful Curations for Sangeet, Birthdays & Favors',
     description: 'Ready-to-gift keepsake boxes filled with handcrafted bangles, satin scrunchies, floral mists, and handwritten blessing notes.',
-    heroImage: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/crystal-pearl-saree-pins.jpg',
     badge: 'Gifting Studio',
     itemCountDesc: 'Custom Boxes Available',
     subcategories: ['Bridal Return Favors', 'Pastel Birthday Kits', 'Festive Celebration Boxes', 'Custom Hamper Curation'],
@@ -94,7 +94,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'New Arrivals',
     subtitle: 'Fresh Atelier Additions & Weekly Boutique Drops',
     description: 'Discover the latest additions to our boutique, refreshed every 7 days with trending Korean hair claws, seasonal lakh motifs, and festive bridal suites.',
-    heroImage: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/butterfly-clips-pearl-headband.jpg',
     badge: 'Just Landed',
     itemCountDesc: 'Weekly Curations',
     subcategories: ['Latest Bangles', 'Trending Hair Accents', 'Fresh Beauty Drops'],
@@ -105,7 +105,7 @@ export const CATEGORIES: CategoryInfo[] = [
     label: 'Best Sellers',
     subtitle: 'Most Loved Heirloom Pieces & Customer Favorites',
     description: 'Our most sought-after handcrafted pieces, verified by in-store customer demand and bridal appointments.',
-    heroImage: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=900&auto=format&fit=crop',
+    heroImage: '/images/products/jaipuri-rani-pink-lakh-kadas.jpg',
     badge: 'Customer Favorites',
     itemCountDesc: 'In-Store Favorites',
     subcategories: ['Top Lakh Kadas', 'Signature Silk Scrunchies', 'Pure Rosewater'],
@@ -120,7 +120,7 @@ export const PRICE_TIERS: PriceTier[] = [
     maxPrice: 99,
     tagline: 'The Petite Edit',
     popularItems: 'Pastel Claw Clips, Salon Gel Nail Lacquers, Crystal Pins',
-    image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/korean-pastel-hair-claws.jpg',
     badgeColor: '#A3705C'
   },
   {
@@ -129,7 +129,7 @@ export const PRICE_TIERS: PriceTier[] = [
     maxPrice: 199,
     tagline: 'The Daily Signature',
     popularItems: 'Mulberry Silk Scrunchies, French Acetate Claws, Pure Rosewater Mist',
-    image: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/butterfly-clips-pearl-headband.jpg',
     badgeColor: '#802035'
   },
   {
@@ -138,7 +138,7 @@ export const PRICE_TIERS: PriceTier[] = [
     maxPrice: 299,
     tagline: 'The Statement Archive',
     popularItems: 'Handcrafted Lakh Kadas, Pearl Headbands, Roll-on Floral Attars',
-    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/artisanal-pocket-perfumes-attar.jpg',
     badgeColor: '#BFA37C'
   },
   {
@@ -147,7 +147,7 @@ export const PRICE_TIERS: PriceTier[] = [
     maxPrice: 499,
     tagline: 'The Festive Suite',
     popularItems: 'Royal Kundan Kadas, Bridal Glass Chooda Sets, Keepsake Gift Boxes',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop',
+    image: '/images/products/bridal-kundan-lakh-chooda.jpg',
     badgeColor: '#2D2522'
   }
 ];

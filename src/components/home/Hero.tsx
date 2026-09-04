@@ -189,7 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=900&auto=format&fit=crop"
+                  src="/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
                   alt="Jaipur Lakh Bangles Heritage Craft"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -227,8 +227,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                   }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=600&auto=format&fit=crop"
-                    alt="Luxury Hair Accessories"
+                    src="/images/products/korean-pastel-hair-claws.jpg"
+                    alt="Korean Pastel Hair Accessories"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
