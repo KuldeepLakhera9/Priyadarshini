@@ -20,27 +20,30 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
       <div className="container-custom">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(40px, 7vw, 84px)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(32px, 6vw, 84px)',
           alignItems: 'center'
         }}>
           {/* Left Column: Visual Collage Spread */}
           <div style={{ position: 'relative' }}>
-            <div style={{
+            <div className="story-image-grid" style={{
               display: 'grid',
               gridTemplateColumns: '1.2fr 1fr',
-              gap: '16px',
+              gap: '14px',
               alignItems: 'center'
             }}>
               {/* Primary Image: Bangle Craftsmanship */}
-              <div style={{
-                borderRadius: 'var(--radius-xs)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-elevated)',
-                border: '1px solid var(--border-subtle)',
-                backgroundColor: 'var(--bg-surface-stone)',
-                height: 'clamp(360px, 44vw, 480px)'
-              }}>
+              <div
+                className="story-primary-img"
+                style={{
+                  borderRadius: 'var(--radius-xs)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-elevated)',
+                  border: '1px solid var(--border-subtle)',
+                  backgroundColor: 'var(--bg-surface-stone)',
+                  height: 'clamp(300px, 44vw, 480px)'
+                }}
+              >
                 <img
                   src="/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
                   alt="Jaipur Lakh Craftsmanship"
@@ -53,16 +56,19 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '16px'
+                gap: '14px'
               }}>
-                <div style={{
-                  borderRadius: 'var(--radius-xs)',
-                  overflow: 'hidden',
-                  boxShadow: 'var(--shadow-card)',
-                  border: '1px solid var(--border-subtle)',
-                  backgroundColor: 'var(--bg-surface-stone)',
-                  height: 'clamp(170px, 20vw, 225px)'
-                }}>
+                <div
+                  className="story-secondary-img"
+                  style={{
+                    borderRadius: 'var(--radius-xs)',
+                    overflow: 'hidden',
+                    boxShadow: 'var(--shadow-card)',
+                    border: '1px solid var(--border-subtle)',
+                    backgroundColor: 'var(--bg-surface-stone)',
+                    height: 'clamp(140px, 20vw, 225px)'
+                  }}
+                >
                   <img
                     src="/images/products/korean-pastel-hair-claws.jpg"
                     alt="Everyday Korean Hair Accents"
@@ -71,14 +77,17 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
                   />
                 </div>
 
-                <div style={{
-                  borderRadius: 'var(--radius-xs)',
-                  overflow: 'hidden',
-                  boxShadow: 'var(--shadow-card)',
-                  border: '1px solid var(--border-subtle)',
-                  backgroundColor: 'var(--bg-surface-stone)',
-                  height: 'clamp(170px, 20vw, 225px)'
-                }}>
+                <div
+                  className="story-secondary-img"
+                  style={{
+                    borderRadius: 'var(--radius-xs)',
+                    overflow: 'hidden',
+                    boxShadow: 'var(--shadow-card)',
+                    border: '1px solid var(--border-subtle)',
+                    backgroundColor: 'var(--bg-surface-stone)',
+                    height: 'clamp(140px, 20vw, 225px)'
+                  }}
+                >
                   <img
                     src="/images/products/artisanal-pocket-perfumes-attar.jpg"
                     alt="Fine Fragrances & Roll-On Attars"
@@ -91,7 +100,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
           </div>
 
           {/* Right Column: Authentic Editorial Story */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div>
               <div className="section-eyebrow">
                 <Sparkles size={11} color="var(--accent-gold-dark)" />
@@ -106,11 +115,11 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
             {/* Signature Emotional Quote */}
             <div style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(1.15rem, 2vw, 1.35rem)',
+              fontSize: 'clamp(1.05rem, 2vw, 1.35rem)',
               color: 'var(--text-main)',
               lineHeight: 1.45,
               fontStyle: 'italic',
-              paddingLeft: '18px',
+              paddingLeft: '16px',
               borderLeft: '2px solid var(--accent-rose)',
               fontWeight: 400
             }}>
@@ -135,9 +144,9 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
             {/* 4 Brand Pillars Mini-Grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '14px',
-              paddingTop: '8px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+              gap: '12px',
+              paddingTop: '6px'
             }}>
               {story.pillars.map((pillar, idx) => (
                 <div
@@ -160,10 +169,10 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '10px' }}>
+            <div className="story-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
               <button
                 onClick={onExploreCollection}
-                className="btn-primary"
+                className="btn-primary story-btn"
               >
                 <span>Explore Curated Boutique</span>
                 <ArrowRight size={15} />
@@ -171,7 +180,7 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
 
               <a
                 href="#visit-store"
-                className="btn-secondary"
+                className="btn-secondary story-btn"
               >
                 <MapPin size={15} color="var(--accent-rose)" />
                 <span>Visit Store in Person</span>
@@ -180,6 +189,28 @@ export const BrandStory: React.FC<BrandStoryProps> = ({ onExploreCollection }) =
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .story-cta-row {
+            flex-direction: column;
+          }
+          .story-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .story-image-grid {
+            grid-template-columns: 1.15fr 0.85fr !important;
+            gap: 10px !important;
+          }
+          .story-primary-img {
+            height: 250px !important;
+          }
+          .story-secondary-img {
+            height: 120px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

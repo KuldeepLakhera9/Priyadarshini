@@ -188,13 +188,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
       </div>
 
       {/* Card Info Details */}
-      <div style={{
-        padding: '16px 18px 18px',
+      <div className="product-card-body" style={{
+        padding: 'clamp(12px, 2.5vw, 18px)',
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
         justifyContent: 'space-between',
-        gap: '12px',
+        gap: '10px',
       }}>
         <div>
           {/* Subcategory & Code */}
@@ -204,12 +204,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             justifyContent: 'space-between',
             fontSize: '0.625rem',
             color: 'var(--text-subtle)',
-            marginBottom: '6px',
+            marginBottom: '4px',
             textTransform: 'uppercase',
-            letterSpacing: '0.14em',
+            letterSpacing: '0.12em',
             fontWeight: 600
           }}>
-            <span>{product.subcategory}</span>
+            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '65%' }}>{product.subcategory}</span>
             <span style={{ color: 'var(--accent-gold-dark)' }}>{product.code}</span>
           </div>
 
@@ -218,16 +218,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             onClick={() => onQuickView(product)}
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '1.05rem',
+              fontSize: 'clamp(0.9375rem, 1.8vw, 1.05rem)',
               fontWeight: 500,
               color: 'var(--text-main)',
-              lineHeight: 1.35,
+              lineHeight: 1.3,
               cursor: 'pointer',
               display: '-webkit-box',
               WebkitLineClamp: 2,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
-              height: '2.7em',
+              height: '2.6em',
               transition: 'color var(--transition-fast)'
             }}
             title={product.name}
@@ -239,15 +239,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
           {/* Swatches preview if available */}
           {product.colors && product.colors.length > 0 && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '6px' }}>
               <div style={{ display: 'flex', gap: '4px' }}>
                 {product.colors.slice(0, 4).map((c, i) => (
                   <span
                     key={i}
                     title={c.name}
                     style={{
-                      width: '9px',
-                      height: '9px',
+                      width: '8px',
+                      height: '8px',
                       borderRadius: '50%',
                       backgroundColor: c.hex,
                       border: '1px solid rgba(0,0,0,0.1)',
@@ -256,7 +256,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
                   />
                 ))}
                 {product.colors.length > 4 && (
-                  <span style={{ fontSize: '0.625rem', color: 'var(--text-subtle)', lineHeight: '9px' }}>
+                  <span style={{ fontSize: '0.5625rem', color: 'var(--text-subtle)', lineHeight: '8px' }}>
                     +{product.colors.length - 4}
                   </span>
                 )}
@@ -267,16 +267,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
         {/* Pricing */}
         <div style={{
-          paddingTop: '12px',
+          paddingTop: '10px',
           borderTop: '1px solid var(--border-subtle)',
           display: 'flex',
           alignItems: 'baseline',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '4px'
         }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
             <span style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '1.05rem',
+              fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
               fontWeight: 600,
               color: 'var(--text-main)'
             }}>
@@ -284,7 +286,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             </span>
             {product.originalPrice && (
               <span style={{
-                fontSize: '0.75rem',
+                fontSize: '0.6875rem',
                 color: 'var(--text-subtle)',
                 textDecoration: 'line-through'
               }}>
@@ -294,13 +296,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
           </div>
 
           <span style={{
-            fontSize: '0.625rem',
+            fontSize: '0.5625rem',
             color: product.availability === 'limited' ? 'var(--accent-rose)' : 'var(--accent-gold-dark)',
-            letterSpacing: '0.08em',
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
             fontWeight: 600
           }}>
-            {product.availability === 'limited' ? 'Limited Pieces' : product.availability === 'in_store_only' ? 'In-Store' : 'In Stock'}
+            {product.availability === 'limited' ? 'Limited' : product.availability === 'in_store_only' ? 'In-Store' : 'In Stock'}
           </span>
         </div>
       </div>
@@ -325,6 +327,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
           .card-hover-actions {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        @media (max-width: 640px) {
+          .card-hover-actions {
+            bottom: 6px !important;
+            left: 6px !important;
+            right: 6px !important;
+            gap: 4px !important;
+          }
+          .card-hover-actions button, .card-hover-actions a {
+            padding: 7px 8px !important;
+            font-size: 0.625rem !important;
+          }
+          .card-enquire-label {
+            display: none !important;
           }
         }
       `}</style>

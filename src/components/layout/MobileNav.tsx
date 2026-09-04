@@ -23,17 +23,18 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         bottom: 0,
         left: 0,
         right: 0,
-        height: 'var(--mobile-bar-height)',
+        height: 'calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px))',
         backgroundColor: 'rgba(255, 255, 255, 0.96)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderTop: '1px solid var(--border-subtle)',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
+        paddingTop: '6px',
         justifyContent: 'space-around',
         zIndex: 45,
         boxShadow: '0 -4px 20px rgba(22, 19, 18, 0.06)',
-        paddingBottom: 'env(safe-area-inset-bottom)',
+        paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 4px)',
       }}
     >
       {/* Home */}

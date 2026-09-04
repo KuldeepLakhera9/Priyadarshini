@@ -93,8 +93,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       display: 'flex',
       alignItems: 'flex-start',
       justifyContent: 'center',
-      padding: '16px',
-      paddingTop: '60px',
+      padding: 'clamp(8px, 2.5vw, 16px)',
+      paddingTop: 'clamp(16px, 4vw, 60px)',
     }}>
       {/* Backdrop */}
       <div
@@ -115,7 +115,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         position: 'relative',
         width: '100%',
         maxWidth: '680px',
-        maxHeight: '82vh',
+        maxHeight: 'calc(100dvh - 32px)',
         backgroundColor: '#FFFFFF',
         borderRadius: 'var(--radius-xs)',
         border: '1px solid var(--border-subtle)',

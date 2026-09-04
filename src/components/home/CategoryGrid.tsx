@@ -42,10 +42,10 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
         </div>
 
         {/* Asymmetrical Editorial Category Showcase */}
-        <div style={{
+        <div className="category-grid-container" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)',
-          gap: '24px',
+          gap: 'clamp(14px, 2.5vw, 24px)',
         }}>
           {displayCategories.map((cat, index) => {
             // Asymmetrical grid column spans:
@@ -223,7 +223,10 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ onSelectCategory }) 
             grid-column: span 12 !important;
           }
           .editorial-category-card .img-zoom-container {
-            height: 320px !important;
+            height: clamp(230px, 55vw, 290px) !important;
+          }
+          .editorial-category-card h3 {
+            font-size: 1.25rem !important;
           }
         }
       `}</style>

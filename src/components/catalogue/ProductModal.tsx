@@ -60,7 +60,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
   const ctaText = getProductCtaLabel(product, 'modal');
 
   return (
-    <div style={{
+    <div className="product-modal-backdrop-wrap" style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -70,7 +70,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '16px',
+      padding: 'clamp(6px, 2vw, 16px)',
     }}>
       {/* Backdrop */}
       <div
@@ -101,7 +101,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            padding: '16px',
             cursor: 'zoom-out'
           }}
         >
@@ -114,12 +114,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
             onClick={() => setIsFullscreen(false)}
             style={{
               position: 'absolute',
-              top: '20px',
-              right: '20px',
+              top: '16px',
+              right: '16px',
               color: '#FFFFFF',
               background: 'none',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              padding: '8px'
             }}
           >
             <X size={28} />
@@ -129,16 +130,18 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
 
       {/* Main Modal Card */}
       <div
+        className="product-modal-dialog"
         style={{
           position: 'relative',
           width: '100%',
           maxWidth: '960px',
-          maxHeight: '92vh',
+          maxHeight: 'calc(100dvh - 16px)',
           backgroundColor: '#FAF7F2',
           borderRadius: 'var(--radius-xs)',
           border: '1px solid var(--border-subtle)',
           boxShadow: 'var(--shadow-modal)',
           overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
           zIndex: 111,
           animation: 'fadeIn 0.25s ease-out',
           display: 'flex',
@@ -149,32 +152,33 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
         <button
           onClick={onClose}
           aria-label="Close product view"
+          className="product-modal-close-btn"
           style={{
             position: 'absolute',
-            top: '16px',
-            right: '16px',
-            zIndex: 10,
+            top: '12px',
+            right: '12px',
+            zIndex: 20,
             background: 'rgba(255, 255, 255, 0.94)',
             backdropFilter: 'blur(4px)',
             border: '1px solid var(--border-subtle)',
             borderRadius: '50%',
-            width: '36px',
-            height: '36px',
+            width: '38px',
+            height: '38px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             color: 'var(--text-main)',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
           }}
         >
           <X size={18} />
         </button>
 
         {/* Top Two-Column Grid */}
-        <div style={{
+        <div className="product-modal-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
         }}>
           {/* Left Column: Gallery */}
           <div style={{
@@ -613,10 +617,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
               </span>
             </div>
 
-            <div style={{
+            <div className="modal-related-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '18px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+              gap: '16px'
             }}>
               {relatedProductsList.map((relProduct) => (
                 <ProductCard
@@ -633,6 +637,22 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
           </div>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .product-modal-dialog {
+            max-height: calc(100dvh - 12px) !important;
+            border-radius: var(--radius-sm) !important;
+          }
+          .product-modal-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .modal-related-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

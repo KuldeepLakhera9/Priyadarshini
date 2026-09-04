@@ -15,12 +15,12 @@ export const StoreVisit: React.FC = () => {
       <div className="container-custom">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(40px, 6vw, 80px)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(32px, 6vw, 80px)',
           alignItems: 'center'
         }}>
           {/* Left Column: Boutique Address & Invitation */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
             <div>
               <div className="section-eyebrow">
                 <MapPin size={11} color="var(--accent-gold-dark)" />
@@ -42,7 +42,7 @@ export const StoreVisit: React.FC = () => {
               <div style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: 'var(--radius-xs)',
-                padding: '20px 22px',
+                padding: 'clamp(14px, 3vw, 20px) clamp(16px, 3vw, 22px)',
                 border: '1px solid var(--border-subtle)',
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -67,7 +67,7 @@ export const StoreVisit: React.FC = () => {
               <div style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: 'var(--radius-xs)',
-                padding: '16px 22px',
+                padding: 'clamp(14px, 2.5vw, 16px) clamp(16px, 3vw, 22px)',
                 border: '1px solid var(--border-subtle)',
                 display: 'flex',
                 alignItems: 'center',
@@ -87,13 +87,13 @@ export const StoreVisit: React.FC = () => {
             </div>
 
             {/* CTAs: Directions, WhatsApp Pin, Call */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '8px' }}>
+            <div className="store-cta-group" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', paddingTop: '6px' }}>
               <a
                 href={BRAND_CONFIG.store.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
-                style={{ flex: 1, minWidth: '180px' }}
+                className="btn-primary store-action-btn"
+                style={{ flex: '1 1 180px' }}
                 onClick={() => trackConversionEvent('directions_clicked', { source: 'store_section' })}
               >
                 <Navigation size={15} />
@@ -104,19 +104,21 @@ export const StoreVisit: React.FC = () => {
                 href={createStoreVisitEnquiryUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp"
-                style={{ flex: 1, minWidth: '180px' }}
+                className="btn-whatsapp store-action-btn"
+                style={{ flex: '1 1 180px' }}
                 onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'store_section_pin' })}
               >
                 <MessageCircle size={15} />
                 <span>WhatsApp Location</span>
               </a>
 
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <div className="store-call-group" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', width: '100%' }}>
                 <a
                   href={`tel:${BRAND_CONFIG.contact.primaryPhone}`}
                   onClick={() => trackConversionEvent('call_clicked', { source: 'store_section_primary' })}
+                  className="store-call-btn"
                   style={{
+                    flex: '1 1 140px',
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -124,7 +126,7 @@ export const StoreVisit: React.FC = () => {
                     backgroundColor: '#FFFFFF',
                     color: 'var(--text-main)',
                     border: '1px solid var(--border-strong)',
-                    padding: '13px 16px',
+                    padding: '12px 14px',
                     borderRadius: 'var(--radius-xs)',
                     textDecoration: 'none',
                     fontSize: '0.75rem',
@@ -141,7 +143,9 @@ export const StoreVisit: React.FC = () => {
                 <a
                   href={`tel:${BRAND_CONFIG.contact.secondaryPhone}`}
                   onClick={() => trackConversionEvent('call_clicked', { source: 'store_section_secondary' })}
+                  className="store-call-btn"
                   style={{
+                    flex: '1 1 140px',
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -149,7 +153,7 @@ export const StoreVisit: React.FC = () => {
                     backgroundColor: '#FFFFFF',
                     color: 'var(--text-muted)',
                     border: '1px solid var(--border-subtle)',
-                    padding: '13px 16px',
+                    padding: '12px 14px',
                     borderRadius: 'var(--radius-xs)',
                     textDecoration: 'none',
                     fontSize: '0.75rem',
@@ -274,7 +278,7 @@ export const StoreVisit: React.FC = () => {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
                   gap: '12px',
                   fontSize: '0.8125rem',
                   color: 'var(--text-muted)'
@@ -304,6 +308,19 @@ export const StoreVisit: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .store-action-btn {
+            width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+          .store-call-btn {
+            width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

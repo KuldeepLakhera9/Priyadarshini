@@ -509,15 +509,17 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
         </div>
 
         {/* In-Store Showroom Notice Banner */}
-        <div style={{
+        <div className="catalogue-notice-banner" style={{
           backgroundColor: '#FFFFFF',
           border: '1px solid var(--border-subtle)',
           borderRadius: 'var(--radius-xs)',
           padding: '12px 18px',
           marginBottom: '24px',
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gap: '8px',
           fontSize: '0.75rem',
           color: 'var(--text-muted)'
         }}>
@@ -535,7 +537,6 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
               textDecoration: 'none',
               letterSpacing: '0.04em',
               whiteSpace: 'nowrap',
-              marginLeft: '12px'
             }}
           >
             Ask on WhatsApp ↗
@@ -562,7 +563,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', maxWidth: '520px', fontWeight: 300, lineHeight: 1.6 }}>
               Couldn't find what you're looking for? Ask us directly on WhatsApp — we may have the exact color, design or bridal set available in our physical boutique.
             </p>
-            <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
               <button
                 onClick={resetAllFilters}
                 className="btn-secondary"
@@ -583,7 +584,7 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
             </div>
           </div>
         ) : (
-          <div style={{
+          <div className="catalogue-product-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
             gap: '24px'
@@ -598,6 +599,20 @@ export const CatalogueView: React.FC<CatalogueViewProps> = ({
           </div>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .catalogue-product-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+          }
+        }
+        @media (max-width: 340px) {
+          .catalogue-product-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

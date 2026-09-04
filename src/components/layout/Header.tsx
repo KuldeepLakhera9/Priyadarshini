@@ -39,18 +39,19 @@ export const Header: React.FC<HeaderProps> = ({
       }}
     >
       {/* Main Top Header Bar */}
-      <div className="container-custom" style={{
+      <div className="container-custom header-inner-bar" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 'var(--header-height)',
-        gap: '20px'
+        gap: 'clamp(6px, 2vw, 20px)'
       }}>
         {/* Left: Mobile Menu & Clean Search Trigger */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div className="header-left-group" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <button
             onClick={onOpenDrawer}
             aria-label="Open menu"
+            className="header-icon-btn"
             style={{
               background: 'transparent',
               border: 'none',
@@ -61,28 +62,32 @@ export const Header: React.FC<HeaderProps> = ({
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 'var(--radius-xs)',
-              transition: 'background var(--transition-fast)'
+              transition: 'background var(--transition-fast)',
+              minWidth: '38px',
+              minHeight: '38px'
             }}
           >
-            <Menu size={22} strokeWidth={1.5} />
+            <Menu size={21} strokeWidth={1.5} />
           </button>
 
           <button
             onClick={onOpenSearch}
             aria-label="Search catalogue"
+            className="header-search-trigger"
             style={{
               background: 'transparent',
               border: 'none',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '6px',
               color: 'var(--text-muted)',
               cursor: 'pointer',
-              padding: '6px 12px',
+              padding: '6px 10px',
               borderRadius: 'var(--radius-xs)',
               fontSize: '0.8125rem',
               letterSpacing: '0.04em',
-              transition: 'color var(--transition-fast)'
+              transition: 'color var(--transition-fast)',
+              minHeight: '38px'
             }}
             onMouseOver={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
             onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
@@ -97,38 +102,45 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Center: Brand Typographic Wordmark */}
         <div
           onClick={onNavigateHome}
+          className="header-brand-center"
           style={{
             textAlign: 'center',
             cursor: 'pointer',
             userSelect: 'none',
+            minWidth: 0,
+            padding: '0 4px',
           }}
         >
-          <div style={{
+          <div className="brand-wordmark-title" style={{
             fontFamily: 'var(--font-serif)',
-            fontSize: 'clamp(1.4rem, 3.2vw, 2.15rem)',
+            fontSize: 'clamp(1.125rem, 3.8vw, 2.15rem)',
             fontWeight: 500,
-            letterSpacing: '0.18em',
+            letterSpacing: 'clamp(0.08em, 1.2vw, 0.18em)',
             textTransform: 'uppercase',
             color: 'var(--text-main)',
             lineHeight: 1.05,
+            whiteSpace: 'nowrap',
           }}>
             {BRAND_CONFIG.brandName}
           </div>
-          <div style={{
+          <div className="brand-wordmark-tagline" style={{
             fontFamily: 'var(--font-sans)',
-            fontSize: '0.5625rem',
-            letterSpacing: '0.18em',
+            fontSize: 'clamp(0.48rem, 1.4vw, 0.5625rem)',
+            letterSpacing: 'clamp(0.08em, 1vw, 0.18em)',
             textTransform: 'uppercase',
             color: 'var(--accent-gold-dark)',
             fontWeight: 600,
-            marginTop: '3px'
+            marginTop: '2px',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
           }}>
             {BRAND_CONFIG.tagline}
           </div>
         </div>
 
         {/* Right: Search, Instagram & WhatsApp Concierge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div className="header-right-group" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           {/* Instagram Link */}
           <a
             href={BRAND_CONFIG.contact.instagramUrl}
@@ -136,6 +148,7 @@ export const Header: React.FC<HeaderProps> = ({
             rel="noopener noreferrer"
             aria-label="Follow Priyadarshani on Instagram"
             onClick={() => trackConversionEvent('instagram_clicked', { source: 'header' })}
+            className="header-icon-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -144,13 +157,15 @@ export const Header: React.FC<HeaderProps> = ({
               padding: '8px',
               borderRadius: 'var(--radius-xs)',
               textDecoration: 'none',
-              transition: 'color var(--transition-fast)'
+              transition: 'color var(--transition-fast)',
+              minWidth: '38px',
+              minHeight: '38px'
             }}
             onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-rose)')}
             onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-main)')}
             title="Follow @the_bangle_edit_store"
           >
-            <InstagramIcon size={19} color="currentColor" />
+            <InstagramIcon size={18} color="currentColor" />
           </a>
 
           {/* WhatsApp Direct Enquiry CTA */}
@@ -158,12 +173,13 @@ export const Header: React.FC<HeaderProps> = ({
             href={createGeneralEnquiryUrl('Header Nav')}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp"
+            className="btn-whatsapp header-whatsapp-btn"
             onClick={() => trackConversionEvent('whatsapp_enquiry_clicked', { source: 'header' })}
             style={{
-              padding: '9px 18px',
+              padding: '8px 16px',
               fontSize: '0.75rem',
               letterSpacing: '0.08em',
+              minHeight: '38px'
             }}
           >
             <MessageCircle size={15} />
@@ -298,12 +314,39 @@ export const Header: React.FC<HeaderProps> = ({
           }
         }
 
+        @media (max-width: 640px) {
+          .header-inner-bar {
+            height: var(--header-height) !important;
+          }
+        }
+
         @media (max-width: 480px) {
           .whatsapp-header-text {
             display: none !important;
           }
-          .btn-whatsapp {
+          .header-whatsapp-btn {
             padding: 8px !important;
+            min-width: 36px !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            justify-content: center !important;
+          }
+          .header-search-trigger {
+            padding: 6px 8px !important;
+          }
+          .header-icon-btn {
+            padding: 6px !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .brand-wordmark-tagline {
+            display: none !important;
+          }
+          .brand-wordmark-title {
+            font-size: 1.05rem !important;
+            letter-spacing: 0.08em !important;
           }
         }
       `}</style>

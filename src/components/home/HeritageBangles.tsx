@@ -19,8 +19,8 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
       <div className="container-custom">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(40px, 7vw, 84px)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(32px, 6vw, 84px)',
           alignItems: 'center'
         }}>
           {/* Left Column: Visual Monograph Frame */}
@@ -36,7 +36,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               <img
                 src="/images/products/jaipuri-rani-pink-lakh-kadas.jpg"
                 alt="Handcrafted Jaipur Lakh Bangles"
-                style={{ width: '100%', height: 'clamp(380px, 44vw, 520px)', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: 'clamp(320px, 44vw, 520px)', objectFit: 'cover', display: 'block' }}
               />
 
               <div style={{
@@ -51,12 +51,12 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               {/* Inside Caption Monograph */}
               <div style={{
                 position: 'absolute',
-                bottom: '24px',
-                left: '24px',
-                right: '24px',
+                bottom: 'clamp(14px, 3vw, 24px)',
+                left: 'clamp(14px, 3vw, 24px)',
+                right: 'clamp(14px, 3vw, 24px)',
                 backgroundColor: 'rgba(22, 19, 18, 0.9)',
                 backdropFilter: 'blur(10px)',
-                padding: '18px 22px',
+                padding: 'clamp(12px, 2.5vw, 18px) clamp(14px, 3vw, 22px)',
                 borderRadius: 'var(--radius-xs)',
                 border: '1px solid rgba(191, 163, 124, 0.3)',
               }}>
@@ -72,7 +72,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: '1.15rem',
+                  fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
                   color: '#FFFFFF',
                   lineHeight: 1.3
                 }}>
@@ -92,7 +92,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
 
               <h2 style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
+                fontSize: 'clamp(1.85rem, 4.5vw, 3.5rem)',
                 fontWeight: 400,
                 lineHeight: 1.12,
                 color: '#FFFFFF',
@@ -107,7 +107,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
             </div>
 
             <p style={{
-              fontSize: '1rem',
+              fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
               color: '#D4CBC2',
               lineHeight: 1.75,
               fontWeight: 300
@@ -125,7 +125,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               <div style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '18px',
+                gap: '14px',
                 paddingBottom: '14px',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
               }}>
@@ -151,7 +151,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               <div style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '18px',
+                gap: '14px',
                 paddingBottom: '14px',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
               }}>
@@ -177,7 +177,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
               <div style={{
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '18px'
+                gap: '14px'
               }}>
                 <span style={{
                   fontFamily: 'var(--font-serif)',
@@ -200,9 +200,10 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
             </div>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', paddingTop: '12px' }}>
+            <div className="heritage-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '12px' }}>
               <button
                 onClick={onExploreBangles}
+                className="heritage-btn"
                 style={{
                   backgroundColor: 'var(--accent-gold)',
                   color: '#161312',
@@ -212,11 +213,12 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                   fontWeight: 600,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  padding: '14px 28px',
+                  padding: '13px 24px',
                   borderRadius: 'var(--radius-xs)',
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
                   gap: '8px',
                   boxShadow: '0 4px 18px rgba(191, 163, 124, 0.3)'
                 }}
@@ -229,7 +231,7 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
                 href={createBridalCustomOrderUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp"
+                className="btn-whatsapp heritage-btn"
                 style={{
                   backgroundColor: 'transparent',
                   borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -243,6 +245,18 @@ export const HeritageBangles: React.FC<HeritageBanglesProps> = ({ onExploreBangl
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .heritage-cta-row {
+            flex-direction: column;
+          }
+          .heritage-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

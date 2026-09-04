@@ -16,8 +16,8 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
       <div className="container-custom">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'clamp(40px, 7vw, 84px)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: 'clamp(32px, 6vw, 84px)',
           alignItems: 'center'
         }}>
           {/* Left Column: Visual Hamper Presentation */}
@@ -141,10 +141,10 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', paddingTop: '12px' }}>
+            <div className="gifting-cta-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', paddingTop: '12px' }}>
               <button
                 onClick={onExploreGifts}
-                className="btn-primary"
+                className="btn-primary gifting-btn"
               >
                 <span>Explore Gift Hampers</span>
                 <ArrowRight size={15} />
@@ -154,7 +154,7 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
                 href={createGeneralEnquiryUrl('Custom Gifting Atelier')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp"
+                className="btn-whatsapp gifting-btn"
               >
                 <MessageCircle size={16} />
                 <span>Custom Bulk Hamper Inquiry</span>
@@ -163,6 +163,18 @@ export const GiftingSection: React.FC<GiftingSectionProps> = ({ onExploreGifts }
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .gifting-cta-row {
+            flex-direction: column;
+          }
+          .gifting-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

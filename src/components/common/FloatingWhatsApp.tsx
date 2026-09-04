@@ -6,7 +6,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
   return (
-    <div style={{
+    <div className="floating-whatsapp-container" style={{
       position: 'fixed',
       bottom: '84px',
       right: '24px',
@@ -72,6 +72,14 @@ export const FloatingWhatsApp: React.FC = () => {
         <MessageCircle size={18} fill="#ffffff" strokeWidth={0} />
         <span>Ask on WhatsApp</span>
       </a>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .floating-whatsapp-container {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

@@ -80,10 +80,10 @@ export const WholesaleBanner: React.FC = () => {
             href={createWholesaleEnquiryUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp"
+            className="btn-whatsapp wholesale-btn"
             style={{
-              padding: '12px 24px',
-              whiteSpace: 'nowrap'
+              padding: '12px 22px',
+              textAlign: 'center',
             }}
           >
             <MessageCircle size={16} />
@@ -91,6 +91,16 @@ export const WholesaleBanner: React.FC = () => {
           </a>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 580px) {
+          .wholesale-btn {
+            width: 100% !important;
+            justify-content: center !important;
+            white-space: normal !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
